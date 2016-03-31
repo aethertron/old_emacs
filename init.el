@@ -18,12 +18,14 @@
 (global-set-key (kbd "<C-iso-lefttab>") 'previous-multiframe-window)
 ;; -- window management end --
 
+
 ;; -- Paths/Packages Etc
 ;; packages
 (setq package-archives '())
 ;; (add-to-list 'package-archives '("local-misc" . "~/.emacs.d/local-elpa-misc/"))
 (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+;; (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/")) 
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/#/"))
 ;; site-lisp
 (setq site-lisp "~/.emacs.d/site-lisp")
 (add-to-list 'load-path site-lisp)
@@ -31,6 +33,10 @@
 (package-initialize)  ;; add elpa to the load path?
 (require 'use-package) ;; note: if fail, install use-package manually
 ;; -- Path/Packages End
+
+;; remove tool-bar
+(require 'menu-bar)
+(menu-bar-showhide-tool-bar-menu-customize-disable)
 
 ;; - org-mode -
 (require 'org-habit)
@@ -49,6 +55,9 @@
 (use-package helm :ensure t)
 (global-set-key (kbd "M-s o") 'helm-occur) ;; remap occur to helm-occur
 (global-set-key (kbd "C-h a") 'helm-apropos) ;; remap apropos to helm-apropos
+
+;; - multiple cursors -
+;; (use-package multiple-cursors :ensure t)
 
 ;; - avy -
 (use-package avy :ensure t)
