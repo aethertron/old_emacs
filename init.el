@@ -21,11 +21,12 @@
 
 ;; -- Paths/Packages Etc
 ;; packages
+(require 'package)
 (setq package-archives '())
 ;; (add-to-list 'package-archives '("local-misc" . "~/.emacs.d/local-elpa-misc/"))
-(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
-;; (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/")) 
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/#/"))
+(add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+;; (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
 ;; site-lisp
 (setq site-lisp "~/.emacs.d/site-lisp")
 (add-to-list 'load-path site-lisp)
@@ -39,9 +40,10 @@
 (menu-bar-showhide-tool-bar-menu-customize-disable)
 
 ;; - org-mode -
+(require 'org)
 (require 'org-habit)
-(add-to-list 'org-modules 'org-habit)
-(setq org-agenda-files '("~/Dropbox/org"))
+;; (add-to-list 'org-modules 'org-habit)
+(setq org-agenda-files '("~/org" "~/org.spideroak"))
 (defun wgs85/org-mode-hook ()
   (local-set-key (kbd "<C-tab>") 'next-multiframe-window)
   )
@@ -55,10 +57,17 @@
 (use-package helm :ensure t)
 (global-set-key (kbd "M-s o") 'helm-occur) ;; remap occur to helm-occur
 (global-set-key (kbd "C-h a") 'helm-apropos) ;; remap apropos to helm-apropos
-
-;; - multiple cursors -
-;; (use-package multiple-cursors :ensure t)
+(global-set-key (kbd "M-X") 'helm-M-x)
 
 ;; - avy -
 (use-package avy :ensure t)
 (global-set-key (kbd "C-;") 'avy-goto-word-or-subword-1)
+
+;; - multiple cursors -
+(use-package multiple-cursors :ensure t)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+
+
+;; - buffer-move -
+(use-package buffer-move :ensure t)
