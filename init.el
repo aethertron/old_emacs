@@ -8,6 +8,7 @@
 (column-number-mode 1)
 (ido-mode 1)
 (global-linum-mode 1)
+(global-hl-line-mode 1)
 ;; -- Minor Modes End --
 ;;
 (setq mouse-autoselect-window t)
@@ -86,6 +87,7 @@
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
 (global-set-key (kbd "M-s M-s") 'mc--mark-symbol-at-point)
+(global-set-key (kbd "C-c C->") 'mc/mark-more-like-this-extended)
 
 ;; * multiple cursors end
 
