@@ -39,15 +39,31 @@
 (require 'menu-bar)
 (menu-bar-showhide-tool-bar-menu-customize-disable)
 
-;; - org-mode -
+;; * org-mode begin
 (require 'org)
 (require 'org-habit)
 ;; (add-to-list 'org-modules 'org-habit)
+;; ** agenda config
 (setq org-agenda-files '("~/org" "~/org.spideroak"))
+;; ** babel config
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((python . t)
+   (emacs-lisp . t)
+   (js . t)
+   (sh . t)
+   (org . t)
+   ;; *** diagraming langs
+   (ditaa . t)
+   (plantuml . t)))
+
+
+;; ** org-mode hook
 (defun wgs85/org-mode-hook ()
   (local-set-key (kbd "<C-tab>") 'next-multiframe-window)
   )
 (add-hook 'org-mode-hook 'wgs85/org-mode-hook)
+;; * org-mode end 
 
 ;; - smex -
 (use-package smex :ensure t)
@@ -63,20 +79,18 @@
 (use-package avy :ensure t)
 (global-set-key (kbd "C-;") 'avy-goto-word-or-subword-1)
 
-;; - multiple cursors -
+;; * multiple cursors begin
 (use-package multiple-cursors :ensure t)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+(global-set-key (kbd "M-s M-s") 'mc--mark-symbol-at-point)
 
+;; * multiple cursors end
 
 ;; - buffer-move -
 (use-package buffer-move :ensure t)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
 
 (defun wgs85/fathertron-config ()
   (custom-set-faces
