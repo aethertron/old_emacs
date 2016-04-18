@@ -62,6 +62,7 @@
 ;; ** org-mode hook
 (defun wgs85/org-mode-hook ()
   (local-set-key (kbd "<C-tab>") 'next-multiframe-window)
+
   )
 (add-hook 'org-mode-hook 'wgs85/org-mode-hook)
 ;; * org-mode end 
@@ -106,5 +107,5 @@
 			   :width normal :foundry "PfEd" :family "DejaVu Sans Mono")))))
   )
 
-(when (string= system-name "fatherTron-Manjaro.Home")
+(when (string= system-name "fatherTron-Manjaro")
   (wgs85/fathertron-config))
