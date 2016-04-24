@@ -43,6 +43,7 @@
 ;; * org-mode begin
 (require 'org)
 (require 'org-habit)
+;; key config
 ;; (add-to-list 'org-modules 'org-habit)
 ;; ** agenda config
 (setq org-agenda-files '("~/org" "~/org.spideroak"))
@@ -58,11 +59,11 @@
    (ditaa . t)
    (plantuml . t)))
 
-
 ;; ** org-mode hook
 (defun wgs85/org-mode-hook ()
   (local-set-key (kbd "<C-tab>") 'next-multiframe-window)
   (org-indent-mode)
+  (local-set-key (kbd "C-c a") 'org-agenda)
   )
 (add-hook 'org-mode-hook 'wgs85/org-mode-hook)
 ;; * org-mode end 
@@ -94,6 +95,15 @@
 
 ;; - buffer-move -
 (use-package buffer-move :ensure t)
+
+
+;; - which-key
+(use-package which-key :ensure t)
+(which-key 1)
+
+;; - helm-spotify
+(use-package helm-spotify :ensure t)
+
 
 (defun wgs85/fathertron-config ()
   (custom-set-faces
