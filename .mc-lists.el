@@ -4,16 +4,20 @@
 (setq mc/cmds-to-run-for-all
       '(
 	helm-M-x
+	kill-region
 	mark-sexp
 	org-beginning-of-line
 	org-ctrl-c-ctrl-c
 	org-delete-char
+	org-force-self-insert
+	org-insert-heading-respect-content
 	org-meta-return
 	org-metaright
 	org-return-indent
 	org-self-insert-command
 	org-shiftmetaleft
 	org-shiftmetaright
+	org-yank
 	smex
 	))
 
