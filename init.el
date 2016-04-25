@@ -112,6 +112,12 @@
 ;; - hg support (monky)
 (use-package monky :ensure t)
 
+;; * dumb-jump
+(dumb-jump-mode 1)
+
+;; * magit
+(use-package magit :ensure t)
+
 
 (defun wgs85/fathertron-config ()
   (custom-set-faces
