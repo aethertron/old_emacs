@@ -99,10 +99,18 @@
 
 ;; - which-key
 (use-package which-key :ensure t)
-(which-key 1)
+(which-key-mode 1)
+
+
+;; - spotify
+(use-package spotify :ensure t)
+(spotify-enable-song-notifications)
 
 ;; - helm-spotify
 (use-package helm-spotify :ensure t)
+
+;; - hg support (monky)
+(use-package monky :ensure t)
 
 
 (defun wgs85/fathertron-config ()
