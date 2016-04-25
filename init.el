@@ -128,3 +128,10 @@
 (when (or (string= system-name "fatherTron-Manjaro")
 	  (string= system-name "fatherTron-Manjaro.Home"))
   (wgs85/fathertron-config))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(org-agenda-span (quote fortnight))
+ '(org-agenda-start-on-weekday nil))
