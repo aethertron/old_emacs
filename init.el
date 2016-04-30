@@ -43,8 +43,7 @@
 ;; * org-mode begin
 (require 'org)
 (require 'org-habit)
-;; key config
-;; (add-to-list 'org-modules 'org-habit)
+
 ;; ** agenda config
 (setq org-agenda-files '("~/org" "~/org.spideroak"))
 ;; ** babel config
@@ -139,5 +138,29 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(org-agenda-span (quote fortnight))
- '(org-agenda-start-on-weekday nil))
+ '(org-M-RET-may-split-line nil)
+ '(org-agenda-span (quote week))
+ '(org-agenda-start-on-weekday nil)
+ '(org-clock-clocked-in-display (quote both))
+ '(org-clock-in-switch-to-state "DOING")
+ '(org-clock-out-switch-to-state "PAUSE")
+ '(org-enforce-todo-checkbox-dependencies t)
+ '(org-enforce-todo-dependencies t)
+ '(org-insert-heading-respect-content t)
+ '(org-modules
+   (quote
+    (org-bbdb org-bibtex org-docview org-gnus org-habit org-info org-irc org-mhe org-rmail org-w3m)))
+ '(org-return-follows-link t)
+ '(org-startup-align-all-tables t)
+ '(org-todo-keywords
+   (quote
+    ((sequence "TODO(t!)" "WAIT(w@!)" "DOING(d!)" "PAUSE(p!)" "|" "DONE(o!)" "CANCEL(x@!)"))))
+ '(org-treat-insert-todo-heading-as-state-change t)
+ '(tool-bar-mode nil))
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:inherit nil :stipple nil :background "#181a26" :foreground "gray80" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 90 :width normal :foundry "PfEd" :family "DejaVu Sans Mono")))))
