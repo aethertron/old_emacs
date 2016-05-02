@@ -112,12 +112,23 @@
 (use-package monky :ensure t)
 
 ;; * dumb-jump
+(use-package dumb-jump-mode :ensure t)
 (dumb-jump-mode 1)
 
 ;; * magit
 (use-package magit :ensure t)
 
 
+;; * shell begin
+(defun wgs85/shell-mode-hook ()
+  (local-unset-key (kbd "M-p")) 	; remove comint-previous-input from local map
+  (local-set-key (kbd "M-p") 'comint-previous-matching-input-from-input)
+  )
+(add-hook 'shell-mode-hook 'wgs85/shell-mode-hook)
+;; * shell end
+
+
+;; machine-specific config
 (defun wgs85/fathertron-config ()
   (custom-set-faces
    ;; custom-set-faces was added by Custom.
@@ -143,10 +154,13 @@
  '(org-agenda-start-on-weekday nil)
  '(org-clock-clocked-in-display (quote both))
  '(org-clock-in-switch-to-state "DOING")
+ '(org-clock-into-drawer "LOGBOOK")
+ '(org-clock-mode-line-total (quote current))
  '(org-clock-out-switch-to-state "PAUSE")
  '(org-enforce-todo-checkbox-dependencies t)
  '(org-enforce-todo-dependencies t)
  '(org-insert-heading-respect-content t)
+ '(org-log-into-drawer t)
  '(org-modules
    (quote
     (org-bbdb org-bibtex org-docview org-gnus org-habit org-info org-irc org-mhe org-rmail org-w3m)))
