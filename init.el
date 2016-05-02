@@ -44,6 +44,9 @@
 (require 'org)
 (require 'org-habit)
 
+;; ** global key mapping
+(global-set-key (kbd "C-c l") 'org-store-link) ; suggested in http://orgmode.org/manual/Handling-links.html
+
 ;; ** agenda config
 (setq org-agenda-files '("~/org" "~/org.spideroak"))
 ;; ** babel config
@@ -94,7 +97,8 @@
 
 ;; - buffer-move -
 (use-package buffer-move :ensure t)
-
+(global-set-key (kbd "<C-M-tab>") 'buf-move-right)
+(global-set-key (kbd "<C-M-S-iso-lefttab>") 'buf-move-left)
 
 ;; - which-key
 (use-package which-key :ensure t)
@@ -149,6 +153,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(dired-hide-details-hide-information-lines t)
  '(org-M-RET-may-split-line nil)
  '(org-agenda-span (quote week))
  '(org-agenda-start-on-weekday nil)
