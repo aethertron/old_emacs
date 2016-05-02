@@ -3,6 +3,7 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+	forward-sexp
 	helm-M-x
 	kill-region
 	mark-sexp
