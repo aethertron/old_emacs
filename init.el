@@ -116,7 +116,7 @@
 (use-package monky :ensure t)
 
 ;; * dumb-jump
-(use-package dumb-jump-mode :ensure t)
+(use-package dumb-jump :ensure t)
 (dumb-jump-mode 1)
 
 ;; * magit
@@ -162,6 +162,7 @@
  '(org-clock-into-drawer "LOGBOOK")
  '(org-clock-mode-line-total (quote current))
  '(org-clock-out-switch-to-state "PAUSE")
+ '(org-completion-use-ido t)
  '(org-enforce-todo-checkbox-dependencies t)
  '(org-enforce-todo-dependencies t)
  '(org-insert-heading-respect-content t)
@@ -169,7 +170,9 @@
  '(org-modules
    (quote
     (org-bbdb org-bibtex org-docview org-gnus org-habit org-info org-irc org-mhe org-rmail org-w3m)))
+ '(org-refile-targets (quote ((org-agenda-files :maxlevel . 3))))
  '(org-return-follows-link t)
+ '(org-special-ctrl-a/e t)
  '(org-startup-align-all-tables t)
  '(org-todo-keywords
    (quote
