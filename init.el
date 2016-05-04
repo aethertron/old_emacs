@@ -73,12 +73,16 @@
 ;; - smex -
 (use-package smex :ensure t)
 (global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
 
-;; - helm -
+;; * helm modes begin
 (use-package helm :ensure t)
 (global-set-key (kbd "M-s o") 'helm-occur) ;; remap occur to helm-occur
 (global-set-key (kbd "C-h a") 'helm-apropos) ;; remap apropos to helm-apropos
-(global-set-key (kbd "M-X") 'helm-M-x)
+(global-set-key (kbd "C-M-x") 'helm-M-x)
+;; ** helm desc key
+(use-package helm-descbinds :ensure t)
+(helm-descbinds-mode t)
 
 ;; - avy -
 (use-package avy :ensure t)
@@ -131,6 +135,11 @@
 (add-hook 'shell-mode-hook 'wgs85/shell-mode-hook)
 ;; * shell end
 
+
+;; * geeknote begin
+(use-package geeknote :ensure t)
+
+;; * geeknote end
 
 ;; machine-specific config
 (defun wgs85/fathertron-config ()
