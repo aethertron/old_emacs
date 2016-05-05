@@ -131,19 +131,19 @@
 (add-hook 'shell-mode-hook 'wgs85/shell-mode-hook)
 ;; * shell end
 
-;; ;; * magit
-;; (use-package magit :ensure t)
-;; ;; * geeknote begin
-;; (use-package geeknote :ensure t)
-;; ;; * geeknote end
-;; 
-;; 
-;; ;; - spotify
-;; (use-package spotify :ensure t)
-;; (spotify-enable-song-notifications)
-;; 
-;; ;; - helm-spotify
-;; (use-package helm-spotify :ensure t)
+;; * magit
+(use-package magit :ensure t)
+;; * geeknote begin
+(use-package geeknote :ensure t)
+;; * geeknote end
+
+
+;; - spotify
+(use-package spotify :ensure t)
+(spotify-enable-song-notifications)
+
+;; - helm-spotify
+(use-package helm-spotify :ensure t)
 
 
 ;; machine-specific config
