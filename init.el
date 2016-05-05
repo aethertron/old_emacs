@@ -36,6 +36,7 @@
 (require 'use-package) ;; note: if fail, install use-package manually
 ;; -- Path/Packages End
 
+
 ;; remove tool-bar
 (require 'menu-bar)
 (menu-bar-showhide-tool-bar-menu-customize-disable)
@@ -45,7 +46,11 @@
 (require 'org-habit)
 
 ;; ** global key mapping
+;; *** remove stuff
+(global-unset-key (kbd "C-z")) 		;remove suspend frame
+;; *** add stuff
 (global-set-key (kbd "C-c l") 'org-store-link) ; suggested in http://orgmode.org/manual/Handling-links.html
+(global-set-key (kbd "C-c t") 'rename-buffer)
 
 ;; ** agenda config
 (setq org-agenda-files '("~/org" "~/org.spideroak"))
@@ -109,12 +114,6 @@
 (which-key-mode 1)
 
 
-;; - spotify
-(use-package spotify :ensure t)
-(spotify-enable-song-notifications)
-
-;; - helm-spotify
-(use-package helm-spotify :ensure t)
 
 ;; - hg support (monky)
 (use-package monky :ensure t)
@@ -122,9 +121,6 @@
 ;; * dumb-jump
 (use-package dumb-jump :ensure t)
 (dumb-jump-mode 1)
-
-;; * magit
-(use-package magit :ensure t)
 
 
 ;; * shell begin
@@ -135,11 +131,20 @@
 (add-hook 'shell-mode-hook 'wgs85/shell-mode-hook)
 ;; * shell end
 
+;; ;; * magit
+;; (use-package magit :ensure t)
+;; ;; * geeknote begin
+;; (use-package geeknote :ensure t)
+;; ;; * geeknote end
+;; 
+;; 
+;; ;; - spotify
+;; (use-package spotify :ensure t)
+;; (spotify-enable-song-notifications)
+;; 
+;; ;; - helm-spotify
+;; (use-package helm-spotify :ensure t)
 
-;; * geeknote begin
-(use-package geeknote :ensure t)
-
-;; * geeknote end
 
 ;; machine-specific config
 (defun wgs85/fathertron-config ()
