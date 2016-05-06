@@ -122,6 +122,10 @@
 (use-package dumb-jump :ensure t)
 (dumb-jump-mode 1)
 
+;; discover-my-major
+(use-package discover-my-major :ensure t)
+;; discover
+(use-package discover :ensure t)
 
 ;; * shell begin
 (defun wgs85/shell-mode-hook ()
