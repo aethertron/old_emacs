@@ -36,6 +36,7 @@
 (require 'use-package) ;; note: if fail, install use-package manually
 ;; -- Path/Packages End
 
+
 ;; remove tool-bar
 (require 'menu-bar)
 (menu-bar-showhide-tool-bar-menu-customize-disable)
@@ -45,7 +46,11 @@
 (require 'org-habit)
 
 ;; ** global key mapping
+;; *** remove stuff
+(global-unset-key (kbd "C-z")) 		;remove suspend frame
+;; *** add stuff
 (global-set-key (kbd "C-c l") 'org-store-link) ; suggested in http://orgmode.org/manual/Handling-links.html
+(global-set-key (kbd "C-c t") 'rename-buffer)
 
 ;; ** agenda config
 (setq org-agenda-files '("~/org" "~/org.spideroak"))
@@ -73,12 +78,18 @@
 ;; - smex -
 (use-package smex :ensure t)
 (global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
 
-;; - helm -
+;; * helm modes begin
 (use-package helm :ensure t)
 (global-set-key (kbd "M-s o") 'helm-occur) ;; remap occur to helm-occur
 (global-set-key (kbd "C-h a") 'helm-apropos) ;; remap apropos to helm-apropos
-(global-set-key (kbd "M-X") 'helm-M-x)
+(global-set-key (kbd "C-M-x") 'helm-M-x)
+;; ** helm desc key
+(use-package helm-descbinds :ensure t)
+(helm-descbinds-mode t)
+;; * helm end
+
 
 ;; - avy -
 (use-package avy :ensure t)
@@ -105,12 +116,6 @@
 (which-key-mode 1)
 
 
-;; - spotify
-(use-package spotify :ensure t)
-(spotify-enable-song-notifications)
-
-;; - helm-spotify
-(use-package helm-spotify :ensure t)
 
 ;; - hg support (monky)
 (use-package monky :ensure t)
@@ -119,9 +124,10 @@
 (use-package dumb-jump :ensure t)
 (dumb-jump-mode 1)
 
-;; * magit
-(use-package magit :ensure t)
-
+;; discover-my-major
+(use-package discover-my-major :ensure t)
+;; discover
+(use-package discover :ensure t)
 
 ;; * shell begin
 (defun wgs85/shell-mode-hook ()
@@ -130,6 +136,20 @@
   )
 (add-hook 'shell-mode-hook 'wgs85/shell-mode-hook)
 ;; * shell end
+
+;; * magit
+(use-package magit :ensure t)
+;; * geeknote begin
+(use-package geeknote :ensure t)
+;; * geeknote end
+
+
+;; - spotify
+(use-package spotify :ensure t)
+(spotify-enable-song-notifications)
+
+;; - helm-spotify
+(use-package helm-spotify :ensure t)
 
 
 ;; machine-specific config

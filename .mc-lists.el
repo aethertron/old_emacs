@@ -9,6 +9,7 @@
 	mark-sexp
 	org-beginning-of-line
 	org-ctrl-c-ctrl-c
+	org-ctrl-c-star
 	org-delete-char
 	org-force-self-insert
 	org-insert-heading-respect-content
