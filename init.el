@@ -175,6 +175,9 @@
  ;; If there is more than one, they won't work right.
  '(dired-hide-details-hide-information-lines t)
  '(org-M-RET-may-split-line nil)
+ '(org-agenda-skip-deadline-if-done t)
+ '(org-agenda-skip-scheduled-if-done t)
+ '(org-agenda-skip-timestamp-if-done t)
  '(org-agenda-span (quote week))
  '(org-agenda-start-on-weekday nil)
  '(org-clock-clocked-in-display (quote both))
