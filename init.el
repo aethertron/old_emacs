@@ -88,6 +88,8 @@
 ;; ** helm desc key
 (use-package helm-descbinds :ensure t)
 (helm-descbinds-mode t)
+;; ** helm-ag
+(use-package helm-ag :ensure t)
 ;; * helm end
 
 
