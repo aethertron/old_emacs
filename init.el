@@ -176,6 +176,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(dired-hide-details-hide-information-lines t)
+ '(magit-log-arguments
+   (quote
+    ("--graph" "--color" "--decorate" "--patch" "-n256")))
  '(org-M-RET-may-split-line nil)
  '(org-agenda-skip-deadline-if-done t)
  '(org-agenda-skip-scheduled-if-done t)
