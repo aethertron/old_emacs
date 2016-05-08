@@ -206,4 +206,5 @@
    (quote
     ((sequence "TODO(t!)" "WAIT(w@!)" "DOING(d!)" "PAUSE(p!)" "|" "DONE(o!)" "CANCEL(x@!)"))))
  '(org-treat-insert-todo-heading-as-state-change t)
+ '(shell-file-name "/usr/bin/bash")
  '(tool-bar-mode nil))
