@@ -153,6 +153,11 @@
 ;; - helm-spotify
 (use-package helm-spotify :ensure t)
 
+;; * ace-link begin
+(use-package ace-link :ensure t)
+(ace-link-setup-default "f")
+;; * ace-link end
+
 
 ;; machine-specific config
 (defun wgs85/fathertron-config ()
@@ -180,9 +185,6 @@
    (quote
     ("--graph" "--color" "--decorate" "--patch" "-n256")))
  '(org-M-RET-may-split-line nil)
- '(org-agenda-skip-deadline-if-done t)
- '(org-agenda-skip-scheduled-if-done t)
- '(org-agenda-skip-timestamp-if-done t)
  '(org-agenda-span (quote week))
  '(org-agenda-start-on-weekday nil)
  '(org-clock-clocked-in-display (quote both))
@@ -195,16 +197,12 @@
  '(org-enforce-todo-dependencies t)
  '(org-insert-heading-respect-content t)
  '(org-log-into-drawer t)
- '(org-modules
-   (quote
-    (org-bbdb org-bibtex org-docview org-gnus org-habit org-info org-irc org-mhe org-rmail org-w3m)))
+ '(org-modules (quote (org-bbdb org-bibtex org-docview org-gnus org-habit org-info org-irc org-mhe org-rmail org-w3m)))
  '(org-refile-targets (quote ((org-agenda-files :maxlevel . 3))))
  '(org-return-follows-link t)
  '(org-special-ctrl-a/e t)
  '(org-startup-align-all-tables t)
- '(org-todo-keywords
-   (quote
-    ((sequence "TODO(t!)" "WAIT(w@!)" "DOING(d!)" "PAUSE(p!)" "|" "DONE(o!)" "CANCEL(x@!)"))))
+ '(org-todo-keywords (quote ((sequence "TODO(t!)" "STARTED(s!)" "BLOCKED(b@/!)" "DOING(d)" "PAUSE(p)" "|" "DONE(o!)" "CANCEL(x@)"))))
  '(org-treat-insert-todo-heading-as-state-change t)
  '(shell-file-name "/usr/bin/bash")
  '(tool-bar-mode nil))
