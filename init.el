@@ -117,7 +117,9 @@
 (use-package which-key :ensure t)
 (which-key-mode 1)
 
-
+;; * nispio section begin
+(require 'nispio/helm-silver)
+;; * nispio section end
 
 ;; - hg support (monky)
 (use-package monky :ensure t)
