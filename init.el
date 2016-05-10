@@ -119,6 +119,9 @@
 
 ;; * nispio section begin
 (require 'nispio/helm-silver)
+(require 'helm-extra.el)
+(require 'mc-extra.el)
+(nispio/mc-setup-mark-lines)
 ;; * nispio section end
 
 ;; - hg support (monky)
@@ -206,5 +209,5 @@
  '(org-startup-align-all-tables t)
  '(org-todo-keywords (quote ((sequence "TODO(t!)" "STARTED(s!)" "BLOCKED(b@/!)" "DOING(d)" "PAUSE(p)" "|" "DONE(o!)" "CANCEL(x@)"))))
  '(org-treat-insert-todo-heading-as-state-change t)
- '(shell-file-name "/usr/bin/bash")
+ '(shell-file-name "/usr/bin/tcsh")
  '(tool-bar-mode nil))
