@@ -163,6 +163,10 @@
 (ace-link-setup-default "f")
 ;; * ace-link end
 
+;; gnuplot begin
+(use-package gnuplot :ensure t)
+(use-package gnuplot-mode :ensure t)
+
 
 ;; machine-specific config
 (defun wgs85/fathertron-config ()
