@@ -190,6 +190,10 @@
    (quote
     ("--graph" "--color" "--decorate" "--patch" "-n256")))
  '(org-M-RET-may-split-line nil)
+ '(org-agenda-dim-blocked-tasks nil)
+ '(org-agenda-skip-deadline-if-done t)
+ '(org-agenda-skip-scheduled-if-done t)
+ '(org-agenda-skip-timestamp-if-done t)
  '(org-agenda-span (quote week))
  '(org-agenda-start-on-weekday nil)
  '(org-clock-clocked-in-display (quote both))
