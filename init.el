@@ -8,7 +8,7 @@
 (column-number-mode 1)
 (ido-mode 1)
 (global-linum-mode 1)
-(global-hl-line-mode 1)
+;; (global-hl-line-mode 1)
 ;; -- Minor Modes End --
 ;;
 (setq mouse-autoselect-window t)
