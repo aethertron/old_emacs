@@ -119,8 +119,8 @@
 
 ;; * nispio section begin
 (require 'nispio/helm-silver)
-(require 'helm-extra.el)
-(require 'mc-extra.el)
+(require 'nispio/helm-extra)
+(require 'nispio/mc-extra)
 (nispio/mc-setup-mark-lines)
 ;; * nispio section end
 
