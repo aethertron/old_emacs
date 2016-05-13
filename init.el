@@ -112,6 +112,10 @@
 (use-package buffer-move :ensure t)
 (global-set-key (kbd "<C-M-tab>") 'buf-move-right)
 (global-set-key (kbd "<C-M-S-iso-lefttab>") 'buf-move-left)
+(global-set-key (kbd "<C-S-up>")     'buf-move-up)
+(global-set-key (kbd "<C-S-down>")   'buf-move-down)
+(global-set-key (kbd "<C-S-left>")   'buf-move-left)
+(global-set-key (kbd "<C-S-right>")  'buf-move-right)
 
 ;; - which-key
 (use-package which-key :ensure t)
@@ -167,6 +171,9 @@
 (use-package gnuplot :ensure t)
 (use-package gnuplot-mode :ensure t)
 
+;; zygosphere
+(use-package zygospore :ensure t)
+(global-set-key (kbd "C-x 1") 'zygospore-toggle-delete-other-windows)
 
 ;; machine-specific config
 (defun wgs85/fathertron-config ()
@@ -189,6 +196,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(buffer-move-behavior (quote move))
  '(dired-hide-details-hide-information-lines t)
  '(magit-log-arguments
    (quote
