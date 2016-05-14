@@ -3,8 +3,10 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+	backward-sexp
 	forward-sexp
 	helm-M-x
+	indent-for-tab-command
 	kill-region
 	mark-sexp
 	org-beginning-of-line
