@@ -21,6 +21,25 @@
    (plantuml . t)))
 
 ;; ** org-mode hook
+(defun kafkabro/org-map-disputed-keys ()
+  "my own version of dispute keys since the org interface 
+doesn't appear to be working"
+  ;; up map contested
+  (local-unset-key (kbd "<S-up>"))
+  (local-unset-key (kbd "<S-down>"))
+  (local-unset-key (kbd "<S-left>"))
+  (local-unset-key (kbd "<S-right>"))
+  (local-unset-key (kbd "<C-S-left>"))
+  (local-unset-key (kbd "<C-S-right>"))
+  ;; remap contested
+  (local-set-key (kbd "M-P") 'org-shiftup)
+  (local-set-key (kbd "M-N") 'org-shiftdown)
+  (local-set-key (kbd "M-[") 'org-shiftleft )
+  (local-set-key (kbd "M-[") 'org-shiftright )
+  (local-set-key (kbd "C-M-{") 'org-shiftcontrolleft )
+  (local-set-key (kbd "C-M-}") 'org-shiftcontrolright )
+  )
+
 (defun kafkabro/org-mode-hook ()
   ;; org-specific minor modes
   (org-indent-mode)
@@ -33,7 +52,10 @@
   ;; 
   (local-set-key (kbd "C-c a") 'org-agenda)
   (local-set-key (kbd "<C-tab>") 'next-multiframe-window)
+  ;;
+  (kafkabro/org-map-disputed-keys)
   )
+
 (add-hook 'org-mode-hook 'kafkabro/org-mode-hook)
 ;; * org-mode end 
 

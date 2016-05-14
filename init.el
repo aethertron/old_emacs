@@ -36,44 +36,18 @@
 (require 'use-package) ;; note: if fail, install use-package manually
 ;; -- Path/Packages End
 
+;; ** global key mapping
+;; *** remove stuff
+(global-unset-key (kbd "C-z")) 		;remove suspend frame
+(global-set-key (kbd "C-c t") 'rename-buffer)
+(global-set-key (kbd "<f5>") 'revert-buffer)
+
+(require 'kafkabro/org)
+(require 'kafkabro/emacs-lisp)
 
 ;; remove tool-bar
 (require 'menu-bar)
 (menu-bar-showhide-tool-bar-menu-customize-disable)
-
-;; * org-mode begin
-(require 'org)
-(require 'org-habit)
-
-;; ** global key mapping
-;; *** remove stuff
-(global-unset-key (kbd "C-z")) 		;remove suspend frame
-;; *** add stuff
-(global-set-key (kbd "C-c l") 'org-store-link) ; suggested in http://orgmode.org/manual/Handling-links.html
-(global-set-key (kbd "C-c t") 'rename-buffer)
-
-;; ** agenda config
-(setq org-agenda-files '("~/org" "~/org.spideroak"))
-;; ** babel config
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((python . t)
-   (emacs-lisp . t)
-   (js . t)
-   (sh . t)
-   (org . t)
-   ;; *** diagraming langs
-   (ditaa . t)
-   (plantuml . t)))
-
-;; ** org-mode hook
-(defun wgs85/org-mode-hook ()
-  (local-set-key (kbd "<C-tab>") 'next-multiframe-window)
-  (org-indent-mode)
-  (local-set-key (kbd "C-c a") 'org-agenda)
-  )
-(add-hook 'org-mode-hook 'wgs85/org-mode-hook)
-;; * org-mode end 
 
 ;; - smex -
 (use-package smex :ensure t)
@@ -126,6 +100,9 @@
 (require 'nispio/helm-extra)
 (require 'nispio/mc-extra)
 (nispio/mc-setup-mark-lines)
+(nispio/setup-helm-apropos)
+(global-set-key (kbd "C-h A") 'nispio/helm-customize-group)
+(global-set-key (kbd "C-h M-a") 'nispio/helm-customize-option)
 ;; * nispio section end
 
 ;; - hg support (monky)
@@ -201,6 +178,7 @@
  '(magit-log-arguments
    (quote
     ("--graph" "--color" "--decorate" "--patch" "-n256")))
+ '(menu-bar-mode nil)
  '(org-M-RET-may-split-line nil)
  '(org-agenda-dim-blocked-tasks nil)
  '(org-agenda-skip-deadline-if-done t)
@@ -214,16 +192,38 @@
  '(org-clock-mode-line-total (quote current))
  '(org-clock-out-switch-to-state "PAUSE")
  '(org-completion-use-ido t)
+ '(org-disputed-keys
+   (quote
+    (([(shift up)]
+      .
+      [(meta shift p)])
+     ([(shift down)]
+      .
+      [(meta shift n)])
+     ([(shift left)]
+      .
+      [(meta \[)])
+     ([(shift right)]
+      .
+      [(meta \])])
+     ([(control shift right)]
+      .
+      [(meta control \[)])
+     ([(control shift left)]
+      .
+      [(meta control \])]))))
  '(org-enforce-todo-checkbox-dependencies t)
  '(org-enforce-todo-dependencies t)
  '(org-insert-heading-respect-content t)
  '(org-log-into-drawer t)
  '(org-modules (quote (org-bbdb org-bibtex org-docview org-gnus org-habit org-info org-irc org-mhe org-rmail org-w3m)))
  '(org-refile-targets (quote ((org-agenda-files :maxlevel . 3))))
+ '(org-replace-disputed-keys t)
  '(org-return-follows-link t)
  '(org-special-ctrl-a/e t)
  '(org-startup-align-all-tables t)
  '(org-todo-keywords (quote ((sequence "TODO(t!)" "STARTED(s!)" "BLOCKED(b@/!)" "DOING(d)" "PAUSE(p)" "|" "DONE(o!)" "CANCEL(x@)"))))
  '(org-treat-insert-todo-heading-as-state-change t)
+ '(revert-without-query (quote (".*")))
  '(shell-file-name "/usr/bin/tcsh")
  '(tool-bar-mode nil))
