@@ -214,6 +214,7 @@
       [(meta control \])]))))
  '(org-enforce-todo-checkbox-dependencies t)
  '(org-enforce-todo-dependencies t)
+ '(org-export-backends (quote (ascii html icalendar latex md odt)))
  '(org-insert-heading-respect-content t)
  '(org-log-into-drawer t)
  '(org-modules (quote (org-bbdb org-bibtex org-docview org-gnus org-habit org-info org-irc org-mhe org-rmail org-w3m)))
