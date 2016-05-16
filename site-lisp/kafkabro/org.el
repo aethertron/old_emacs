@@ -35,7 +35,7 @@ doesn't appear to be working"
   (local-set-key (kbd "M-P") 'org-shiftup)
   (local-set-key (kbd "M-N") 'org-shiftdown)
   (local-set-key (kbd "M-[") 'org-shiftleft )
-  (local-set-key (kbd "M-[") 'org-shiftright )
+  (local-set-key (kbd "M-]") 'org-shiftright )
   (local-set-key (kbd "C-M-{") 'org-shiftcontrolleft )
   (local-set-key (kbd "C-M-}") 'org-shiftcontrolright )
   )

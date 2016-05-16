@@ -11,6 +11,7 @@ files"
 (defun kafkabro/emacs-lisp-mode-hook ()
 
   (local-set-key (kbd "<f5>") 'kafkabro/emacs-f5)
+  (local-set-key (kbd "<f6>") 'eval-region)
   )
 
 (add-hook 'emacs-lisp-mode-hook 'kafkabro/emacs-lisp-mode-hook)
