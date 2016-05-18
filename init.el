@@ -154,15 +154,7 @@
 
 ;; machine-specific config
 (defun wgs85/fathertron-config ()
-  (custom-set-faces
-   ;; custom-set-faces was added by Custom.
-   ;; If you edit it by hand, you could mess it up, so be careful.
-   ;; Your init file should contain only one such instance.
-   ;; If there is more than one, they won't work right.
-   '(default ((t (:inherit nil :stipple nil :background "#181a26" :foreground "gray80"
-			   :inverse-video nil :box nil :strike-through nil :overline nil
-			   :underline nil :slant normal :weight normal :height 90
-			   :width normal :foundry "PfEd" :family "DejaVu Sans Mono")))))
+  (set-face-attribute 'default nil :height 90)
   )
 
 (when (or (string= system-name "fatherTron-Manjaro")
@@ -175,6 +167,7 @@
  ;; If there is more than one, they won't work right.
  '(buffer-move-behavior (quote move))
  '(dired-hide-details-hide-information-lines t)
+ '(helm-split-window-default-side (quote right))
  '(magit-log-arguments
    (quote
     ("--graph" "--color" "--decorate" "--patch" "-n256")))
@@ -217,14 +210,24 @@
  '(org-export-backends (quote (ascii html icalendar latex md odt)))
  '(org-insert-heading-respect-content t)
  '(org-log-into-drawer t)
- '(org-modules (quote (org-bbdb org-bibtex org-docview org-gnus org-habit org-info org-irc org-mhe org-rmail org-w3m)))
+ '(org-modules
+   (quote
+    (org-bbdb org-bibtex org-docview org-gnus org-habit org-info org-irc org-mhe org-rmail org-w3m)))
  '(org-refile-targets (quote ((org-agenda-files :maxlevel . 3))))
  '(org-replace-disputed-keys t)
  '(org-return-follows-link t)
  '(org-special-ctrl-a/e t)
  '(org-startup-align-all-tables t)
- '(org-todo-keywords (quote ((sequence "TODO(t!)" "STARTED(s!)" "BLOCKED(b@/!)" "DOING(d)" "PAUSE(p)" "|" "DONE(o!)" "CANCEL(x@)"))))
+ '(org-todo-keywords
+   (quote
+    ((sequence "TODO(t!)" "STARTED(s!)" "BLOCKED(b@/!)" "DOING(d)" "PAUSE(p)" "|" "DONE(o!)" "CANCEL(x@)"))))
  '(org-treat-insert-todo-heading-as-state-change t)
  '(revert-without-query (quote (".*")))
  '(shell-file-name "/usr/bin/tcsh")
  '(tool-bar-mode nil))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

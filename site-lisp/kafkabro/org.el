@@ -20,6 +20,9 @@
    (ditaa . t)
    (plantuml . t)))
 
+;; default to make sensible archive
+(setq org-archive-default-command 'org-archive-to-archive-sibling)
+
 ;; ** org-mode hook
 (defun kafkabro/org-map-disputed-keys ()
   "my own version of dispute keys since the org interface 
