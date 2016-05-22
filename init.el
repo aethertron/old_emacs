@@ -8,6 +8,7 @@
 (column-number-mode 1)
 (ido-mode 1)
 (global-linum-mode 1)
+(display-time-mode 1)
 ;; (global-hl-line-mode 1)
 ;; -- Minor Modes End --
 ;;
@@ -59,6 +60,7 @@
 (global-set-key (kbd "M-s o") 'helm-occur) ;; remap occur to helm-occur
 (global-set-key (kbd "C-h a") 'helm-apropos) ;; remap apropos to helm-apropos
 (global-set-key (kbd "C-M-x") 'helm-M-x)
+(global-set-key (kbd "C-x C-b") 'helm-buffers-list)
 ;; ** helm desc key
 (use-package helm-descbinds :ensure t)
 (helm-descbinds-mode t)
@@ -167,6 +169,8 @@
  ;; If there is more than one, they won't work right.
  '(buffer-move-behavior (quote move))
  '(dired-hide-details-hide-information-lines t)
+ '(display-time-24hr-format t)
+ '(display-time-day-and-date t)
  '(helm-split-window-default-side (quote right))
  '(magit-log-arguments
    (quote
