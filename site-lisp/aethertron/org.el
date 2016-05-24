@@ -59,6 +59,9 @@ doesn't appear to be working"
   (local-set-key (kbd "<C-tab>") 'next-multiframe-window)
   ;;
   (kafkabro/org-map-disputed-keys)
+  ;;
+  (local-set-key (kbd "C-8") 'org-cycle)
+  (local-set-key (kbd "C-*") 'org-global-cycle)
   )
 
 (add-hook 'org-mode-hook 'kafkabro/org-mode-hook)
