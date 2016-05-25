@@ -154,6 +154,10 @@
 (use-package zygospore :ensure t)
 (global-set-key (kbd "C-x 1") 'zygospore-toggle-delete-other-windows)
 
+;; undo tree
+(use-package undo-tree :ensure t)
+(undo-tree-mode 1)
+
 ;; machine-specific config
 (defun wgs85/fathertron-config ()
   (set-face-attribute 'default nil :height 90)
