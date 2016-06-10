@@ -45,6 +45,7 @@
 
 (require 'kafkabro/org)
 (require 'kafkabro/emacs-lisp)
+(require 'kafkabro/dired)
 
 ;; remove tool-bar
 (require 'menu-bar)
@@ -156,7 +157,7 @@
 
 ;; undo tree
 (use-package undo-tree :ensure t)
-(undo-tree-mode 1)
+(global-undo-tree-mode 1)
 
 ;; machine-specific config
 (defun wgs85/fathertron-config ()
@@ -216,6 +217,12 @@
  '(org-enforce-todo-checkbox-dependencies t)
  '(org-enforce-todo-dependencies t)
  '(org-export-backends (quote (ascii html icalendar latex md odt)))
+ '(org-file-apps
+   (quote
+    ((auto-mode . emacs)
+     ("\\.mm\\'" . default)
+     ("\\.x?html?\\'" . default)
+     ("\\.pdf\\'" . "okular %s"))))
  '(org-insert-heading-respect-content t)
  '(org-log-into-drawer t)
  '(org-modules
