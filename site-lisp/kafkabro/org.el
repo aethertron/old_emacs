@@ -1,10 +1,13 @@
 ;; kafkabro's org config
 ;; * org-mode begin
 (require 'org)
+(require 'kafkalib/etc)
 ;; (require 'org-habit)
 
 ;; *** add stuff
 (global-set-key (kbd "C-c l") 'org-store-link) ; suggested in http://orgmode.org/manual/Handling-links.html
+(global-set-key (kbd "C-c s") 'kafkalib/org-insert-current-time-stamp)
+(global-set-key (kbd "C-c a") 'org-agenda)
 
 ;; ** agenda config
 (setq org-agenda-files '("~/org" "~/org.spideroak"))
@@ -53,7 +56,7 @@ doesn't appear to be working"
   (local-unset-key (kbd "M-RET"))		      ; unmap org-insert-heading
   ;; local key map additions
   (local-set-key (kbd "RET") 'org-insert-heading)     ; unmap 
-  (local-set-key (kbd "M-RET") 'org-return)           ; unmap 
+  (local-set-key (kbd "<M-return>") 'org-return)           ; unmap 
   ;; 
   (local-set-key (kbd "C-c a") 'org-agenda)
   (local-set-key (kbd "<C-tab>") 'next-multiframe-window)
