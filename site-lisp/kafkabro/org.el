@@ -51,12 +51,6 @@ doesn't appear to be working"
 (defun kafkabro/org-mode-hook ()
   ;; org-specific minor modes
   (org-indent-mode)
-  ;; local key map removals
-  (local-unset-key (kbd "RET")) 		      ; unmap org-return
-  (local-unset-key (kbd "M-RET"))		      ; unmap org-insert-heading
-  ;; local key map additions
-  (local-set-key (kbd "RET") 'org-insert-heading)     ; unmap 
-  (local-set-key (kbd "<M-return>") 'org-return)           ; unmap 
   ;; 
   (local-set-key (kbd "C-c a") 'org-agenda)
   (local-set-key (kbd "<C-tab>") 'next-multiframe-window)
