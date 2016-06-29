@@ -8,6 +8,7 @@
 (global-set-key (kbd "C-c l") 'org-store-link) ; suggested in http://orgmode.org/manual/Handling-links.html
 (global-set-key (kbd "C-c s") 'kafkalib/org-insert-current-time-stamp)
 (global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c c") 'org-capture)
 
 ;; ** agenda config
 (setq org-agenda-files '("~/org" "~/org.spideroak"))
