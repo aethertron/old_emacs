@@ -188,11 +188,22 @@
  '(org-agenda-skip-timestamp-if-done t)
  '(org-agenda-span (quote week))
  '(org-agenda-start-on-weekday nil)
+ '(org-archive-reversed-order t)
+ '(org-capture-after-finalize-hook nil)
+ '(org-capture-templates
+   (quote
+    (("c" "feed cats" table-line
+      (file+olp "~/org/cats.org" "Cat Maintenance" "Feed Cats Twice Daily")
+      "|%U|1/3|1/2|no|1/3|1/2|no|standard| |" :table-line-pos "I+1")
+     ("w" "weight" table-line
+      (file+headline "~/org/body.org" "Weight")
+      "|#|%U|%^{weight}| " :table-line-pos "I+1"))))
  '(org-clock-clocked-in-display (quote both))
  '(org-clock-in-switch-to-state "DOING")
  '(org-clock-into-drawer "LOGBOOK")
  '(org-clock-mode-line-total (quote current))
  '(org-clock-out-switch-to-state "PAUSE")
+ '(org-columns-skip-archived-trees nil)
  '(org-completion-use-ido t)
  '(org-disputed-keys
    (quote
@@ -231,6 +242,7 @@
  '(org-refile-targets (quote ((org-agenda-files :maxlevel . 3))))
  '(org-replace-disputed-keys t)
  '(org-return-follows-link t)
+ '(org-sparse-tree-open-archived-trees t)
  '(org-special-ctrl-a/e t)
  '(org-startup-align-all-tables t)
  '(org-todo-keywords
