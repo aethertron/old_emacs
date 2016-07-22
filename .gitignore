@@ -1,3 +1,6 @@
 
 .org-id-locations
-history
+eshell/*
+url/*
+
+recentf
