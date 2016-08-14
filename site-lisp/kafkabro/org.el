@@ -9,9 +9,10 @@
 (global-set-key (kbd "C-c s") 'kafkalib/org-insert-current-time-stamp)
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c c") 'org-capture)
+(global-set-key (kbd "C-c C-x .") 'org-timer)
+(global-set-key (kbd "C-c C-x 0") 'org-timer-start)
 
-;; ** agenda config
-(setq org-agenda-files '("~/org" "~/org.spideroak"))
+
 ;; ** babel config
 (org-babel-do-load-languages
  'org-babel-load-languages
