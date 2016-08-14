@@ -18,6 +18,9 @@
 ;; ctrl-tab support
 (global-set-key (kbd "<C-tab>") 'next-multiframe-window)
 (global-set-key (kbd "<C-iso-lefttab>") 'previous-multiframe-window)
+;; get rid of ibm's page keys if bound
+(global-unset-key (kbd "<XF86Back>"))
+(global-unset-key (kbd "<XF86Forward>"))
 ;; -- window management end --
 
 
@@ -47,7 +50,7 @@
 ;; *** remove stuff
 (global-unset-key (kbd "C-z")) 		;remove suspend frame
 
-(require kafkalib/etc)
+(require 'kafkalib/etc)
 (global-set-key (kbd "C-c t") 'rename-buffer)
 (global-set-key (kbd "C-c x") 'kafkalib/launch-shell)
 (global-set-key (kbd "<f5>") 'revert-buffer)
