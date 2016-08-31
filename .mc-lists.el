@@ -4,19 +4,27 @@
 (setq mc/cmds-to-run-for-all
       '(
 	backward-sexp
+	beginning-of-buffer
 	forward-sexp
 	helm-M-x
 	indent-for-tab-command
 	kill-region
 	mark-sexp
+	org-backward-sentence
 	org-beginning-of-line
+	org-columns-next-allowed-value
+	org-columns-previous-allowed-value
+	org-columns-quit
 	org-ctrl-c-ctrl-c
 	org-ctrl-c-star
 	org-delete-char
+	org-end-of-line
 	org-force-self-insert
+	org-forward-sentence
 	org-insert-heading-respect-content
 	org-meta-return
 	org-metaright
+	org-return
 	org-return-indent
 	org-self-insert-command
 	org-shiftmetaleft
@@ -27,5 +35,6 @@
 
 (setq mc/cmds-to-run-once
       '(
+	next-multiframe-window
 	org-cycle
 	))

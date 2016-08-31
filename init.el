@@ -1,7 +1,7 @@
 ;;
 (server-start)
 ;;
-(load-theme (quote deeper-blue))
+(load-theme 'deeper-blue)
 ;; -- Minor Modes Begin --
 (electric-pair-mode 1)
 (show-paren-mode 1)
