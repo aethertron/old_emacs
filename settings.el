@@ -44,7 +44,7 @@
       "set %U")
      ("c" "feed cats" table-line
       (file+olp "~/kafkanet/org/cats.org" "Assorted Care" "Feed Cats Twice Daily")
-      "|%U|1/2|1/2|no|1|1|no|standard|separated |" :table-line-pos "I+1")
+      "|%U|1/2|1/2|no|1|3/4|no|standard|separated |" :table-line-pos "I+1")
      ("w" "weight" table-line
       (file+headline "~/kafkanet/org/body.org" "Weight")
       "|#|%U|%^{weight}| " :table-line-pos "I+1"))))
