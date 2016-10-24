@@ -12,6 +12,7 @@
 	mark-sexp
 	org-backward-sentence
 	org-beginning-of-line
+	org-columns-edit-value
 	org-columns-next-allowed-value
 	org-columns-previous-allowed-value
 	org-columns-quit
@@ -22,6 +23,7 @@
 	org-force-self-insert
 	org-forward-sentence
 	org-insert-heading-respect-content
+	org-kill-line
 	org-meta-return
 	org-metaright
 	org-return
@@ -29,6 +31,7 @@
 	org-self-insert-command
 	org-shiftmetaleft
 	org-shiftmetaright
+	org-shiftup
 	org-yank
 	smex
 	))
