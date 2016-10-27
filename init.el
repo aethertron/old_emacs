@@ -159,6 +159,10 @@
 (use-package undo-tree :ensure t)
 (global-undo-tree-mode 1)
 
+;; diredp
+(use-package dired+ :ensure t)
+
+
 ;; machine-specific config
 (defun wgs85/fathertron-config ()
   ;; * geeknote begin
