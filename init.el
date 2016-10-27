@@ -161,7 +161,7 @@
 
 ;; machine-specific config
 (defun wgs85/fathertron-config ()
-  ;; * geeknot e begin
+  ;; * geeknote begin
   (set-face-attribute 'default nil :height 90)
   (use-package geeknote :ensure t)
   ;; * geeknote end
