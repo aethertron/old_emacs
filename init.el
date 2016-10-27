@@ -141,19 +141,6 @@
 (add-hook 'shell-mode-hook 'wgs85/shell-mode-hook)
 ;; * shell end
 
-;; * magit
-(use-package magit :ensure t)
-;; * geeknote begin
-(use-package geeknote :ensure t)
-;; * geeknote end
-
-
-;; - spotify
-(use-package spotify :ensure t)
-(spotify-enable-song-notifications)
-
-;; - helm-spotify
-(use-package helm-spotify :ensure t)
 
 ;; * ace-link begin
 (use-package ace-link :ensure t)
@@ -174,7 +161,21 @@
 
 ;; machine-specific config
 (defun wgs85/fathertron-config ()
+  ;; * geeknot e begin
   (set-face-attribute 'default nil :height 90)
+  (use-package geeknote :ensure t)
+  ;; * geeknote end
+
+  ;; - spotify
+  (use-package spotify :ensure t)
+  (spotify-enable-song-notifications)
+
+  ;; - helm-spotify
+  (use-package helm-spotify :ensure t)
+
+  ;; * magit
+  (use-package magit :ensure t)
+
   )
 
 (when (or (string= system-name "fatherTron-Manjaro")
