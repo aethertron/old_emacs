@@ -105,6 +105,7 @@
  '(org-sparse-tree-open-archived-trees t)
  '(org-special-ctrl-a/e t)
  '(org-startup-align-all-tables t)
+ '(org-time-clocksum-use-fractional t)
  '(org-todo-keywords
    (quote
     ((sequence "TODO(t!)" "STARTED(s!)" "BLOCKED(b@/!)" "DOING(d)" "PAUSE(p)" "|" "DONE(o!)" "CANCEL(x@)"))))
