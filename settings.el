@@ -10,6 +10,9 @@
  '(dired-listing-switches "-Alh")
  '(display-time-24hr-format t)
  '(display-time-day-and-date t)
+ '(helm-boring-buffer-regexp-list
+   (quote
+    ("\\` " "\\*helm" "\\*helm-mode" "\\*Echo Area" "\\*Minibuf" "\\*.*\\*")))
  '(helm-split-window-default-side (quote right))
  '(ido-use-virtual-buffers (quote auto))
  '(magit-log-arguments
