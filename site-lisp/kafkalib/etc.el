@@ -9,7 +9,6 @@
 (defun kafkalib/launch-shell (arg)
   "launches a shell with a unique name"
   (interactive "P")
-  (shell (concat "*shell " (substring (pwd) 10) "*"))
-  )
+  (shell (concat  (substring (pwd) 10))))
 
 (provide 'kafkalib/etc)
