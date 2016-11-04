@@ -53,6 +53,8 @@
 (require 'kafkalib/etc)
 (global-set-key (kbd "C-c t") 'rename-buffer)
 (global-set-key (kbd "C-c x") 'kafkalib/launch-shell)
+(global-set-key (kbd "C-c h") 'hl-line-mode)
+(global-set-key (kbd "C-c f") 'find-file-at-point)
 (global-set-key (kbd "<f5>") 'revert-buffer)
 
 (require 'kafkabro/org)
