@@ -29,6 +29,7 @@
 	org-return
 	org-return-indent
 	org-self-insert-command
+	org-shiftdown
 	org-shiftmetaleft
 	org-shiftmetaright
 	org-shiftup
