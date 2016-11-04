@@ -133,14 +133,8 @@
 ;; discover
 (use-package discover :ensure t)
 
-;; * shell begin
-(defun wgs85/shell-mode-hook ()
-  (local-unset-key (kbd "M-p")) 	; remove comint-previous-input from local map
-  (local-set-key (kbd "M-p") 'comint-previous-matching-input-from-input)
-  )
-(add-hook 'shell-mode-hook 'wgs85/shell-mode-hook)
-;; * shell end
-
+;;  ** flycheck config
+(use-package flycheck :ensure t)
 
 ;; * ace-link begin
 (use-package ace-link :ensure t)
@@ -162,8 +156,21 @@
 ;; diredp
 (use-package dired+ :ensure t)
 
+
+;; * major modes
 
-;; machine-specific config
+;; ** shell begin
+(defun wgs85/shell-mode-hook ()
+  (local-unset-key (kbd "M-p")) 	; remove comint-previous-input from local map
+  (local-set-key (kbd "M-p") 'comint-previous-matching-input-from-input)
+  )
+(add-hook 'shell-mode-hook 'wgs85/shell-mode-hook)
+
+;; ** json mode
+(use-package json-mode :ensure t)	; importing this allows flycheck to work with json
+
+
+;; * machine-specific config
 (defun wgs85/fathertron-config ()
   ;; * geeknote begin
   (set-face-attribute 'default nil :height 90)
