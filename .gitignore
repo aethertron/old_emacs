@@ -1,0 +1,10 @@
+# Locally built products
+/elpa
+
+# More local stuff
+/recentf
+/semanticdb
+/smex-items
+
+# Stuff that currently appears to be local
+/private
