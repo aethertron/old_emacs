@@ -18,6 +18,8 @@
   (setq-default ediff-highlight-all-diffs 'nil)
   (setq ediff-diff-options "-w"))
 
+(use-package elpakit :ensure t)
+
 (use-package exec-path-from-shell
   :config
   ;; Add GOPATH to shell
