@@ -3,7 +3,7 @@
 (package-initialize)
 
 ;; variables
-(setq use-local "t")
+(setq use-local nil)
 (setq guarantee-use-package "t")
 
 (if use-local
