@@ -3,6 +3,16 @@
   :bind
   ("C-c SPC" . avy-goto-char))
 
+(use-package buffer-move
+  :bind
+  ("<C-S-up>"    . buf-move-up)
+  ("<C-S-down>"  . buf-move-down)
+  ("<C-S-left>"  . buf-move-left)
+  ("<C-S-right>" . buf-move-right)
+  :config
+  ;; buffer moves instead of swapping the windows
+  ;;   buffers are thus like pieces of paper on a desktop
+  (setq buffer-move-behavior 'move))
 
 (use-package company
   :config
@@ -18,8 +28,6 @@
   (setq-default ediff-highlight-all-diffs 'nil)
   (setq ediff-diff-options "-w"))
 
-(use-package elpakit :ensure t)
-
 (use-package exec-path-from-shell
   :config
   ;; Add GOPATH to shell
@@ -34,7 +42,6 @@
 
 (use-package flycheck)
 
-
 (use-package counsel
   :bind
   ("M-x" . counsel-M-x)
@@ -48,7 +55,7 @@
 
 (use-package counsel-projectile
   :bind
-  ("C-x v" . counsel-projectile)
+  ;; ("C-x v" . counsel-projectile) ;; deactive for now
   ("C-x c p" . counsel-projectile-ag)
   :config
   (counsel-projectile-on))
@@ -151,6 +158,10 @@
    undo-tree-auto-save-history nil
    undo-tree-history-directory-alist `(("." . ,(concat temp-dir "/undo/"))))
   (global-undo-tree-mode 1))
+
+(use-package vc
+  :bind
+  ("C-x v" . vc-prefix-map))
 
 (use-package which-key
   :config
