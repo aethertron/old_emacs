@@ -4,6 +4,8 @@
 (defconst temp-dir (format "%s/cache" private-dir)
   "Hostname-based elisp temp directories")
 
+(server-start)
+
 ;; Core settings
 ;; UTF-8 please
 (set-charset-priority 'unicode)
