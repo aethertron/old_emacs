@@ -25,6 +25,8 @@
 (require 'lang-javascript)
 (require 'lang-web)
 (require 'lang-c)
+;; other major modes such as dired buffers
+(require 'buff-dired)
 
 ;; back-up and create local copy if not using local already
 (add-to-list 'load-path "~/.emacs.d/elisp-pkgs/elpa-mirror")
