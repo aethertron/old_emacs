@@ -2,6 +2,7 @@
  (async . [(20170219 942) nil "Asynchronous processing in Emacs" tar])
  (avy . [(20170411 608) ((emacs (24 1)) (cl-lib (0 5))) "tree-based completion" tar])
  (bind-key . [(20161218 1520) nil "A simple way to manage personal keybindings" tar])
+ (buffer-move . [(20160615 1103) nil "easily swap buffers" tar])
  (company . [(20170415 1248) ((emacs (24 3))) "Modular text completion framework" tar])
  (company-c-headers . [(20150801 901) ((emacs (24 1)) (company (0 8))) "Company mode backend for C/C++ header files" tar])
  (company-tern . [(20161004 1147) ((company (0 8 0)) (tern (0 0 1)) (dash (2 8 0)) (dash-functional (2 8 0)) (s (1 9 0)) (cl-lib (0 5 0))) "Tern backend for company-mode" tar])
