@@ -1,6 +1,7 @@
 (use-package dired+
   :config
-  (setq dired-omit-files "^\\.?#\\|^\\.$\\|^\\.\\.$\\|^\\..*$"))
+  (setq dired-omit-files "^\\.?#\\|^\\.$\\|^\\.\\.$\\|^\\..*$"
+	dired-listing-switches "-alh --group-directories-first"))
 
 (defun wgs-dired-mode-hook ()
   (dired-omit-mode))
