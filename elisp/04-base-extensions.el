@@ -113,28 +113,6 @@
   ;; Disable linum for neotree
   (add-hook 'neo-after-create-hook 'disable-neotree-hook))
 
-(use-package org
-  :config
-  (setq org-directory "~/org-files"
-	org-agenda-files (list (concat org-directory "/agenda"))
-        org-default-notes-file (concat org-directory "/todo.org"))
-  :bind
-  ("C-c l" . org-store-link)
-  ("C-c a" . org-agenda))
-
-(use-package org-projectile
-  :config
-  (org-projectile:per-repo)
-  (setq org-projectile:per-repo-filename "todo.org"
-	org-agenda-files (append org-agenda-files (org-projectile:todo-files))))
-
-(use-package org-bullets
-  :config
-  (setq org-hide-leading-stars t)
-  (add-hook 'org-mode-hook
-            (lambda ()
-              (org-bullets-mode t))))
-
 (use-package page-break-lines)
 
 (use-package projectile
