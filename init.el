@@ -13,29 +13,23 @@
 
 (add-to-list 'load-path (concat user-emacs-directory "elisp"))
 
-(require 'elpa-bootstrap)
-(require 'base)
+(require '01-elpa-bootstrap)
+(require '02-base)
+(require '03-base-theme)
+(require '04-base-extensions)
+(require '05-base-functions)
+(require '06-base-global-keys)
 
-;; local packages (may rely on other pkgs, install after elpa)
-(add-to-list 'load-path "~/.emacs.d/elisp-pkgs/elpa-mirror")
-(require 'elpa-mirror)
-
-;; ;; test code here
-;; (package-install 'ivy)
-;; (require 'ivy)
-;; (ivy-mode)
-
-(require 'base-theme)
-(require 'base-extensions)
-(require 'base-functions)
-(require 'base-global-keys)
-
+;; following should be written so that they can be imported in any order!
 (require 'lang-python)
 (require 'lang-javascript)
 (require 'lang-web)
 (require 'lang-c)
 
 ;; back-up and create local copy if not using local already
+(add-to-list 'load-path "~/.emacs.d/elisp-pkgs/elpa-mirror")
+(require 'elpa-mirror)
+
 (if (null use-local)
     (progn
       (setq elpamr-default-output-directory "~/.emacs.d/myelpa")
