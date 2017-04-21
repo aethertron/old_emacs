@@ -40,3 +40,4 @@
     (progn
       (setq elpamr-default-output-directory "~/.emacs.d/myelpa")
       (elpamr-create-mirror-for-installed)))
+;;
