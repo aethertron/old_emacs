@@ -164,7 +164,9 @@
 
 (use-package vc
   :bind
-  ("C-x v" . vc-prefix-map))
+  ("C-x v" . vc-prefix-map)
+  :config
+  (setq vc-log-show-limit 42))
 
 (use-package which-key
   :config
