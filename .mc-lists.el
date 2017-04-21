@@ -5,6 +5,7 @@
       '(
 	backward-sexp
 	beginning-of-buffer
+	counsel-M-x
 	forward-sexp
 	helm-M-x
 	indent-for-tab-command
@@ -35,6 +36,7 @@
 	org-shiftup
 	org-yank
 	smex
+	vc-next-action
 	))
 
 (setq mc/cmds-to-run-once
