@@ -116,6 +116,7 @@
 (use-package org
   :config
   (setq org-directory "~/org-files"
+	org-agenda-files (list (concat org-directory "/agenda"))
         org-default-notes-file (concat org-directory "/todo.org"))
   :bind
   ("C-c l" . org-store-link)
@@ -174,10 +175,10 @@
 
 (use-package windmove
   :bind
-  ("C-x <up>" . windmove-up)
-  ("C-x <down>" . windmove-down)
-  ("C-x <left>" . windmove-left)
-  ("C-x <right>" . windmove-right))
+  ("<C-up>" . windmove-up)
+  ("<C-down>" . windmove-down)
+  ("<C-left>" . windmove-left)
+  ("<C-right>" . windmove-right))
 
 (use-package wgrep)
 
