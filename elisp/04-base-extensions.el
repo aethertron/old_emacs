@@ -44,16 +44,10 @@
 
 (use-package counsel
   :bind
-  ("M-x" . counsel-M-x)
-  ("C-x C-m" . counsel-M-x)
-  ("C-x C-f" . counsel-find-file)
-  ("C-x c k" . counsel-yank-pop)
-  ;; extend help menu!
-  ("C-h b" . counsel-descbinds)
-  ("C-h f" . counsel-describe-function)
-  ("C-h v" . counsel-describe-variable)
   ;; ag
   ("M-s l" . counsel-ag)
+  :config
+  (counsel-mode)
 )
 
 (use-package counsel-projectile
