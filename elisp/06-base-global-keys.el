@@ -7,6 +7,8 @@
 (global-set-key (kbd "C-h A") 'customize-group)
 (global-set-key (kbd "C-c h") 'hl-line-mode)
 
+(global-set-key (kbd "C-c x") 'shell)
+
 (define-key global-map [remap open-line] 'wgs-open-next-line)
 (define-key global-map (kbd "C-S-o") 'wgs-open-prev-line)
 
