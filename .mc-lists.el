@@ -33,6 +33,7 @@
 	org-shiftdown
 	org-shiftmetaleft
 	org-shiftmetaright
+	org-shiftmetaup
 	org-shiftup
 	org-yank
 	smex

@@ -44,16 +44,10 @@
 
 (use-package counsel
   :bind
-  ("M-x" . counsel-M-x)
-  ("C-x C-m" . counsel-M-x)
-  ("C-x C-f" . counsel-find-file)
-  ("C-x c k" . counsel-yank-pop)
-  ;; extend help menu!
-  ("C-h b" . counsel-descbinds)
-  ("C-h f" . counsel-describe-function)
-  ("C-h v" . counsel-describe-variable)
   ;; ag
   ("M-s l" . counsel-ag)
+  :config
+  (counsel-mode)
 )
 
 (use-package counsel-projectile
@@ -113,27 +107,6 @@
   ;; Disable linum for neotree
   (add-hook 'neo-after-create-hook 'disable-neotree-hook))
 
-(use-package org
-  :config
-  (setq org-directory "~/org-files"
-        org-default-notes-file (concat org-directory "/todo.org"))
-  :bind
-  ("C-c l" . org-store-link)
-  ("C-c a" . org-agenda))
-
-(use-package org-projectile
-  :config
-  (org-projectile:per-repo)
-  (setq org-projectile:per-repo-filename "todo.org"
-	org-agenda-files (append org-agenda-files (org-projectile:todo-files))))
-
-(use-package org-bullets
-  :config
-  (setq org-hide-leading-stars t)
-  (add-hook 'org-mode-hook
-            (lambda ()
-              (org-bullets-mode t))))
-
 (use-package page-break-lines)
 
 (use-package projectile
@@ -174,10 +147,10 @@
 
 (use-package windmove
   :bind
-  ("C-x <up>" . windmove-up)
-  ("C-x <down>" . windmove-down)
-  ("C-x <left>" . windmove-left)
-  ("C-x <right>" . windmove-right))
+  ("<C-up>" . windmove-up)
+  ("<C-down>" . windmove-down)
+  ("<C-left>" . windmove-left)
+  ("<C-right>" . windmove-right))
 
 (use-package wgrep)
 
