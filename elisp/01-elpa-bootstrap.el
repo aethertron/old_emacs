@@ -3,8 +3,8 @@
 (package-initialize)
 
 ;; variables
-(setq use-local nil)
-(setq guarantee-use-package "t")
+(defcustom use-local nil "build from local or web?")
+(defcustom guarantee-use-package "t" "try to install use package?")
 
 (if use-local
     ;; use-local
