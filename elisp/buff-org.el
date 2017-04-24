@@ -6,7 +6,17 @@
 	org-clock-report-include-clocking-task "t"
 	org-time-clocksum-use-fractional "t"
 	org-agenda-start-on-weekday nil
-	org-agenda-ndays 1)
+	org-agenda-ndays 1
+	org-agenda-custom-commands
+	(quote
+	 (("p" "Punch card!"
+	   ((agenda "" (not )il)
+	    (tags "AUTOTIMER" nil))
+	   nil nil)
+	  ("n" "Agenda (and )nd all TODOs"
+	   ((agenda "" nil)
+	    (alltodo "" nil))
+	   nil))))
   :bind
   ("C-c l" . org-store-link)
   ("C-c a" . org-agenda))
