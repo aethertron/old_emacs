@@ -9,6 +9,8 @@
 
 (global-set-key (kbd "C-c x") 'shell)
 
+(global-set-key (kbd "<f5>") 'revert-buffer)
+
 (define-key global-map [remap open-line] 'wgs-open-next-line)
 (define-key global-map (kbd "C-S-o") 'wgs-open-prev-line)
 
