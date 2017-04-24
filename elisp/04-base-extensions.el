@@ -48,7 +48,8 @@
   ("M-s l" . counsel-ag)
   :config
   (counsel-mode)
-)
+  (when (package-installed-p 'company)
+    (define-key global-map [remap completion-at-point] 'counsel-company)))
 
 (use-package counsel-projectile
   :bind
