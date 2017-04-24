@@ -4,8 +4,9 @@
 	org-agenda-files (list (concat org-directory "/agenda"))
         org-default-notes-file (concat org-directory "/todo.org")
 	org-clock-report-include-clocking-task "t"
-	org-time-clocksum-use-fractional "t")
-
+	org-time-clocksum-use-fractional "t"
+	org-agenda-start-on-weekday nil
+	org-agenda-ndays 1)
   :bind
   ("C-c l" . org-store-link)
   ("C-c a" . org-agenda))
