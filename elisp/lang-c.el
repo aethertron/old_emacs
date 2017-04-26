@@ -1,4 +1,8 @@
 ;; C-IDE based on https://github.com/tuhdo/emacs-c-ide-demo
+
+(defcustom use-gtags nil "whether to use gtags")
+(defcustom use-irony "t" "whether to use irony")
+
 (use-package cc-mode
   :config
   ;; Available C style:
@@ -28,25 +32,35 @@
   ;; Enable EDE only in C/C++
   (global-ede-mode))
 
-(use-package ggtags
-  :config
-  (ggtags-mode 1)
-  (add-hook 'c-mode-common-hook
-	    (lambda ()
-	      (when (derived-mode-p 'c-mode 'c++-mode 'java-mode 'asm-mode)
-		(ggtags-mode 1))))
+(when use-irony
+  (use-package irony
+    :config
+    (defun wgs-irony-mode-hook ()
+      (define-key irony-mode-map [remap completion-at-point] 'counsel-irony)
+      (define-key irony-mode-map [remap complete-symbol] 'counsel-irony)
+      (add-hook 'irony-mode-hook 'wgs-irony-mode-hook)
+      (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))))
 
-  (dolist (map (list ggtags-mode-map))
-    (define-key map (kbd "C-c g s") 'ggtags-find-other-symbol)
-    (define-key map (kbd "C-c g h") 'ggtags-view-tag-history)
-    (define-key map (kbd "C-c g r") 'ggtags-find-reference)
-    (define-key map (kbd "C-c g f") 'ggtags-find-file)
-    (define-key map (kbd "C-c g c") 'ggtags-create-tags)
-    (define-key map (kbd "C-c g u") 'ggtags-update-tags)
-    (define-key map (kbd "M-.")     'ggtags-find-tag-dwim)
-    (define-key map (kbd "M-,")     'pop-tag-mark)
-    (define-key map (kbd "C-c <")   'ggtags-prev-mark)
-    (define-key map (kbd "C-c >")   'ggtags-next-mark)))
+(when use-gtags
+  (use-package ggtags
+    :config
+    (ggtags-mode 1)
+    (add-hook 'c-mode-common-hook
+	      (lambda ()
+		(when (derived-mode-p 'c-mode 'c++-mode 'java-mode 'asm-mode)
+		  (ggtags-mode 1))))
+
+    (dolist (map (list ggtags-mode-map))
+      (define-key map (kbd "C-c g s") 'ggtags-find-other-symbol)
+      (define-key map (kbd "C-c g h") 'ggtags-view-tag-history)
+      (define-key map (kbd "C-c g r") 'ggtags-find-reference)
+      (define-key map (kbd "C-c g f") 'ggtags-find-file)
+      (define-key map (kbd "C-c g c") 'ggtags-create-tags)
+      (define-key map (kbd "C-c g u") 'ggtags-update-tags)
+      (define-key map (kbd "M-.")     'ggtags-find-tag-dwim)
+      (define-key map (kbd "M-,")     'pop-tag-mark)
+      (define-key map (kbd "C-c <")   'ggtags-prev-mark)
+      (define-key map (kbd "C-c >")   'ggtags-next-mark))))
 
 ;; company-c-headers
 (use-package company-c-headers
