@@ -2,7 +2,7 @@
 
 (package-initialize)
 
-j;; variables
+;; variables
 (defcustom use-local nil "build from local or web?")
 (defcustom guarantee-use-package "t" "try to install use package?")
 
