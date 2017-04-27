@@ -1,7 +1,7 @@
 ;; C-IDE based on https://github.com/tuhdo/emacs-c-ide-demo
 
-(defcustom use-gtags nil "whether to use gtags")
-(defcustom use-irony "t" "whether to use irony")
+(defcustom use-gtags "t" "whether to use gtags")
+(defcustom use-irony nil "whether to use irony")
 
 (use-package cc-mode
   :config
@@ -37,9 +37,10 @@
     :config
     (defun wgs-irony-mode-hook ()
       (define-key irony-mode-map [remap completion-at-point] 'counsel-irony)
-      (define-key irony-mode-map [remap complete-symbol] 'counsel-irony)
-      (add-hook 'irony-mode-hook 'wgs-irony-mode-hook)
-      (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))))
+      (define-key irony-mode-map [remap complete-symbol] 'counsel-irony))
+    (add-hook 'irony-mode-hook 'wgs-irony-mode-hook)
+    (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+    (add-hook 'c-mode-common-hook 'irony-mode)))
 
 (when use-gtags
   (use-package ggtags
