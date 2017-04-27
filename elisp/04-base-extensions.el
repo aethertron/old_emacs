@@ -47,9 +47,11 @@
   ;; ag
   ("M-s l" . counsel-ag)
   :config
+  (require 'ivy)
   (counsel-mode)
   (when (package-installed-p 'company)
     (define-key global-map [remap completion-at-point] 'counsel-company)))
+(require 'counsel)
 
 (use-package counsel-projectile
   :bind
@@ -60,7 +62,7 @@
 
 (use-package ivy
   :bind
-  ("C-x s" . swiper)
+  ("C-s" . swiper)
   ("C-x C-r" . ivy-resume)
   :config
   (ivy-mode 1)
@@ -158,5 +160,10 @@
 (use-package yasnippet
   :config
   (yas-global-mode 1))
+
+(use-package zygospore
+  :bind
+  ("C-x 1" . zygospore-toggle-delete-other-windows))
+
 
 (provide '04-base-extensions)
