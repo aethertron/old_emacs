@@ -2,9 +2,11 @@
 /elpa
 
 # More local stuff
+/.custom.el
 /recentf
 /semanticdb
 /smex-items
+/irony
 
 # Stuff that currently appears to be local
 /private
