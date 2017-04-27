@@ -13,7 +13,7 @@
 
 (add-to-list 'load-path (concat user-emacs-directory "elisp"))
 
-(setq use-local "t")
+(setq use-local nil)
 
 (require '01-elpa-bootstrap)
 (require '02-base)
