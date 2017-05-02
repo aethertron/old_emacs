@@ -17,6 +17,9 @@
 	   ((agenda "" nil)
 	    (alltodo "" nil))
 	   nil))))
+  ;; add dropbox if present
+  (when (file-exists-p "~/Dropbox")
+    (add-to-list 'org-agenda-files "~/Dropbox/org-files/agenda"))
   :bind
   ("C-c l" . org-store-link)
   ("C-c a" . org-agenda))
