@@ -73,6 +73,10 @@
   :config
   (hlinum-activate))
 
+(use-package man
+  :config
+  (setq Man-width 90))
+
 (use-package linum
   :config
   (setq linum-format " %3d ")
