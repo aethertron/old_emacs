@@ -70,6 +70,8 @@
 
 (show-paren-mode 1)
 
+(column-number-mode 1)
+
 ;; Delete trailing whitespace before save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
