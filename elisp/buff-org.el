@@ -1,5 +1,7 @@
 (use-package org
   :init
+  :mode
+  ("\\.org.txt\\'" . org-mode)
   :config
   (setq org-directory "~/org-files"
 	org-agenda-files (let ((ls ()))
