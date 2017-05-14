@@ -1,10 +1,16 @@
 (use-package org
+  :init
   :config
   (setq org-directory "~/org-files"
-	org-agenda-files (list (concat org-directory "/agenda"))
+	org-agenda-files (let ((ls ()))
+			   (when (file-exists-p "~/Dropbox")
+			     (add-to-list 'ls "~/Dropbox/org-files/agenda"))
+			   (add-to-list 'ls (concat org-directory "/agenda"))))
+  (setq
         org-default-notes-file (concat org-directory "/todo.org")
 	org-clock-report-include-clocking-task "t"
 	org-time-clocksum-use-fractional "t"
+	org-todo-keywords '((sequence "TODO(t)" "WAIT(w)" "|" "CANCEL(c)" "DONE(d)"))
 	org-agenda-start-on-weekday nil
 	org-agenda-ndays 1
 	org-agenda-custom-commands
@@ -17,9 +23,6 @@
 	   ((agenda "" nil)
 	    (alltodo "" nil))
 	   nil))))
-  ;; add dropbox if present
-  (when (file-exists-p "~/Dropbox")
-    (add-to-list 'org-agenda-files "~/Dropbox/org-files/agenda"))
   :bind
   ("C-c l" . org-store-link)
   ("C-c a" . org-agenda))

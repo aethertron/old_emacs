@@ -119,8 +119,9 @@
 (use-package projectile
   :config
   (setq projectile-known-projects-file
-        (expand-file-name "projectile-bookmarks.eld" temp-dir))
-
+        (expand-file-name "projectile-bookmarks.eld" temp-dir)
+	projectile-cache-file
+        (expand-file-name "projectile-cache" temp-dir))
   (setq projectile-completion-system 'ivy)
 
   (projectile-global-mode))
