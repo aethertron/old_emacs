@@ -40,6 +40,7 @@
 	org-yank
 	smex
 	vc-next-action
+	wdired-finish-edit
 	))
 
 (setq mc/cmds-to-run-once
