@@ -5,6 +5,8 @@
       '(
 	backward-sexp
 	beginning-of-buffer
+	c-electric-delete-forward
+	company-complete
 	counsel-M-x
 	forward-sexp
 	helm-M-x
