@@ -71,6 +71,8 @@
   (setq ivy-use-virtual-buffers nil)
   (define-key read-expression-map (kbd "C-r") 'counsel-expression-history))
 
+(use-package ivy-hydra)
+
 (use-package hlinum
   :config
   (hlinum-activate))
