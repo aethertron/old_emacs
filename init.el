@@ -27,6 +27,8 @@
 (require 'lang-javascript)
 (require 'lang-web)
 (require 'lang-c)
+(require 'lang-markdown)
+
 ;; other major modes such as dired buffers
 (require 'buff-dired)
 (require 'buff-org)
