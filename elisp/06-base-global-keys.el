@@ -15,4 +15,9 @@
 (bind-key "C-o" 'bgs-open-next-line)
 (bind-key "C-S-o" 'bgs-open-prev-line)
 
+(bind-key "C-c i" 'imenu)
+
+(bind-key "C-z" nil)
+
 (provide '06-base-global-keys)
+;;; 06-base-global-keys.el ends here
