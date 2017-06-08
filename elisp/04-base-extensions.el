@@ -48,6 +48,8 @@
   :bind
   ;; ag
   ("M-s l" . counsel-ag)
+  ("M-s c s" . counsel-set-variable)
+  ("C-h p" . counsel-find-library)
   :config
   (require 'ivy)
   (counsel-mode)
@@ -102,6 +104,13 @@
   ("C-x g r" . magit-rebase-interactive))
 
 (use-package magit-popup)
+
+(use-package move-text
+  :bind
+  ("M-n"      . move-text-down)
+  ("M-p"      . move-text-up)
+  ("<M-down>" . move-text-down)
+  ("<M-up>"   . move-text-up))
 
 (use-package multiple-cursors
   :bind
