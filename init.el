@@ -32,6 +32,7 @@
 ;; other major modes such as dired buffers
 (require 'buff-dired)
 (require 'buff-org)
+(require 'buff-shell)
 
 ;; back-up and create local copy if not using local already
 (add-to-list 'load-path "~/.emacs.d/elisp-pkgs/elpa-mirror")
