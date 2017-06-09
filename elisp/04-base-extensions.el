@@ -64,6 +64,10 @@
   :config
   (counsel-projectile-on))
 
+(use-package help-fns+
+  ;; this adds keybindings to help-map
+  )
+
 (use-package ivy
   :bind
   ("C-s" . swiper)

@@ -29,6 +29,7 @@
  (flycheck . [(20170507 113) ((dash (2 12 1)) (pkg-info (0 4)) (let-alist (1 0 4)) (seq (1 11)) (emacs (24 3))) "Onfly syntax checking" tar])
  (ggtags . [(20170510 744) ((emacs (24)) (cl-lib (0 5))) "emacs frontend to GNU Global source code tagging system" single])
  (git-commit . [(20170510 910) ((emacs (24 4)) (dash (20170207 2056)) (with-editor (20170111 609))) "Edit Git commit messages" tar])
+ (help-fns+ . [(20170223 733) nil "Extensions to `help-fns.el'." tar])
  (highlight-indentation . [(20170502 43) nil "Minor modes for highlighting indentation" tar])
  (hlinum . [(20170507 2227) ((cl-lib (0 2))) "Extension for linum.el to highlight current line number" tar])
  (htmlize . [(20161211 1019) nil "Convert buffer text and decorations to HTML." tar])
