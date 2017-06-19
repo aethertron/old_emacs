@@ -175,7 +175,18 @@
   :bind
   ("C-x v" . vc-prefix-map)
   :config
-  (setq vc-log-show-limit 32))
+  (require 'dash)
+  (setq vc-log-show-limit 32)
+
+  (defun bgs-vc-dir-at-root ()
+    (interactive)
+    (vc-dir (vc-root-dir)))
+  (defun bgs-vc-dir-at-cwd ()
+    (interactive)
+    (vc-dir default-directory))
+  (bind-keys :map vc-prefix-map
+	     ("D" . bgs-vc-dir-at-root)
+	     ("d" . bgs-vc-dir-at-cwd)))
 
 (use-package which-key
   :config
