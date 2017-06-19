@@ -6,7 +6,7 @@
   (setq org-directory "~/org-files"
 	org-agenda-files (let ((ls ()))
 			   (when (file-exists-p "~/Dropbox")
-			     (add-to-list 'ls "~/Dropbox/org-files/agenda"))
+			     (add-to-list 'ls "~/Dropbox/Apps/org-files/agenda"))
 			   (add-to-list 'ls (concat org-directory "/agenda"))))
   (setq
         org-default-notes-file (concat org-directory "/todo.org")
