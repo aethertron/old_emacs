@@ -19,7 +19,14 @@
 
 (use-package company
   :config
-  (add-hook 'after-init-hook 'global-company-mode))
+  (defun bgs-print-backend ()
+    (interactive)
+    (message (format "Active Backend: %s" company-backend)))
+  (bind-keys :map company-active-map
+	     ("C-n" . company-select-next)
+	     ("C-p" . company-select-previous)
+	     ("C-b" . bgs-print-backend))
+  (global-company-mode))
 
 (use-package dashboard
   :config
