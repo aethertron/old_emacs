@@ -31,7 +31,7 @@
   (add-to-list 'exec-path "~/.pyenv/shims")
   (setenv "WORKON_HOME" "~/.pyenv/versions/")
   :config
-  (pyenv-mode)
+  (pyenv-mode -1)
   :bind
   ("C-x p e" . pyenv-activate-current-project))
 
