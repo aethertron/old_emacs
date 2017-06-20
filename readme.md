@@ -8,3 +8,6 @@
 
 ## EMACS_USE_LOCAL
 - When set, use locally saved stuff!
+
+## EMACS_USE_PYENV
+- Thinking about this one
