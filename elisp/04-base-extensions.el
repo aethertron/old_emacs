@@ -192,7 +192,7 @@
     (interactive)
     (vc-dir default-directory))
 
-  (bind-key "w" 'bgs-vc-copy-marked-as-kill vc-dir-mode-map))
+  (bind-key "w" 'bgs-vc-copy-marked-as-kill vc-dir-mode-map)
 
   (bind-keys :map vc-prefix-map
 	     ("D" . bgs-vc-dir-at-root)
