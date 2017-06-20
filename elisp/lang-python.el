@@ -3,6 +3,7 @@
 ;;; Contains my python configs
 
 ;;; Code:
+(defcustom bgs-emacs-use-pyenv (> (length (getenv "EMACS_USE_PYENV")) 0) "using pyenv?")
 
 (use-package python
   :mode ("\\.py" . python-mode)
@@ -31,7 +32,7 @@
   (add-to-list 'exec-path "~/.pyenv/shims")
   (setenv "WORKON_HOME" "~/.pyenv/versions/")
   :config
-  (pyenv-mode -1)
+  (pyenv-mode (if bgs-emacs-use-pyenv 1 -1))
   :bind
   ("C-x p e" . pyenv-activate-current-project))
 
