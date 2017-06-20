@@ -19,7 +19,14 @@
 
 (use-package company
   :config
-  (add-hook 'after-init-hook 'global-company-mode))
+  (defun bgs-print-backend ()
+    (interactive)
+    (message (format "Active Backend: %s" company-backend)))
+  (bind-keys :map company-active-map
+	     ("C-n" . company-select-next)
+	     ("C-p" . company-select-previous)
+	     ("C-b" . bgs-print-backend))
+  (global-company-mode))
 
 (use-package dashboard
   :config
@@ -168,6 +175,7 @@
   :bind
   ("C-x v" . vc-prefix-map)
   :config
+  (require 'dash)
   (setq vc-log-show-limit 32)
 
   (defun bgs-vc-copy-marked-as-kill ()
@@ -176,7 +184,20 @@
       (kill-new string)
       (message (format "Copied to kill ring: %s" string))))
 
+  (defun bgs-vc-dir-at-root ()
+    (interactive)
+    (vc-dir (vc-root-dir)))
+
+  (defun bgs-vc-dir-at-cwd ()
+    (interactive)
+    (vc-dir default-directory))
+
   (bind-key "w" 'bgs-vc-copy-marked-as-kill vc-dir-mode-map))
+
+  (bind-keys :map vc-prefix-map
+	     ("D" . bgs-vc-dir-at-root)
+	     ("d" . bgs-vc-dir-at-cwd)))
+
 
 (use-package which-key
   :config

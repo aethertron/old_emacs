@@ -3,8 +3,7 @@
 (package-initialize)
 
 ;; variables
-(defcustom use-local nil "build from local or web?")
-(defcustom guarantee-use-package "t" "try to install use package?")
+(defcustom use-local (> (length (getenv "EMACS_USE_LOCAL")) 0) "build from local or web?")
 
 (if use-local
     ;; use-local
@@ -27,9 +26,5 @@
 
 (when (not package-archive-contents)
   (package-refresh-contents))
-
-(if guarantee-use-package
-    (unless (package-installed-p 'use-package)
-      (package-install 'use-package)))
 
 (provide '01-elpa-bootstrap)
