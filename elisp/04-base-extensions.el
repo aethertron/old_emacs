@@ -168,7 +168,15 @@
   :bind
   ("C-x v" . vc-prefix-map)
   :config
-  (setq vc-log-show-limit 32))
+  (setq vc-log-show-limit 32)
+
+  (defun bgs-vc-copy-marked-as-kill ()
+    (interactive)
+    (let ((string (s-join " " (vc-dir-marked-files))))
+      (kill-new string)
+      (message (format "Copied to kill ring: %s" string))))
+
+  (bind-key "w" 'bgs-vc-copy-marked-as-kill vc-dir-mode-map))
 
 (use-package which-key
   :config
