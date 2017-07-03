@@ -47,4 +47,5 @@
       '(
 	next-multiframe-window
 	org-cycle
+	swiper-mc
 	))
