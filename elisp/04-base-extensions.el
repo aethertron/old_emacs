@@ -3,8 +3,7 @@
 
 (use-package avy
   :bind
-  ("C-;"     . avy-goto-char)
-  ("C-c SPC" . avy-goto-char))
+  ("C-;"     . avy-goto-word-1))
 
 (use-package buffer-move
   :bind
