@@ -172,10 +172,10 @@
   (global-undo-tree-mode 1))
 
 (use-package vc
-  :bind
-  ("C-x v" . vc-prefix-map)
   :config
   (require 'dash)
+  (require 'vc-dir)
+
   (setq vc-log-show-limit 32)
 
   (defun bgs-vc-copy-marked-as-kill ()
@@ -192,7 +192,9 @@
     (interactive)
     (vc-dir default-directory))
 
-  (bind-key "w" 'bgs-vc-copy-marked-as-kill vc-dir-mode-map))
+  (bind-key "w" 'bgs-vc-copy-marked-as-kill vc-dir-mode-map)
+
+  (bind-key "C-x v" 'vc-prefix-map)
 
   (bind-keys :map vc-prefix-map
 	     ("D" . bgs-vc-dir-at-root)
