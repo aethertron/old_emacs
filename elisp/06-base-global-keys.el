@@ -9,6 +9,7 @@
 (bind-key "C-c h" 'hl-line-mode)
 
 (bind-key "C-c x" 'shell)
+(bind-key "C-c r" 'toggle-truncate-lines)
 
 (bind-key "<f5>" 'revert-buffer)
 
