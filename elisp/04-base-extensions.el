@@ -6,7 +6,7 @@
 
 (use-package ibuffer
   :config
-  (bind-keys ))
+  (bind-keys ("C-x C-b" . ibuffer)))
 
 ;; Additional Packages
 
