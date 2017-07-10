@@ -80,8 +80,8 @@
 (use-package dash)
 (require 'comint)
 (add-hook 'kill-buffer-hook #'comint-write-input-ring)
-(add-hook 'kill-emacs-hook (lambda () (--each (buffer-list))
-			     (with-current-buffer it (comint-write-input-ring))))
+(add-hook 'kill-emacs-hook (lambda () (--each (buffer-list)
+			     (with-current-buffer it (comint-write-input-ring)))))
 
 (provide '02-base)
 ;;; base ends here
