@@ -210,6 +210,8 @@
 
 (use-package smex)
 
+(use-package string-inflection)
+
 (use-package undo-tree
   :config
   ;; Remember undo history
