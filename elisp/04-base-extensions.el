@@ -2,12 +2,47 @@
 (use-package bind-key)
 
 
+
 ;; Builtin Packages
+
+(use-package hideshow
+  :config
+  (add-hook 'prog-mode-hook 'hs-minor-mode))
 
 (use-package ibuffer
   :config
   (bind-keys ("C-x C-b" . ibuffer)))
 
+(use-package vc
+  :config
+  (require 'dash)
+  (require 'vc-dir)
+
+  (setq vc-log-show-limit 32)
+
+  (defun bgs-vc-copy-marked-as-kill ()
+    (interactive)
+    (let ((string (s-join " " (vc-dir-marked-files))))
+      (kill-new string)
+      (message (format "Copied to kill ring: %s" string))))
+
+  (defun bgs-vc-dir-at-root ()
+    (interactive)
+    (vc-dir (vc-root-dir)))
+
+  (defun bgs-vc-dir-at-cwd ()
+    (interactive)
+    (vc-dir default-directory))
+
+  (bind-key "w" 'bgs-vc-copy-marked-as-kill vc-dir-mode-map)
+
+  (bind-key "C-x v" 'vc-prefix-map)
+
+  (bind-keys :map vc-prefix-map
+	     ("D" . bgs-vc-dir-at-root)
+	     ("d" . bgs-vc-dir-at-cwd)))
+
+
 ;; Additional Packages
 
 (use-package ag)
@@ -68,12 +103,12 @@
   ("M-s l" . counsel-ag)
   ("M-s c s" . counsel-set-variable)
   ("C-h p" . counsel-find-library)
-  :config
-  (require 'ivy)
+  :init
   (counsel-mode)
-  (when (package-installed-p 'company)
+  (counsel-projectile-on)
+  (use-package ivy)
+    (when (package-installed-p 'company)
     (define-key global-map [remap completion-at-point] 'counsel-company)))
-(require 'counsel)
 
 (use-package counsel-projectile
   :bind
@@ -149,7 +184,9 @@
   ;; Disable linum for neotree
   (add-hook 'neo-after-create-hook 'disable-neotree-hook))
 
-(use-package page-break-lines)
+(use-package page-break-lines
+  :config
+  (global-page-break-lines-mode))
 
 (use-package projectile
   :config
@@ -180,36 +217,6 @@
    undo-tree-auto-save-history nil
    undo-tree-history-directory-alist `(("." . ,(concat temp-dir "/undo/"))))
   (global-undo-tree-mode 1))
-
-(use-package vc
-  :config
-  (require 'dash)
-  (require 'vc-dir)
-
-  (setq vc-log-show-limit 32)
-
-  (defun bgs-vc-copy-marked-as-kill ()
-    (interactive)
-    (let ((string (s-join " " (vc-dir-marked-files))))
-      (kill-new string)
-      (message (format "Copied to kill ring: %s" string))))
-
-  (defun bgs-vc-dir-at-root ()
-    (interactive)
-    (vc-dir (vc-root-dir)))
-
-  (defun bgs-vc-dir-at-cwd ()
-    (interactive)
-    (vc-dir default-directory))
-
-  (bind-key "w" 'bgs-vc-copy-marked-as-kill vc-dir-mode-map)
-
-  (bind-key "C-x v" 'vc-prefix-map)
-
-  (bind-keys :map vc-prefix-map
-	     ("D" . bgs-vc-dir-at-root)
-	     ("d" . bgs-vc-dir-at-cwd)))
-
 
 (use-package which-key
   :config
