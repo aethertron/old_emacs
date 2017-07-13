@@ -65,6 +65,7 @@
  (smartparens . [(20170430 844) ((dash (2 13 0)) (cl-lib (0 3))) "Automatic insertion, wrapping and paredit-like navigation with user defined pairs." tar])
  (smex . [(20151212 1409) ((emacs (24))) "Mstyle fuzzy matching." tar])
  (spacemacs-theme . [(20170305 506) nil "Color theme with a dark and light versions" tar])
+ (string-inflection . [(20170419 1638) nil "underscore > lowerCamelCase conversion of names" tar])
  (swiper . [(20170410 24) ((emacs (24 1)) (ivy (0 9 0))) "Isearch with an overview. Oh, man!" tar])
  (tern . [(20161222 850) ((json (1 2)) (cl-lib (0 5)) (emacs (24))) "Tern-powered JavaScript integration" tar])
  (undo-tree . [(20161012 701) nil "Treat undo history as a tree" single])
