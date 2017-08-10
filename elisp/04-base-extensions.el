@@ -98,16 +98,30 @@
 (use-package flycheck)
 
 (use-package counsel
-  :bind
-  ;; ag
-  ("M-s l" . counsel-ag)
-  ("M-s c s" . counsel-set-variable)
-  ("C-h p" . counsel-find-library)
   :init
   (counsel-mode)
   (counsel-projectile-on)
+  :bind
+  ;; ag
+  ("M-s l" . counsel-ag)
+  ("M-s d" . counsel-dired-jump)
+  ("C-h p" . counsel-find-library)
+  :config
   (use-package ivy)
-    (when (package-installed-p 'company)
+
+  (bind-keys :map counsel-mode-map
+	     :prefix-map counsel-prefix-map
+	     :prefix "C-c I"
+	     ("l" . counsel-ag)
+	     ("f" . counsel-locate)
+	     ("d" . counsel-dired-jump)
+	     ("x" . counsel-linux-app)
+	     ("o" . counsel-outline)
+	     ("s" . counsel-set-variable))
+
+  (setq counsel-find-file-at-point "t"
+	counsel-mode-lighter "")	; needs patch of counsel in order to work
+  (when (package-installed-p 'company)
     (define-key global-map [remap completion-at-point] 'counsel-company)))
 
 (use-package counsel-projectile
