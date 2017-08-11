@@ -17,6 +17,7 @@
 (bind-key "C-S-o" 'bgs-open-prev-line)
 
 (bind-key "C-c i" 'imenu)
+(bind-key "C-c m" 'man)
 
 (bind-key "C-z" nil)
 
