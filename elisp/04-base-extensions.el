@@ -5,6 +5,11 @@
 
 ;; Builtin Packages
 
+(use-package autorevert
+  :config
+  (global-auto-revert-mode)
+  (setq global-auto-revert-non-file-buffers "t"))
+
 (use-package hideshow
   :config
   (add-hook 'prog-mode-hook 'hs-minor-mode))
