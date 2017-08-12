@@ -10,6 +10,11 @@
   (global-auto-revert-mode)
   (setq global-auto-revert-non-file-buffers "t"))
 
+(use-package dired-x
+  :config
+  (delete (list "\\.pdf\\'" "xpdf") dired-guess-shell-alist-default)
+  (add-to-list 'dired-guess-shell-alist-default (list "\\.pdf\\'" "okular")))
+
 (use-package hideshow
   :config
   (add-hook 'prog-mode-hook 'hs-minor-mode))
