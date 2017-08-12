@@ -72,6 +72,10 @@
 
 (column-number-mode 1)
 
+;; dired configuration
+(delete (list "\\.pdf\\'" "xpdf") dired-guess-shell-alist-default)
+(add-to-list 'dired-guess-shell-alist-default (list "\\.pdf\\'" "okular"))
+
 ;; Delete trailing whitespace before save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
