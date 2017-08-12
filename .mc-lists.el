@@ -8,6 +8,7 @@
 	c-electric-delete-forward
 	company-complete
 	counsel-M-x
+	delete-indentation
 	electric-newline-and-maybe-indent
 	forward-sexp
 	helm-M-x
@@ -49,4 +50,5 @@
 	next-multiframe-window
 	org-cycle
 	swiper-mc
+	zygospore-toggle-delete-other-windows
 	))
