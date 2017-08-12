@@ -21,7 +21,7 @@
     (bind-keys :map inferior-python-mode-map
 	       ("M-p" . comint-previous-matching-input-from-input)
 	       ("M-n" . comint-next-matching-input-from-input))
-  (elpy-enable))
+  (elpy-enable)))
 
 (use-package pip-requirements
   :config
