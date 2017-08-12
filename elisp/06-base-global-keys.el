@@ -27,7 +27,5 @@
 (bind-key "C-a" 'back-to-indentation)
 (bind-key "M-m" 'move-beginning-of-line)
 
-
-
 (provide '06-base-global-keys)
 ;;; 06-base-global-keys.el ends here
