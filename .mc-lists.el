@@ -8,6 +8,7 @@
 	c-electric-delete-forward
 	company-complete
 	counsel-M-x
+	electric-newline-and-maybe-indent
 	forward-sexp
 	helm-M-x
 	indent-for-tab-command
