@@ -18,4 +18,9 @@
   (open-line arg)
   (indent-according-to-mode))
 
+(defun bgs-copy-buffer-file-name ()
+  (interactive)
+  (kill-new (buffer-file-name))
+  (message (format "Copied \"%s\" to kill-ring" (buffer-file-name))))
+
 (provide '05-base-functions)

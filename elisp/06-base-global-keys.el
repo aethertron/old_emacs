@@ -1,5 +1,6 @@
 ;; Add your keys here, as such
 ;; Assume previous files have been sourced, not need to require or refer to them!
+(require '05-base-functions)
 
 (require 'bind-key)
 
@@ -18,6 +19,7 @@
 
 (bind-key "C-c i" 'imenu)
 (bind-key "C-c m" 'man)
+(bind-key "C-c w" 'bgs-copy-buffer-file-name)
 
 (bind-key "C-z" nil)
 
