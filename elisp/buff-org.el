@@ -8,8 +8,7 @@
 			   (when (file-exists-p "~/Dropbox")
 			     (add-to-list 'ls "~/Dropbox/Apps/org-files/agenda"))
 			   (add-to-list 'ls (concat org-directory "/agenda"))))
-  (setq
-        org-default-notes-file (concat org-directory "/todo.org")
+  (setq org-default-notes-file (concat org-directory "/todo.org")
 	org-clock-report-include-clocking-task "t"
 	org-time-clocksum-use-fractional "t"
 	org-todo-keywords '((sequence "TODO(t)" "WAIT(w)" "|" "CANCEL(c)" "DONE(d)"))
@@ -25,6 +24,9 @@
 	   ((agenda "" nil)
 	    (alltodo "" nil))
 	   nil))))
+  (bind-keys :map org-mode-map
+	     ("<C-S-left>" . nil)
+	     ("<C-S-right>" . nil))
   :bind
   ("C-c l" . org-store-link)
   ("C-c a" . org-agenda))
