@@ -8,6 +8,7 @@
 	c-electric-delete-forward
 	company-complete
 	counsel-M-x
+	dabbrev-expand
 	delete-indentation
 	electric-newline-and-maybe-indent
 	forward-sexp
