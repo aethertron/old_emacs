@@ -24,6 +24,11 @@
 	   ((agenda "" nil)
 	    (alltodo "" nil))
 	   nil))))
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((python . "t")
+     (sh . "t")))
+
   (bind-keys :map org-mode-map
 	     ("<C-S-left>" . nil)
 	     ("<C-S-right>" . nil))

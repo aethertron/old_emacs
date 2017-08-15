@@ -193,7 +193,12 @@
   ("C-S-c C-S-c" . mc/edit-lines)
   ("C->" . mc/mark-next-like-this)
   ("C-<" . mc/mark-previous-like-this)
-  ("C-c C->" . mc/mark-all-like-this))
+  ("C-c C->" . mc/mark-all-like-this)
+  ("C-c C-<" . mc/mark-more-like-this-extended)
+  :bind
+  (:map mc/keymap
+	("C-c C-n" . mc/insert-numbers)
+	("C-'" . mc-hide-unmatched-lines-mode)))
 
 (use-package neotree
   :config
