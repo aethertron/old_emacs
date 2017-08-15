@@ -6,6 +6,7 @@
 	backward-sexp
 	beginning-of-buffer
 	c-electric-delete-forward
+	comint-delchar-or-maybe-eof
 	company-complete
 	counsel-M-x
 	dabbrev-expand
