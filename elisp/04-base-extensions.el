@@ -141,13 +141,14 @@
   )
 
 (use-package ivy
-  :bind
-  ("C-s" . swiper)
-  ("C-x C-r" . ivy-resume)
-  :config
+  :init
   (ivy-mode 1)
   (setq ivy-use-virtual-buffers nil)
-  (define-key read-expression-map (kbd "C-r") 'counsel-expression-history))
+  (bind-key "C-r" 'counsel-expression-history read-expression-map)
+  (bind-keys ("M-s s" . isearch-forward))
+  :bind
+  ("C-s" . swiper)
+  ("C-x C-r" . ivy-resume))
 
 (use-package ivy-hydra)
 
