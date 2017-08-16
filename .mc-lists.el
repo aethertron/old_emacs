@@ -5,6 +5,7 @@
       '(
 	backward-sexp
 	beginning-of-buffer
+	bgs-open-prev-line
 	c-electric-delete-forward
 	comint-delchar-or-maybe-eof
 	company-complete
