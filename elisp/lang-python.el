@@ -8,20 +8,21 @@
 (use-package python
   :mode ("\\.py" . python-mode)
   :config
-  (use-package elpy
-    :init
-    (add-to-list 'auto-mode-alist '("\\.py$" . python-mode))
-    :config
-    (setq elpy-rpc-backend "jedi")
-    ;; (add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
-    ;;flycheck-python-flake8-executable "/usr/local/bin/flake8"
-    (bind-keys :map elpy-mode-map
-	       ("M-." . elpy-goto-definition)
-	       ("M-," . pop-tag-mark))
-    (bind-keys :map inferior-python-mode-map
-	       ("M-p" . comint-previous-matching-input-from-input)
-	       ("M-n" . comint-next-matching-input-from-input))
-  (elpy-enable)))
+  (bind-keys :map inferior-python-mode-map
+	     ("M-p" . comint-previous-matching-input-from-input)
+	     ("M-n" . comint-next-matching-input-from-input))
+  (bind-keys :map python-mode-map
+	     ("C-c C-l" . python-shell-send-file)))
+
+(use-package elpy
+  :init
+  (setq elpy-rpc-backend "rope")
+  ;; (add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
+  ;;flycheck-python-flake8-executable "/usr/local/bin/flake8"
+  (elpy-enable)
+  (bind-keys :map elpy-mode-map
+	     ("M-." . elpy-goto-definition)
+	     ("M-," . pop-tag-mark)))
 
 (use-package pip-requirements
   :config
