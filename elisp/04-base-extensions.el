@@ -124,6 +124,14 @@
 	     ("o" . counsel-outline)
 	     ("s" . counsel-set-variable))
 
+  (eval-after-load "company"
+    (if global-company-mode
+	(progn
+ 	  (message "BGS: global company mode on, bind counsel-company to counsel-mode-map")
+	  (bind-keys :map counsel-mode-map
+		     ("C-:" . counsel-company)))
+      (message "BGS: global company mode off, do nothing!")))
+
   (setq counsel-find-file-at-point "t"
 	counsel-mode-lighter "")	; needs patch of counsel in order to work
   (when (package-installed-p 'company)
