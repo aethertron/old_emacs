@@ -61,8 +61,9 @@
             (message (concat "Setting virtualenv to " pyenv-current-version))))))))
 
 (add-hook 'after-init-hook 'pyenv-init)
-(add-hook 'python-mode-hook 'flycheck-mode)
 (add-hook 'projectile-after-switch-project-hook 'pyenv-activate-current-project)
+(add-hook 'python-mode-hook 'flycheck-mode)
+(add-hook 'python-mode-hook (lambda () (toggle-truncate-lines 1)))
 
 (provide 'lang-python)
 ;;; base-python.el ends here
