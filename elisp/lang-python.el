@@ -22,7 +22,9 @@
   (elpy-enable)
   (bind-keys :map elpy-mode-map
 	     ("M-." . elpy-goto-definition)
-	     ("M-," . pop-tag-mark)))
+	     ("M-," . pop-tag-mark))
+  (bind-keys :map inferior-python-mode-map
+	    ("C-c E d" . elpy-doc)))
 
 (use-package pip-requirements
   :config
