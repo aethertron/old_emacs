@@ -27,9 +27,7 @@
   (bind-keys :map bgs-python-common-map
 	     ("d" . elpy-doc))
   (bind-key "C-c E" bgs-python-common-map elpy-mode-map)
-  (bind-key "C-c E" bgs-python-common-map inferior-python-mode-map)
-
-  )
+  (bind-key "C-c E" bgs-python-common-map inferior-python-mode-map))
 
 (use-package pip-requirements
   :config
