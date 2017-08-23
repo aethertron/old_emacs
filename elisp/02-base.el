@@ -82,6 +82,7 @@
 (add-to-list 'dired-guess-shell-alist-default (list "\\.html\\'" "google-chrome"))
 (delete (list "\\.png\\'" "display") dired-guess-shell-alist-default)
 (add-to-list 'dired-guess-shell-alist-default (list "\\.png\\'" "gwenview"))
+(add-to-list 'dired-guess-shell-alist-default (list ".*" "xdg-open") "t")
 
 ;; Write comint input rings (for history, etc) when buffers are killed
 (use-package dash)
