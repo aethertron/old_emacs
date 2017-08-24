@@ -7,7 +7,12 @@
 	     ("M-n" . dired-next-line)))
 
 (defun wgs-dired-mode-hook ()
-  (dired-omit-mode))
+  (let ((prev-omit dired-omit-verbose))
+    (setq dired-omit-verbose nil)
+    (dired-omit-mode)
+    (setq dired-omit-verbose prev-omit)))
+
+(setq dired-mode-hook (last dired-mode-hook (- (length dired-mode-hook) 1)))
 (add-hook 'dired-mode-hook 'wgs-dired-mode-hook)
 
 (provide 'buff-dired)
