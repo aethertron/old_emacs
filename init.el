@@ -11,6 +11,9 @@
 ;; You may delete these explanatory comments.
 (package-initialize)
 
+;; add elisp lib to path before loading scripts!
+(add-to-list 'load-path (concat user-emacs-directory "elisp-lib"))
+
 (add-to-list 'load-path (concat user-emacs-directory "elisp"))
 
 (require '01-elpa-bootstrap)
