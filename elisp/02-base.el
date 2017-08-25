@@ -78,13 +78,13 @@
 ;; dired and friends
 (require 'dired-x)
 (require 'alist)
-;; fancy alist way for html and others
-(setq dired-guess-shell-alist-default (put-alist "\\.html\\'" "google-chrome" dired-guess-shell-alist-default))
-;; old school way for posteriority's sake for stuff we know is already in the alist
-(setf (cdr (assoc "\\.pdf\\'" dired-guess-shell-alist-default)) "okular")
-(setf (cdr (assoc "\\.png\\'" dired-guess-shell-alist-default)) "gwenview")
+(setq dired-guess-shell-alist-user nil)
+(setq dired-guess-shell-alist-user (put-alist "\\.pdf\\'" '("okular") dired-guess-shell-alist-user))
+(setq dired-guess-shell-alist-user (put-alist "\\.html\\'" '("google-chrome") dired-guess-shell-alist-user))
+(setq dired-guess-shell-alist-user (put-alist "\\.png\\'" '("gwenview") dired-guess-shell-alist-user))
+(setq dired-guess-shell-alist-user (put-alist "\\.jpe?g\\'" '("gwenview") dired-guess-shell-alist-user))
 ;; another way to add alist elements
-(add-to-list 'dired-guess-shell-alist-default (list ".*" "xdg-open") "t")
+(add-to-list 'dired-guess-shell-alist-user (list ".*" "xdg-open") "t")
 
 ;; Write comint input rings (for history, etc) when buffers are killed
 (use-package dash)
