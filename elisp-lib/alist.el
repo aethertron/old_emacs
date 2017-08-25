@@ -100,7 +100,6 @@ See also `assoc'."
 ;;; @ end
 ;;;
 
-(require 'product)
-(product-provide (provide 'alist) (require 'apel-ver))
+(provide 'alist)
 
 ;;; alist.el ends here
