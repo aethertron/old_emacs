@@ -22,6 +22,10 @@
 ;; Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
+;; this was acquired from: http://git.chise.org/gitweb/?p=elisp/apel.git;a=blob_plain;f=alist.el;hb=apel-10_8
+;; considering this abandon/vaporware i suppose
+;; this is a good utility for slicing and dicing alists, an inportant emacs structure
+
 ;;; Code:
 
 ;;;###autoload
