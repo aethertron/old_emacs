@@ -13,6 +13,7 @@
 (bind-key "C-c r" 'toggle-truncate-lines)
 
 (bind-key "<f5>" 'revert-buffer)
+(bind-key "M-\\" 'bgs-shell-command-on-buffer)
 
 (bind-key "C-o" 'bgs-open-next-line)
 (bind-key "C-S-o" 'bgs-open-prev-line)
