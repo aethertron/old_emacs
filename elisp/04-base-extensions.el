@@ -150,9 +150,9 @@
   )
 
 (use-package highlight
+  :demand
   :bind
-  ("C-x C-y" . hlt-highlight)
-  )
+  ("C-x C-y" . hlt-highlight))
 
 (use-package hlinum
   :config
