@@ -144,9 +144,19 @@
   :config
   (counsel-projectile-on))
 
+
 (use-package help-fns+
   ;; this adds keybindings to help-map
   )
+
+(use-package highlight
+  :bind
+  ("C-x C-y" . hlt-highlight)
+  )
+
+(use-package hlinum
+  :config
+  (hlinum-activate))
 
 (use-package ivy
   :init
@@ -159,10 +169,6 @@
   ("C-x C-r" . ivy-resume))
 
 (use-package ivy-hydra)
-
-(use-package hlinum
-  :config
-  (hlinum-activate))
 
 (use-package man
   :config
