@@ -134,8 +134,7 @@
 
   (setq counsel-find-file-at-point "t"
 	counsel-mode-lighter "")	; needs patch of counsel in order to work
-  (when (package-installed-p 'company)
-    (define-key global-map [remap completion-at-point] 'counsel-company)))
+  )
 
 (use-package counsel-projectile
   :bind
