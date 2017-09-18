@@ -106,23 +106,52 @@
   :init
   (counsel-mode)
   (counsel-projectile-on)
-  :bind
-  ;; ag
-  ("M-s l" . counsel-ag)
-  ("M-s d" . counsel-dired-jump)
-  ("C-h p" . counsel-find-library)
   :config
   (use-package ivy)
+  (defun bgs-counsel-file-jump (&optional initial-input initial-directory)
+    "Jump to a file below the current directory.
+List all files within the current directory or any of its subdirectories.
+INITIAL-INPUT can be given as the initial minibuffer input.
+INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
+    (interactive
+     (list nil
+	   (when current-prefix-arg
+	     (read-directory-name "From directory: "))))
+    (counsel-require-program "find")
+    (let* ((default-directory (or initial-directory default-directory)))
+      (ivy-read "Find file: "
+		(split-string
+		 (shell-command-to-string "find . -type f -not -path '*\/.git*'")
+		 "\n" t)
+		:matcher #'counsel--find-file-matcher
+		:initial-input initial-input
+		:action (lambda (x)
+			  (with-ivy-window
+			    (find-file (expand-file-name x ivy--directory))))
+		:preselect (when counsel-find-file-at-point
+			     (require 'ffap)
+			     (let ((f (ffap-guesser)))
+			       (when f (expand-file-name f))))
+		:require-match 'confirm-after-completion
+		:history 'file-name-history
+		:keymap counsel-find-file-map
+		:caller 'counsel-file-jump)))
 
   (bind-keys :map counsel-mode-map
 	     :prefix-map counsel-prefix-map
 	     :prefix "C-c I"
 	     ("l" . counsel-ag)
-	     ("f" . counsel-locate)
+	     ("f" . bgs-counsel-file-jump)
 	     ("d" . counsel-dired-jump)
 	     ("x" . counsel-linux-app)
 	     ("o" . counsel-outline)
 	     ("s" . counsel-set-variable))
+
+  (bind-keys :map counsel-mode-map
+	     ("M-s f" . bgs-counsel-file-jump)
+	     ("M-s l" . counsel-ag)
+	     ("M-s d" . counsel-dired-jump)
+	     ("C-h p" . counsel-find-library))
 
   (eval-after-load "company"
     (if global-company-mode
