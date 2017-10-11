@@ -13,6 +13,7 @@
 	dabbrev-expand
 	delete-indentation
 	electric-newline-and-maybe-indent
+	eval-last-sexp
 	forward-sexp
 	helm-M-x
 	indent-for-tab-command
