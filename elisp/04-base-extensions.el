@@ -172,7 +172,6 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
   :config
   (counsel-projectile-on))
 
-
 (use-package help-fns+
   ;; this adds keybindings to help-map
   )
@@ -286,6 +285,8 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
    undo-tree-auto-save-history nil
    undo-tree-history-directory-alist `(("." . ,(concat temp-dir "/undo/"))))
   (global-undo-tree-mode 1))
+
+(use-package vlf)
 
 (use-package which-key
   :config
