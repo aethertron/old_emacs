@@ -30,7 +30,7 @@
 (use-package ede
   :config
   ;; Enable EDE only in C/C++
-  (global-ede-mode))
+  (add-hook 'c-mode-common-hook 'ede-minor-mode))
 
 (when use-irony
   (use-package irony
