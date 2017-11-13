@@ -291,8 +291,22 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 (use-package vlf)
 
 (use-package which-key
+  :init
+  (setq which-key-mode-map (make-sparse-keymap))
+  (bind-keys :map which-key-mode-map
+	     :prefix-map which-key-prefix-map
+	     :prefix "C-c W"
+	     ("t" . which-key-show-top-level)
+	     ("k" . which-key-show-keymap)
+	     ("m" . which-key-show-minor-mode-keymap))
+  (which-key-mode)
+  (bind-key "C-c SPC" 'which-key-show-top-level which-key-mode-map)
   :config
-  (which-key-mode))
+  (setq which-key-lighter ""
+	which-key-max-description-length 35
+	which-key-max-display-columns 1
+	which-key-side-window-location (quote left)
+	which-key-side-window-max-width 0.433))
 
 (use-package windmove
   :bind
