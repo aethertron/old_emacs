@@ -147,7 +147,8 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 	     ("d" . counsel-dired-jump)
 	     ("x" . counsel-linux-app)
 	     ("o" . counsel-outline)
-	     ("s" . counsel-set-variable))
+	     ("s" . counsel-set-variable)
+	     ("u" . counsel-unicode-char))
 
   (bind-keys :map counsel-mode-map
 	     ("M-s f" . bgs-counsel-file-jump)
