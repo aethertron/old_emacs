@@ -301,7 +301,6 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 	     ("k" . which-key-show-keymap)
 	     ("m" . which-key-show-minor-mode-keymap))
   (which-key-mode)
-  (bind-key "C-c SPC" 'which-key-show-top-level which-key-mode-map)
   :config
   (setq which-key-lighter ""
 	which-key-max-description-length 35
