@@ -3,12 +3,12 @@
   :mode
   ("\\.org.txt\\'" . org-mode)
   :config
-  (setq org-agenda-files (let ((ls ()))
-			   (when (file-exists-p "~/Dropbox")
-			     (add-to-list 'ls "~/Dropbox/org-files/agenda"))
-			   (when (file-exists-p "~/org-files/agenda")
-			     (setq org-directory "~/org-files")
-			     (add-to-list 'ls "~/org-files/agenda")) ls))
+  (setq org-agenda-files nil)
+  (when (file-exists-p "~/Dropbox")
+    (add-to-list 'org-agenda-files "~/Dropbox/org-files/agenda"))
+  (when (file-exists-p "~/org-files/agenda")
+    (setq org-directory "~/org-files")
+    (add-to-list 'org-agenda-files "~/org-files/agenda"))
   (setq org-default-notes-file (concat org-directory "/todo.org")
 	org-clock-report-include-clocking-task "t"
 	org-time-clocksum-use-fractional "t"
