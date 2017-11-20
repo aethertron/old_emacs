@@ -27,6 +27,7 @@
 	org-columns-quit
 	org-ctrl-c-ctrl-c
 	org-ctrl-c-star
+	org-cycle
 	org-delete-char
 	org-end-of-line
 	org-force-self-insert
@@ -42,7 +43,9 @@
 	org-shiftmetaleft
 	org-shiftmetaright
 	org-shiftmetaup
+	org-shifttab
 	org-shiftup
+	org-table-blank-field
 	org-yank
 	smex
 	vc-next-action
@@ -52,7 +55,6 @@
 (setq mc/cmds-to-run-once
       '(
 	next-multiframe-window
-	org-cycle
 	swiper-mc
 	zygospore-toggle-delete-other-windows
 	))
