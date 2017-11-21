@@ -29,7 +29,7 @@
 
 (use-package ede
   :config
-  ;; Enable EDE only in C/C++
+  ;; Enable EDE only in C/C++, since the global minor mode doesn't have an easy exclude feature
   (add-hook 'c-mode-common-hook 'ede-minor-mode))
 
 (when use-irony
