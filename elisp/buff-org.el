@@ -32,7 +32,8 @@
 
   (bind-keys :map org-mode-map
 	     ("<C-S-left>" . nil)
-	     ("<C-S-right>" . nil))
+	     ("<C-S-right>" . nil)
+	     ("C-c i" . counsel-org-goto))
   :bind
   ("C-c l" . org-store-link)
   ("C-c a" . org-agenda))
