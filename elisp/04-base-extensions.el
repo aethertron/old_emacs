@@ -204,6 +204,19 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
   :config
   (setq Man-width 90))
 
+(use-package helpful
+  :config
+  (bind-keys
+   ("C-h f" . helpful-function)
+   ("C-h c" . helpful-command)
+   ("C-h k" . helpful-key)
+   ("C-h m" . helpful-macro)
+   ("C-h M" . describe-mode) 		; move over
+   ;; ("" . helpful-callable)
+   ("C-h v" . helpful-variable)
+   ("C-h ." . helpful-at-point)
+   ("C-h D" . helpful-symbol)))
+
 (use-package linum
   :config
   (setq linum-format " %3d ")
@@ -280,6 +293,8 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 (use-package smex)
 
 (use-package string-inflection)
+
+(use-package treemacs)
 
 (use-package undo-tree
   :config
