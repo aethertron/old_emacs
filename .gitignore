@@ -12,3 +12,6 @@
 # Stuff that currently appears to be local
 /private
 /tramp
+
+# local unmanaged stuff
+/bundles
