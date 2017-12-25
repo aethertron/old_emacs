@@ -26,6 +26,7 @@
 	org-columns-previous-allowed-value
 	org-columns-quit
 	org-ctrl-c-ctrl-c
+	org-ctrl-c-ret
 	org-ctrl-c-star
 	org-cycle
 	org-delete-char
@@ -55,6 +56,7 @@
 (setq mc/cmds-to-run-once
       '(
 	next-multiframe-window
+	outline-show-children
 	swiper-mc
 	zygospore-toggle-delete-other-windows
 	))
