@@ -1,17 +1,20 @@
-# Locally built products
-/elpa
-
-# More local stuff
-/.custom.el
+# Local state stuff
+/eshell
+/image-dired
+/irony
+/private
 /recentf
 /semanticdb
 /smex-items
-/irony
-/image-dired
-
-# Stuff that currently appears to be local
-/private
 /tramp
 
-# local unmanaged stuff
+# Local unmanaged stuff
 /bundles
+
+# Locally built products
+/elpa
+
+# Unimportant local stuff
+/.custom.el
+
+# Stuff that currently appears to be local
