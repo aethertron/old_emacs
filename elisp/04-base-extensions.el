@@ -107,7 +107,6 @@
 (use-package counsel
   :init
   (counsel-mode)
-  (counsel-projectile-on)
   :config
   (use-package ivy)
   (defun bgs-counsel-file-jump (&optional initial-input initial-directory)
