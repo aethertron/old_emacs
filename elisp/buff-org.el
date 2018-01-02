@@ -13,6 +13,7 @@
 	org-clock-report-include-clocking-task "t"
 	org-time-clocksum-use-fractional "t"
 	org-todo-keywords '((sequence "TODO(t)" "WAIT(w)" "|" "CANCEL(c)" "DONE(d)"))
+	org-return-follows-link "t"
 	org-agenda-start-on-weekday nil
 	org-agenda-ndays 1
 	org-agenda-custom-commands

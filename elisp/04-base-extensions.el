@@ -219,7 +219,10 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 (use-package linum
   :config
   (setq linum-format " %3d ")
-  (global-linum-mode nil))
+  (global-linum-mode -1)
+  (add-hook 'prog-mode-hook 'linum-mode)
+  (add-hook 'text-mode-hook 'linum-mode)
+  )
 
 (use-package magit
   :config
@@ -268,6 +271,10 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 (use-package page-break-lines
   :config
   (global-page-break-lines-mode))
+
+(use-package pdf-tools
+  ;; can't run linum mode with pdf-tools
+  )
 
 (use-package projectile
   :config
