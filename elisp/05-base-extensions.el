@@ -5,7 +5,10 @@
 
 (use-package ace-window
   :bind
-  ("C-'" . ace-window))
+  ("C-'" . ace-window)
+  :config
+  ;; note "aw" = ace-window
+  (setq aw-dispatch-always "t"))
 
 (use-package ag)
 
@@ -254,6 +257,8 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 (use-package string-inflection)
 
 (use-package treemacs)
+
+(use-package treemacs-projectile)
 
 (use-package undo-tree
   :config
