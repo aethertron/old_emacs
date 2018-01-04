@@ -277,9 +277,11 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
   (which-key-mode)
   :config
   (setq which-key-lighter ""
-	which-key-max-description-length 35
+	which-key-popup-type 'side-window
+	which-key-max-description-length 180
+	which-key-side-window-max-height .50
 	which-key-max-display-columns 1
-	which-key-side-window-location (quote left)
+	which-key-side-window-location (quote right)
 	which-key-side-window-max-width 0.433))
 
 (use-package windmove
