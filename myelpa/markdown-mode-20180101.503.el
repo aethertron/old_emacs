@@ -7,7 +7,7 @@
 ;; Maintainer: Jason R. Blevins <jblevins@xbeta.org>
 ;; Created: May 24, 2007
 ;; Version: 2.4-dev
-;; Package-Version: 20171222.927
+;; Package-Version: 20180101.503
 ;; Package-Requires: ((emacs "24.4") (cl-lib "0.5"))
 ;; Keywords: Markdown, GitHub Flavored Markdown, itex
 ;; URL: https://jblevins.org/projects/markdown-mode/
@@ -354,6 +354,20 @@ exporting with `markdown-export'."
   :group 'markdown
   :type 'string)
 
+(defcustom markdown-xhtml-body-preamble ""
+  "Content to include in the XHTML <body> block, before the output."
+  :group 'markdown
+  :type 'string
+  :safe 'stringp
+  :package-version '(markdown-mode . "2.4"))
+
+(defcustom markdown-xhtml-body-epilogue ""
+  "Content to include in the XHTML <body> block, after the output."
+  :group 'markdown
+  :type 'string
+  :safe 'stringp
+  :package-version '(markdown-mode . "2.4"))
+
 (defcustom markdown-xhtml-standalone-regexp
   "^\\(<\\?xml\\|<!DOCTYPE\\|<html\\)"
   "Regexp indicating whether `markdown-command' output is standalone XHTML."
@@ -507,7 +521,7 @@ This applies to insertions done with
 This mode is used when automatic detection fails, such as for GFM
 code blocks with no language specified."
   :group 'markdown
-  :type 'symbol
+  :type '(choice function (const :tag "None" nil))
   :package-version '(markdown-mode . "2.4"))
 
 (defcustom markdown-gfm-uppercase-checkbox nil
@@ -7149,25 +7163,39 @@ Return the name of the output buffer used."
 
       (unless output-buffer-name
         (setq output-buffer-name markdown-output-buffer-name))
-      (cond
-       ;; Handle case when `markdown-command' does not read from stdin
-       ((and (stringp markdown-command) markdown-command-needs-filename)
-        (if (not buffer-file-name)
-            (user-error "Must be visiting a file")
-          (shell-command (concat markdown-command " "
-                                 (shell-quote-argument buffer-file-name))
-                         output-buffer-name)))
-       ;; Pass region to `markdown-command' via stdin
-       (t
-        (let ((buf (get-buffer-create output-buffer-name)))
-          (with-current-buffer buf
-            (setq buffer-read-only nil)
-            (erase-buffer))
-          (if (stringp markdown-command)
-              (call-process-region begin-region end-region
-                                   shell-file-name nil buf nil
-                                   shell-command-switch markdown-command)
-            (funcall markdown-command begin-region end-region buf))))))
+      (let ((exit-code
+             (cond
+              ;; Handle case when `markdown-command' does not read from stdin
+              ((and (stringp markdown-command) markdown-command-needs-filename)
+               (if (not buffer-file-name)
+                   (user-error "Must be visiting a file")
+                 ;; Don’t use ‘shell-command’ because it’s not guaranteed to
+                 ;; return the exit code of the process.
+                 (shell-command-on-region
+                  ;; Pass an empty region so that stdin is empty.
+                  (point) (point)
+                  (concat markdown-command " "
+                          (shell-quote-argument buffer-file-name))
+                  output-buffer-name)))
+              ;; Pass region to `markdown-command' via stdin
+              (t
+               (let ((buf (get-buffer-create output-buffer-name)))
+                 (with-current-buffer buf
+                   (setq buffer-read-only nil)
+                   (erase-buffer))
+                 (if (stringp markdown-command)
+                     (call-process-region begin-region end-region
+                                          shell-file-name nil buf nil
+                                          shell-command-switch markdown-command)
+                   (funcall markdown-command begin-region end-region buf)
+                   ;; If the ‘markdown-command’ function didn’t signal an
+                   ;; error, assume it succeeded by binding ‘exit-code’ to 0.
+                   0))))))
+        ;; The exit code can be a signal description string, so don’t use ‘=’
+        ;; or ‘zerop’.
+        (unless (eq exit-code 0)
+          (user-error "%s failed with exit code %s"
+                      markdown-command exit-code))))
     output-buffer-name))
 
 (defun markdown-standalone (&optional output-buffer-name)
@@ -7238,7 +7266,11 @@ Standalone XHTML output is identified by an occurrence of
     (insert markdown-xhtml-header-content))
   (insert "\n</head>\n\n"
           "<body>\n\n")
+  (when (> (length markdown-xhtml-body-preamble) 0)
+    (insert markdown-xhtml-body-preamble "\n"))
   (goto-char (point-max))
+  (when (> (length markdown-xhtml-body-epilogue) 0)
+    (insert "\n" markdown-xhtml-body-epilogue))
   (insert "\n"
           "</body>\n"
           "</html>\n"))
@@ -7489,7 +7521,13 @@ update this buffer's contents."
       (if (not buffer-file-name)
           (user-error "Must be visiting a file")
         (save-buffer)
-        (call-process markdown-open-command nil 0 nil buffer-file-name))
+        (let ((exit-code (call-process markdown-open-command nil 0 nil
+                                       buffer-file-name)))
+          ;; The exit code can be a signal description string, so don’t use ‘=’
+          ;; or ‘zerop’.
+          (unless (eq exit-code 0)
+            (user-error "%s failed with exit code %s"
+                        markdown-open-command exit-code))))
     (funcall markdown-open-command))
   nil)
 
@@ -8378,6 +8416,14 @@ setting the variable `markdown-code-lang-modes'."
   :safe 'booleanp
   :package-version '(markdown-mode . "2.3"))
 
+(defcustom markdown-fontify-code-block-default-mode nil
+  "Default mode to use to fontify code blocks.
+This mode is used when automatic detection fails, such as for GFM
+code blocks with no language specified."
+  :group 'markdown
+  :type '(choice function (const :tag "None" nil))
+  :package-version '(markdown-mode . "2.4"))
+
 (defun markdown-toggle-fontify-code-blocks-natively (&optional arg)
   "Toggle the native fontification of code blocks.
 With a prefix argument ARG, enable if ARG is positive,
@@ -8437,7 +8483,8 @@ Use matching function MATCHER."
                                 (if (bolp) (point-at-bol 2) (point-at-bol 3))))
                lang)
           (if (and markdown-fontify-code-blocks-natively
-                   (setq lang (markdown-code-block-lang)))
+                   (or (setq lang (markdown-code-block-lang))
+                       markdown-fontify-code-block-default-mode))
               (markdown-fontify-code-block-natively lang start end)
             (add-text-properties start end '(face markdown-pre-face)))
           ;; Set background for block as well as opening and closing lines.
@@ -8463,7 +8510,8 @@ This function is called by Emacs for automatic fontification when
 `markdown-fontify-code-blocks-natively' is non-nil.  LANG is the
 language used in the block. START and END specify the block
 position."
-  (let ((lang-mode (markdown-get-lang-mode lang)))
+  (let ((lang-mode (if lang (markdown-get-lang-mode lang)
+                     markdown-fontify-code-block-default-mode)))
     (when (fboundp lang-mode)
       (let ((string (buffer-substring-no-properties start end))
             (modified (buffer-modified-p))
