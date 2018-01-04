@@ -179,7 +179,7 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 
 (use-package magit
   :config
-
+  (unbind-key "<C-tab>" magit-mode-map)
   (setq magit-completing-read-function 'ivy-completing-read)
 
   :bind
