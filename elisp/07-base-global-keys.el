@@ -1,6 +1,6 @@
 ;; Add your keys here, as such
 ;; Assume previous files have been sourced, not need to require or refer to them!
-(require '05-base-functions)
+(require '06-base-functions)
 
 (require 'bind-key)
 
