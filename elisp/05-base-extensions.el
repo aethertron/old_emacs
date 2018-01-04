@@ -225,10 +225,6 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
   :config
   (global-page-break-lines-mode))
 
-(use-package pdf-tools
-  ;; can't run linum mode with pdf-tools
-  )
-
 (use-package projectile
   :config
   (setq projectile-known-projects-file
