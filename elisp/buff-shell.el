@@ -8,7 +8,8 @@
   (setq comint-input-ring-file-name history-file)
   (comint-read-input-ring 'silent))
 
-(add-hook 'shell-mode-hook (lambda () (turn-on-comint-history (getenv "HISTFILE"))))
+(add-hook 'shell-mode-hook (lambda () (turn-on-comint-history
+				       (concat (getenv "HOME") "/.bash_history"))))
 
 (provide 'buff-shell)
 ;;; buff-shell.el ends here
