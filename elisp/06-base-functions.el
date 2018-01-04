@@ -31,4 +31,4 @@ as input."
    (point-min) (point-max)
    (read-shell-command "Shell command on buffer: ")))
 
-(provide '05-base-functions)
+(provide '06-base-functions)

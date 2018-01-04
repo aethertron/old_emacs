@@ -19,9 +19,10 @@
 (require '01-elpa-bootstrap)
 (require '02-base)
 (require '03-base-theme)
-(require '04-base-extensions)
-(require '05-base-functions)
-(require '06-base-global-keys)
+(require '04-base-modules)
+(require '05-base-extensions)
+(require '06-base-functions)
+(require '07-base-global-keys)
 
 ;; following should be written so that they can be imported in any order!
 (require 'lang-python)
