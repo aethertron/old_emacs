@@ -3,6 +3,10 @@
 
 ;; Additional Packages
 
+(use-package ace-window
+  :bind
+  ("C-'" . ace-window))
+
 (use-package ag)
 
 (use-package avy
