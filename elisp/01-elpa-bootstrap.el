@@ -20,8 +20,7 @@
     (add-to-list 'package-archives '("elpy" . "http://jorgenschaefer.github.io/packages/"))
     package-archives))
 
-(when (not package-archive-contents)
-  (package-refresh-contents))
+(package-refresh-contents)
 
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
