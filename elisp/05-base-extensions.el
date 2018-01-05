@@ -134,6 +134,10 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
   :config
   (counsel-projectile-on))
 
+(use-package counsel-pydoc)
+
+(use-package counsel-world-clock)
+
 (use-package help-fns+
   ;; this adds keybindings to help-map
   )
@@ -256,7 +260,15 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 
 (use-package string-inflection)
 
-(use-package treemacs)
+(use-package treemacs
+  :config
+  (setq treemacs-show-hidden-files nil
+	treemacs-file-event-delay 5000
+	)
+  (treemacs-filewatch-mode t)
+  (treemacs-follow-mode t)
+  (treemacs-git-mode 'simple)
+  )
 
 (use-package treemacs-projectile)
 
