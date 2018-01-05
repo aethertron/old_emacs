@@ -263,12 +263,10 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 (use-package treemacs
   :config
   (setq treemacs-show-hidden-files nil
-	treemacs-file-event-delay 5000
-	)
+	treemacs-file-event-delay 5000)
   (treemacs-filewatch-mode t)
   (treemacs-follow-mode t)
-  (treemacs-git-mode 'simple)
-  )
+  (treemacs-git-mode 'simple))
 
 (use-package treemacs-projectile)
 
