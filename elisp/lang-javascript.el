@@ -1,6 +1,6 @@
 ;; js2-mode
 ;; https://github.com/mooz/js2-mode
-(use-package js2-mode
+(use-package js2-mode :ensure t
   :bind (:map js2-mode-map
               (("C-x C-e" . js-send-last-sexp)
                ("C-M-x" . js-send-last-sexp-and-go)
@@ -19,7 +19,7 @@
 
   ;; tern :- IDE like features for javascript and completion
   ;; http://ternjs.net/doc/manual.html#emacs
-  (use-package tern
+  (use-package tern :ensure t
     ;; :config
     ;; (defun my-js-mode-hook ()
     ;;   "Hook for `js-mode'."
@@ -34,17 +34,17 @@
 
   ;; ;; company backend for tern
   ;; ;; http://ternjs.net/doc/manual.html#emacs
-  ;; (use-package company-tern)
+  ;; (use-package company-tern :ensure t)
 
   ;; Run a JavaScript interpreter in an inferior process window
   ;; https://github.com/redguardtoo/js-comint
-  (use-package js-comint
+  (use-package js-comint :ensure t
     :config
     (setq inferior-js-program-command "node"))
 
   ;; js2-refactor :- refactoring options for emacs
   ;; https://github.com/magnars/js2-refactor.el
-  (use-package js2-refactor :defer t
+  (use-package js2-refactor :ensure t :defer t
     :diminish js2-refactor-mode
     :config
     (js2r-add-keybindings-with-prefix "C-c j r"))

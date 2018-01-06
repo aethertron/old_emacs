@@ -1,4 +1,4 @@
-(use-package web-mode
+(use-package web-mode :ensure t
   :bind (("C-c ]" . emmet-next-edit-point)
          ("C-c [" . emmet-prev-edit-point)
          ("C-c o b" . browse-url-of-file))
@@ -37,12 +37,12 @@
 
   ;; editing enhancements for web-mode
   ;; https://github.com/jtkDvlp/web-mode-edit-element
-  (use-package web-mode-edit-element
+  (use-package web-mode-edit-element :ensure t
     :config (add-hook 'web-mode-hook 'web-mode-edit-element-minor-mode))
 
   ;; snippets for HTML
   ;; https://github.com/smihica/emmet-mode
-  (use-package emmet-mode
+  (use-package emmet-mode :ensure t
     :init (setq emmet-move-cursor-between-quotes t) ;; default nil
     :diminish (emmet-mode . " e"))
   (add-hook 'web-mode-hook 'emmet-mode)
@@ -67,18 +67,18 @@
   (add-hook 'web-mode-hook 'company-mode)
 
   ;; to get completion data for angularJS
-  (use-package ac-html-angular :defer t)
+  (use-package ac-html-angular :ensure t :defer t)
   ;; to get completion for twitter bootstrap
-  (use-package ac-html-bootstrap :defer t)
+  (use-package ac-html-bootstrap :ensure t :defer t)
 
   ;; to get completion for HTML stuff
   ;; https://github.com/osv/company-web
-  (use-package company-web)
+  (use-package company-web :ensure t)
 
   (add-hook 'web-mode-hook 'company-mode))
 
 ;; configure CSS mode company backends
-(use-package css-mode
+(use-package css-mode :ensure t
   :config
   (defun my-css-mode-hook ()
     (set (make-local-variable 'company-backends)
@@ -88,7 +88,7 @@
 
 ;; impatient mode - Live refresh of web pages
 ;; https://github.com/skeeto/impatient-mode
-(use-package impatient-mode
+(use-package impatient-mode :ensure t
   :diminish (impatient-mode . " i")
   :commands (impatient-mode))
 

@@ -1,4 +1,4 @@
-(use-package org
+(use-package org :ensure t
   :init
   :mode
   ("\\.org.txt\\'" . org-mode)
@@ -39,7 +39,7 @@
   ("C-c l" . org-store-link)
   ("C-c a" . org-agenda))
 
-(use-package org-projectile
+(use-package org-projectile :ensure t
   :config
   ;; (org-projectile:per-repo)
   ;; (setq org-projectile:per-repo-filename "todo.org"
@@ -47,7 +47,7 @@
   ;; )
 )
 
-(use-package org-bullets
+(use-package org-bullets :ensure t
   :config
   (setq org-hide-leading-stars t)
   (add-hook 'org-mode-hook

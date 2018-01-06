@@ -5,7 +5,7 @@
 ;;; Code:
 (defcustom bgs-emacs-use-pyenv (> (length (getenv "EMACS_USE_PYENV")) 0) "using pyenv?")
 
-(use-package python
+(use-package python :ensure t
   :mode ("\\.py" . python-mode)
   :config
   (bind-keys :map inferior-python-mode-map
@@ -14,7 +14,7 @@
   (bind-keys :map python-mode-map
 	     ("C-c C-l" . python-shell-send-file)))
 
-(use-package elpy
+(use-package elpy :ensure t
   :init
   (setq elpy-rpc-backend "rope")
   ;; (add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
@@ -29,14 +29,14 @@
   (bind-key "C-c E" bgs-python-common-map elpy-mode-map)
   (bind-key "C-c E" bgs-python-common-map inferior-python-mode-map))
 
-(use-package pip-requirements
+(use-package pip-requirements :ensure t
   :config
   (add-hook 'pip-requirements-mode-hook #'pip-requirements-auto-complete-setup))
 
-(use-package py-autopep8)
+(use-package py-autopep8 :ensure t)
 
 (when bgs-emacs-use-pyenv
-  (use-package pyenv-mode
+  (use-package pyenv-mode :ensure t
   :init
   (add-to-list 'exec-path "~/.pyenv/shims")
   (setenv "WORKON_HOME" "~/.pyenv/versions/")

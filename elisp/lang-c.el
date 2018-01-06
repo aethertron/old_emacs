@@ -3,7 +3,7 @@
 (defcustom use-gtags "t" "whether to use gtags")
 (defcustom use-irony nil "whether to use irony")
 
-(use-package cc-mode
+(use-package cc-mode :ensure t
   :config
   ;; Available C style:
   ;; "gnu": The default style for GNU projects
@@ -20,20 +20,20 @@
   (setq gdb-many-windows t ;; use gdb-many-windows by default
 	gdb-show-main t))
 
-(use-package semantic
+(use-package semantic :ensure t
   :config
   (global-semanticdb-minor-mode 1)
   (global-semantic-idle-scheduler-mode 1)
   (global-semantic-stickyfunc-mode 1)
   (semantic-mode 1))
 
-(use-package ede
+(use-package ede :ensure t
   :config
   ;; Enable EDE only in C/C++, since the global minor mode doesn't have an easy exclude feature
   (add-hook 'c-mode-common-hook 'ede-minor-mode))
 
 (when use-irony
-  (use-package irony
+  (use-package irony :ensure t
     :config
     (defun wgs-irony-mode-hook ()
       (define-key irony-mode-map [remap completion-at-point] 'counsel-irony)
@@ -43,7 +43,7 @@
     (add-hook 'c-mode-common-hook 'irony-mode)))
 
 (when use-gtags
-  (use-package ggtags
+  (use-package ggtags :ensure t
     :config
     (ggtags-mode 1)
     (add-hook 'c-mode-common-hook
@@ -64,17 +64,17 @@
       (define-key map (kbd "C-c >")   'ggtags-next-mark))))
 
 ;; company-c-headers
-(use-package company-c-headers
+(use-package company-c-headers :ensure t
   :init
   (add-to-list 'company-backends 'company-c-headers))
 
-(use-package cc-mode
+(use-package cc-mode :ensure t
   :init
   (define-key c-mode-map  [(tab)] 'company-complete)
   (define-key c++-mode-map  [(tab)] 'company-complete))
 
 ;; git@github.com:syohex/emacs-counsel-gtags.git
-;(use-package counsel-gtags
+;(use-package counsel-gtags :ensure t
 ;  :load-path "vendor/emacs-counsel-gtags/"
 ;  :ensure nil
 ;  :config

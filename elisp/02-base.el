@@ -38,7 +38,7 @@
       inhibit-startup-message            t
       fringes-outside-margins            t
       x-select-enable-clipboard          t
-      use-package-always-ensure          t)
+      use-package-always-ensure          t) ; finding always ensure doesn't work
 
 ;; Bookmarks
 (setq
@@ -87,7 +87,7 @@
 (add-to-list 'dired-guess-shell-alist-user (list ".*" "xdg-open") "t")
 
 ;; Write comint input rings (for history, etc) when buffers are killed
-(use-package dash)
+(use-package dash :ensure t)
 (require 'comint)
 (add-hook 'kill-buffer-hook #'comint-write-input-ring)
 (add-hook 'kill-emacs-hook (lambda () (--each (buffer-list)

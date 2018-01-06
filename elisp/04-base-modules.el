@@ -1,22 +1,22 @@
 ;; Require header
-(use-package bind-key)
+(use-package bind-key :ensure t)
 
 ;; Builtin Packages
 
-(use-package autorevert
+(use-package autorevert :ensure t
   :config
   (global-auto-revert-mode)
   (setq global-auto-revert-non-file-buffers "t"))
 
-(use-package hideshow
+(use-package hideshow :ensure t
   :config
   (add-hook 'prog-mode-hook 'hs-minor-mode))
 
-(use-package ibuffer
+(use-package ibuffer :ensure t
   :config
   (bind-keys ("C-x C-b" . ibuffer)))
 
-(use-package vc
+(use-package vc :ensure t
   :config
   (require 'dash)
   (require 'vc-dir)

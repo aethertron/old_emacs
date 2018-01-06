@@ -1,4 +1,4 @@
-(use-package dired+
+(use-package dired+ :ensure t
   :config
   (setq dired-omit-files "^\\.?#\\|^\\.$\\|^\\.\\.$\\|^\\..*$"
 	dired-listing-switches "-alh --group-directories-first")
