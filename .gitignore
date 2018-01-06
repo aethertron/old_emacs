@@ -18,3 +18,4 @@
 /.custom.el
 
 # Stuff that currently appears to be local
+/projectile-bookmarks.eld
