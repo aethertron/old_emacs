@@ -269,7 +269,12 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 	treemacs-file-event-delay 5000)
   (treemacs-filewatch-mode t)
   (treemacs-follow-mode t)
-  (treemacs-git-mode 'simple))
+  (treemacs-git-mode 'simple)
+  ;; mode hook
+  (defun bgs-treemacs-mode-hook ()
+    (face-remap-add-relative 'hl-line :background "purple4")
+    (setq cursor-type t))
+  (add-hook 'treemacs-mode-hook #'bgs-treemacs-mode-hook))
 
 (use-package treemacs-projectile :ensure t)
 
