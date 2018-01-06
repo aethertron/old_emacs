@@ -136,7 +136,10 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 
 (use-package counsel-pydoc :ensure t)
 
-(use-package counsel-world-clock :ensure t)
+(use-package counsel-world-clock :ensure t
+	     :config
+	     (setq counsel-world-clock--time-zones
+		   (cons "UTC" counsel-world-clock--time-zones)))
 
 (use-package help-fns+ :ensure t
   ;; this adds keybindings to help-map
