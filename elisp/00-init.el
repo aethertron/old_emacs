@@ -11,7 +11,6 @@
 
 (require '01-elpa-bootstrap)
 (require '02-base)
-(require '02-base)
 (require '03-base-theme)
 (require '04-base-modules)
 (require '05-base-extensions)
