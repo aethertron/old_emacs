@@ -39,13 +39,13 @@
   ("C-c l" . org-store-link)
   ("C-c a" . org-agenda))
 
-(use-package org-projectile :ensure t
-  :config
+;; (use-package org-projectile :ensure t
+;;   :config
   ;; (org-projectile:per-repo)
   ;; (setq org-projectile:per-repo-filename "todo.org"
   ;; 	org-agenda-files (append org-agenda-files (org-projectile:todo-files))
   ;; )
-)
+;; )
 
 (use-package org-bullets :ensure t
   :config
