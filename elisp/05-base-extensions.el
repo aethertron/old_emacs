@@ -195,6 +195,7 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
   :config
   (unbind-key "<C-tab>" magit-mode-map)
   (setq magit-completing-read-function 'ivy-completing-read)
+  (add-hook 'after-save-hook 'magit-after-save-refresh-status)
 
   :bind
   ;; Magic
@@ -205,6 +206,10 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
   ("C-x g u" . magit-pull)
   ("C-x g e" . magit-ediff-resolve)
   ("C-x g r" . magit-rebase-interactive))
+
+(use-package magit-filenotify :ensure t
+  :config
+  (add-hook 'magit-status-mode-hook 'magit-filenotify-mode))
 
 (use-package magit-popup :ensure t)
 
