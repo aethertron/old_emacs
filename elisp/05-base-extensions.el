@@ -276,7 +276,9 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
     (setq cursor-type t))
   (add-hook 'treemacs-mode-hook #'bgs-treemacs-mode-hook))
 
-(use-package treemacs-projectile :ensure t)
+(use-package treemacs-projectile :ensure t
+  :bind
+  ("<f9>" . treemacs-projectile-toggle))
 
 (use-package undo-tree :ensure t
   :config
