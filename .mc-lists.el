@@ -55,6 +55,7 @@
 
 (setq mc/cmds-to-run-once
       '(
+	ace-window
 	next-multiframe-window
 	outline-show-children
 	swiper-mc
