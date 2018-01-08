@@ -188,8 +188,7 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
   (setq linum-format " %3d ")
   (global-linum-mode -1)
   (add-hook 'prog-mode-hook 'linum-mode)
-  (add-hook 'text-mode-hook 'linum-mode)
-  )
+  (add-hook 'text-mode-hook 'linum-mode))
 
 (use-package magit :ensure t
   :config
@@ -205,6 +204,7 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
   ("C-x g p" . magit-push)
   ("C-x g u" . magit-pull)
   ("C-x g e" . magit-ediff-resolve)
+  ("C-x g l" . magit-log-popup)
   ("C-x g r" . magit-rebase-interactive))
 
 (use-package magit-filenotify :ensure t
