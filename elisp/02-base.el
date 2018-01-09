@@ -37,7 +37,7 @@
       indent-tabs-mode                   nil
       inhibit-startup-message            t
       fringes-outside-margins            t
-      x-select-enable-clipboard          t
+      select-enable-clipboard            t
       use-package-always-ensure          t) ; finding always ensure doesn't work
 
 ;; Unlock disabled features
