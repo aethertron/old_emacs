@@ -285,6 +285,7 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 
 (use-package treemacs-projectile :ensure t
   :bind
+  ("<f8>" . treemacs-toggle)
   ("<f9>" . treemacs-projectile-toggle))
 
 (use-package undo-tree :ensure t
