@@ -10,7 +10,9 @@
   ;; note "aw" = ace-window
   (setq aw-dispatch-always "t"))
 
-(use-package ag :ensure t)
+(use-package ag :ensure t
+  :config
+  (add-hook 'ag-mode-hook 'next-error-follow-minor-mode))
 
 (use-package avy :ensure t
   :bind
@@ -132,6 +134,9 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
   :bind
   ;; ("C-x v" . counsel-projectile) ;; deactive for now
   ("C-x c p" . counsel-projectile-ag)
+  :bind
+  (:map projectile-command-map
+        ("s s" . counsel-projectile-ag))
   :config
   (projectile-mode))
 
@@ -248,13 +253,16 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
   (global-page-break-lines-mode))
 
 (use-package projectile :ensure t
+  :demand
+  :bind
+  (:map projectile-command-map
+        ("s a" . projectile-ag))
   :config
   (setq projectile-known-projects-file
         (expand-file-name "projectile-bookmarks.eld" temp-dir)
 	projectile-cache-file
         (expand-file-name "projectile-cache" temp-dir))
   (setq projectile-completion-system 'ivy)
-
   (projectile-global-mode))
 
 (use-package recentf :ensure t
