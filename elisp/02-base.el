@@ -39,6 +39,8 @@
       fringes-outside-margins            t
       select-enable-clipboard            t
       use-package-always-ensure          t) ; finding always ensure doesn't work
+(setq-default indent-tabs-mode nil
+	      fill-column 84)
 
 ;; Unlock disabled features
 (put 'upcase-region 'disabled nil)
