@@ -229,6 +229,37 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 
 (use-package ivy-hydra :ensure t)
 
+
+(use-package ivy-pages :ensure t
+  ;; bind to "j" because I want to use (i)menu and I'm an engineer :)
+  :bind
+  ("C-c j" . ivy-pages)
+  :bind (:map counsel-prefix-map
+              ("j" . ivy-pages)))
+
+(setq ivy-pages-keymap (make-sparse-keymap))
+(bind-keys :map ivy-pages-keymap
+           ("C-M-p" . ivy-previous-line)
+           ("C-p" . ivy-previous-line-and-call)
+           ("C-M-n" . ivy-next-line)
+           ("C-n" . ivy-next-line-and-call))
+
+(defun ivy-pages ()
+  "Select buffer's pages via `ivy'."
+  (interactive)
+  (ivy-read "Pages: "
+	    (ivy-pages-function)
+	    :action (lambda (x)
+		      (with-ivy-window
+		      ;; Support both stable and unstable versions of Ivy 0.8.0
+			(if (listp x)
+			    (goto-char (cdr x))
+			  (goto-char x))
+			(recenter-top-bottom 0)))
+	    :history 'ivy-pages-history
+            :keymap ivy-pages-keymap
+	    :require-match t
+	    :caller 'ivy-pages))
 
 
 (use-package linum :ensure t
