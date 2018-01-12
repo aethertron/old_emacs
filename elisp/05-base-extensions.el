@@ -4,6 +4,9 @@
 ;;; Additional Packages
 
 
+(use-package ace-link :ensure t)
+
+
 (use-package ace-window :ensure t
   :bind
   ("C-'" . ace-window)
