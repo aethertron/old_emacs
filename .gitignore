@@ -1,3 +1,7 @@
+# Local unmanaged stuff
+/bundles
+/local-notes
+
 # Local state stuff
 /eshell
 /image-dired
@@ -7,9 +11,6 @@
 /semanticdb
 /smex-items
 /tramp
-
-# Local unmanaged stuff
-/bundles
 
 # Locally built products
 /elpa
