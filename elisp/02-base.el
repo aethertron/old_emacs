@@ -82,6 +82,10 @@
 ;; Delete trailing whitespace before save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+;; Recursive minibuffer
+(setq enable-recursive-minibuffers t)
+(minibuffer-depth-indicate-mode)
+
 ;; dired and friends
 (require 'dired-x)
 (require 'alist)
