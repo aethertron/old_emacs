@@ -407,12 +407,10 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 
 
 (use-package undo-tree :ensure t
-
   :config
   ;; Remember undo history
-  (setq
-   undo-tree-auto-save-history nil
-   undo-tree-history-directory-alist `(("." . ,(concat temp-dir "/undo/"))))
+  (setq undo-tree-auto-save-history nil
+        undo-tree-history-directory-alist `(("." . ,(concat temp-dir "/undo/"))))
   (global-undo-tree-mode 1))
 
 
