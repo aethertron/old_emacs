@@ -1,12 +1,15 @@
 ;; configure baseline/builtin stuff
+;; Core settings
 
+
+
 (defconst private-dir  (expand-file-name "private" user-emacs-directory))
 (defconst temp-dir (format "%s/cache" private-dir)
   "Hostname-based elisp temp directories")
 
 (server-start)
 
-;; Core settings
+
 ;; UTF-8 please
 (set-charset-priority 'unicode)
 (setq locale-coding-system   'utf-8)   ; pretty
@@ -28,7 +31,6 @@
       ;; http://ergoemacs.org/emacs/emacs_stop_cursor_enter_prompt.html
       minibuffer-prompt-properties
       '(read-only t point-entered minibuffer-avoid-prompt face minibuffer-prompt)
-
       ;; Disable non selected window highlight
       cursor-in-non-selected-windows     nil
       highlight-nonselected-windows      nil
@@ -104,5 +106,7 @@
 (add-hook 'kill-emacs-hook (lambda () (--each (buffer-list)
 			     (with-current-buffer it (comint-write-input-ring)))))
 
+
+
 (provide '02-base)
 ;;; base ends here
