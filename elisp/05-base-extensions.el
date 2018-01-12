@@ -110,6 +110,12 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 	counsel-mode-lighter "")	; needs patch of counsel in order to work
   )
 
+(bind-keys :map counsel-imenu-map
+           ("C-M-p" . ivy-previous-line)
+           ("C-p" . ivy-previous-line-and-call)
+           ("C-M-n" . ivy-next-line)
+           ("C-n" . ivy-next-line-and-call))
+
 
 (use-package counsel-projectile :ensure t
   :demand
