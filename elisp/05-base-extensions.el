@@ -5,7 +5,6 @@
 
 
 (use-package ace-window :ensure t
-
   :bind
   ("C-'" . ace-window)
   :config
@@ -14,19 +13,16 @@
 
 
 (use-package ag :ensure t
-
   :config
   (add-hook 'ag-mode-hook 'next-error-follow-minor-mode))
 
 
 (use-package avy :ensure t
-
   :bind
   ("C-;"     . avy-goto-word-1))
 
 
 (use-package buffer-move :ensure t
-
   :bind
   ("<C-S-up>"    . buf-move-up)
   ("<C-S-down>"  . buf-move-down)
@@ -39,7 +35,6 @@
 
 
 (use-package company :ensure t
-
   :config
   (defun bgs-print-backend ()
     (interactive)
@@ -52,13 +47,10 @@
 
 
 (use-package counsel :ensure t
-
   :init
   (counsel-mode)
   :config
-  
   (use-package ivy :ensure t)
-
   (defun bgs-counsel-file-jump (&optional initial-input initial-directory)
     "Jump to a file below the current directory.
 List all files within the current directory or any of its subdirectories.
@@ -120,7 +112,6 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 
 
 (use-package counsel-projectile :ensure t
-
   :demand
   :bind
   ;; ("C-x v" . counsel-projectile) ;; deactive for now
@@ -137,14 +128,12 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 
 
 (use-package counsel-world-clock :ensure t
-
 	     :config
 	     (setq counsel-world-clock--time-zones
 		   (cons "UTC" counsel-world-clock--time-zones)))
 
 
 (use-package dashboard :ensure t
-
   :config
   (dashboard-setup-startup-hook))
 
@@ -154,7 +143,6 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 
 
 (use-package ediff :ensure t
-
   :config
   (setq ediff-window-setup-function 'ediff-setup-windows-plain)
   (setq-default ediff-highlight-all-diffs 'nil)
@@ -162,7 +150,6 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 
 
 (use-package exec-path-from-shell :ensure t
-
   :config
   ;; Add GOPATH to shell
   (when (memq window-system '(mac ns))
@@ -182,13 +169,11 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 
 
 (use-package help-fns+ :ensure t
-
   ;; this adds keybindings to help-map
   )
 
 
 (use-package helpful :ensure t
-
   :config
   (bind-keys
    ("C-h f" . helpful-function)
@@ -203,20 +188,17 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 
 
 (use-package highlight :ensure t
-
   :demand
   :bind
   ("C-x C-y" . hlt-highlight))
 
 
 (use-package hlinum :ensure t
-
   :config
   (hlinum-activate))
 
 
 (use-package ivy :ensure t
-
   :init
   (ivy-mode 1)
   (setq ivy-use-virtual-buffers nil)
@@ -263,7 +245,6 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 
 
 (use-package linum :ensure t
-
   :config
   (setq linum-format " %3d ")
   (global-linum-mode -1)
@@ -272,7 +253,6 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 
 
 (use-package magit :ensure t
-
   :config
   (unbind-key "<C-tab>" magit-mode-map)
   (add-hook 'after-save-hook 'magit-after-save-refresh-status)
@@ -293,7 +273,6 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 
 
 (use-package magit-filenotify :ensure t
-
   :config
   (add-hook 'magit-status-mode-hook 'magit-filenotify-mode))
 
@@ -303,13 +282,11 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 
 
 (use-package man :ensure t
-
   :config
   (setq Man-width 90))
 
 
 (use-package move-text :ensure t
-
   :bind
   ("M-n"      . move-text-down)
   ("M-p"      . move-text-up)
@@ -318,7 +295,6 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 
 
 (use-package multiple-cursors :ensure t
-
   :bind
   ("C-S-c C-S-c" . mc/edit-lines)
   ("C->" . mc/mark-next-like-this)
@@ -332,7 +308,6 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 
 
 (use-package neotree :ensure t
-
   :config
   (setq neo-theme 'arrow
         neotree-smart-optn t
@@ -342,13 +317,11 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 
 
 (use-package page-break-lines :ensure t
-
   :config
   (global-page-break-lines-mode))
 
 
 (use-package projectile :ensure t
-
   :demand
   :bind
   (:map projectile-command-map
@@ -363,14 +336,12 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 
 
 (use-package recentf :ensure t
-
   :config
   (setq recentf-save-file (recentf-expand-file-name "~/.emacs.d/private/cache/recentf"))
   (recentf-mode 1))
 
 
 (use-package smartparens :ensure t
-
   :config
   (require 'smartparens-config)
   (smartparens-global-mode))
@@ -385,7 +356,6 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 
 
 (use-package treemacs :ensure t
-
   :config
   (setq treemacs-show-hidden-files nil
 	treemacs-file-event-delay 5000)
@@ -400,7 +370,6 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 
 
 (use-package treemacs-projectile :ensure t
-
   :bind
   ("<f8>" . treemacs-toggle)
   ("<f9>" . treemacs-projectile-toggle))
@@ -416,14 +385,11 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 
 (use-package vlf :ensure t)
 
-
 
 (use-package wgrep :ensure t)
 
-
 
 (use-package which-key :ensure t
-
   :init
   (setq which-key-mode-map (make-sparse-keymap))
   (bind-keys :map which-key-mode-map
@@ -444,7 +410,6 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 
 
 (use-package windmove :ensure t
-
   :bind
   ("<C-up>" . windmove-up)
   ("<C-down>" . windmove-down)
@@ -453,13 +418,11 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 
 
 (use-package yasnippet :ensure t
-
   :config
   (yas-global-mode 1))
 
 
 (use-package zygospore :ensure t
-
   :bind
   ("C-x 1" . zygospore-toggle-delete-other-windows))
 
