@@ -223,6 +223,7 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 
 (use-package ivy-pages :ensure t
   ;; bind to "j" because I want to use (i)menu and I'm an engineer :)
+  :demand
   :bind
   ("C-c j" . ivy-pages)
   :bind (:map counsel-prefix-map
@@ -350,6 +351,9 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
   (recentf-mode 1))
 
 
+(use-package restart-emacs :ensure t)
+
+
 (use-package smartparens :ensure t
   :config
   (require 'smartparens-config)
@@ -373,7 +377,7 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
   (treemacs-git-mode 'simple)
   ;; mode hook
   (defun bgs-treemacs-mode-hook ()
-    (face-remap-add-relative 'hl-line :background "purple4")
+    ;; (face-remap-add-relative 'hl-line :background "purple4")
     (setq cursor-type t))
   (add-hook 'treemacs-mode-hook #'bgs-treemacs-mode-hook))
 
