@@ -9,7 +9,6 @@
 (bind-key "C-h A" 'customize-group)
 (bind-key "C-c h" 'hl-line-mode)
 
-(bind-key "C-c x" 'shell)
 (bind-key "C-c r" 'toggle-truncate-lines)
 
 (bind-key "<f5>" 'revert-buffer)
@@ -30,5 +29,19 @@
 (bind-key "C-a" 'back-to-indentation)
 (bind-key "M-m" 'move-beginning-of-line)
 
+;; global keymaps: shells
+
+;; run-prefix-map: inspired by projectile's command map
+(setq run-prefix-map (make-sparse-keymap))
+(bind-keys :map global-map
+           :prefix-map run-prefix-map
+           :prefix "C-c x"
+           ("e" . eshell)
+           ("p" . run-python)
+           ("s" . shell)
+           ("t" . term))
+
+
+
 (provide '07-base-global-keys)
 ;;; 07-base-global-keys.el ends here

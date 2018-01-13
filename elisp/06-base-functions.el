@@ -30,18 +30,6 @@ as input."
    (point-min) (point-max)
    (read-shell-command "Shell command on buffer: ")))
 
-;; global keymaps: shells
-
-;; run-prefix-map: inspired by projectile's command map
-(setq run-prefix-map (make-sparse-keymap))
-(bind-keys :map global-map
-           :prefix-map run-prefix-map
-           :prefix "C-c x"
-           ("e" . eshell)
-           ("p" . run-python)
-           ("s" . shell)
-           ("t" . term))
-
 
 
 (provide '06-base-functions)
