@@ -137,6 +137,9 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 
 
 (use-package counsel-world-clock :ensure t
+             :bind
+             (:map counsel-prefix-map
+                   ("w" . counsel-world-clock))
 	     :config
 	     (setq counsel-world-clock--time-zones
 		   (cons "UTC" counsel-world-clock--time-zones)))
