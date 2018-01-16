@@ -89,17 +89,6 @@
 (setq enable-recursive-minibuffers t)
 (minibuffer-depth-indicate-mode)
 
-;; dired and friends
-(require 'dired-x)
-(require 'alist)
-(setq dired-guess-shell-alist-user nil)
-(setq dired-guess-shell-alist-user (put-alist "\\.pdf\\'" '("okular") dired-guess-shell-alist-user))
-(setq dired-guess-shell-alist-user (put-alist "\\.html\\'" '("google-chrome") dired-guess-shell-alist-user))
-(setq dired-guess-shell-alist-user (put-alist "\\.png\\'" '("gwenview") dired-guess-shell-alist-user))
-(setq dired-guess-shell-alist-user (put-alist "\\.jpe?g\\'" '("gwenview") dired-guess-shell-alist-user))
-;; another way to add alist elements
-(add-to-list 'dired-guess-shell-alist-user (list ".*" "xdg-open") "t")
-
 ;; Write comint input rings (for history, etc) when buffers are killed
 (use-package dash :ensure t)
 (require 'comint)
