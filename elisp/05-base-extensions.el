@@ -143,6 +143,9 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 	     :config
 	     (setq counsel-world-clock--time-zones
 		   (cons "UTC" counsel-world-clock--time-zones)))
+
+(use-package csv-mode :ensure t
+  :mode "\\.csv.txt\\'")
 
 
 (use-package dashboard :ensure t
