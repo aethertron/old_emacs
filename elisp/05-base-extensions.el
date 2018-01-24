@@ -50,9 +50,9 @@
 
 
 (use-package counsel :ensure t
-  :demand
   :init
   (defvar counsel-prefix-map (make-sparse-keymap))
+  (counsel-mode)
   :config
   (use-package ivy :ensure t)
   (defun bgs-counsel-file-jump (&optional initial-input initial-directory)
