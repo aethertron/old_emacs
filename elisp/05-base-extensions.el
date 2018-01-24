@@ -349,11 +349,10 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
   (:map projectile-command-map
         ("s a" . projectile-ag))
   :config
-  (setq projectile-known-projects-file
-        (expand-file-name "projectile-bookmarks.eld" temp-dir)
-	projectile-cache-file
-        (expand-file-name "projectile-cache" temp-dir))
+  (setq projectile-cache-file (expand-file-name "projectile-cache" temp-dir))
   (setq projectile-completion-system 'ivy)
+  (setq projectile-known-projects-file (expand-file-name "projectile-bookmarks.eld" temp-dir))
+  (setq projectile-switch-project-action #'projectile-vc)
   (projectile-global-mode))
 
 
