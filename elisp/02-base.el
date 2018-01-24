@@ -96,7 +96,7 @@
 (add-hook 'kill-emacs-hook (lambda () (--each (buffer-list)
 			     (with-current-buffer it (comint-write-input-ring)))))
 
-;; fix for enriched mode, bug described here: https://www.gnu.org/software/emacs/news/NEWS.25.3
+;; fix for enriched mode part of Emacs 25.3 release, bug described here: https://www.gnu.org/software/emacs/news/NEWS.25.3
 (eval-after-load "enriched"
     '(defun enriched-decode-display-prop (start end &optional param)
        (list start end)))
