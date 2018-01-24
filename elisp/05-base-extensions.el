@@ -119,6 +119,11 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
            ("C-M-n" . ivy-next-line)
            ("C-n" . ivy-next-line-and-call))
 
+(bind-keys
+   ("C-h b" . counsel-descbinds)
+   ("C-h f" . counsel-describe-function)
+   ("C-h v" . counsel-describe-variable))
+
 
 (use-package counsel-projectile :ensure t
   :demand
@@ -184,22 +189,24 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 
 
 (use-package help-fns+ :ensure t
-  ;; this adds keybindings to help-map
-  )
+  :bind
+    ("C-h M" . describe-mode))
 
 
 (use-package helpful :ensure t
-  :config
-  (bind-keys
-   ("C-h f" . helpful-function)
+  :bind
    ("C-h c" . helpful-command)
+   ("C-h d" . helpful-symbol)
    ("C-h k" . helpful-key)
    ("C-h m" . helpful-macro)
-   ("C-h M" . describe-mode) 		; move over
-   ;; ("" . helpful-callable)
-   ("C-h v" . helpful-variable)
-   ("C-h ." . helpful-at-point)
-   ("C-h D" . helpful-symbol)))
+   ("C-h ." . helpful-at-point))
+
+(if (package-installed-p 'counsel)
+    (setq counsel-describe-function-function #'helpful-function
+          counsel-describe-variable-function #'helpful-variable)
+  (bind-keys
+            ("C-h f" . helpful-function)
+            ("C-h v" . helpful-variable)))
 
 
 (use-package highlight :ensure t
