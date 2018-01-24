@@ -39,5 +39,7 @@ as input."
 (defun insert-iso-timestamp ()
   (interactive)
   (insert (format-time-string iso-timestamp-format-date-and-time)))
+
+
 
 (provide '06-base-functions)
