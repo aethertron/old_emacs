@@ -277,15 +277,15 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 	 (quote
 	  ("--graph" "--color" "--decorate" "--follow" "-n256")))
   :bind
-  ;; Magic
-  ("C-x g s" . magit-status)
-  ("C-x g x" . magit-checkout)
   ("C-x g c" . magit-commit)
-  ("C-x g p" . magit-push)
-  ("C-x g u" . magit-pull)
   ("C-x g e" . magit-ediff-resolve)
   ("C-x g l" . magit-log-popup)
-  ("C-x g r" . magit-rebase-interactive))
+  ("C-x g p" . magit-push)
+  ("C-x g r" . magit-rebase-interactive)
+  ("C-x g s" . magit-status)
+  ("C-x g u" . magit-pull)
+  ("C-x g x" . magit-checkout)
+  ("C-x g L" . magit-diff-buffer-file))
 
 
 (use-package magit-filenotify :ensure t
