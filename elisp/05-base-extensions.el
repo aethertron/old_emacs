@@ -128,7 +128,6 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 (use-package counsel-projectile :ensure t
   :demand
   :bind
-  ;; ("C-x v" . counsel-projectile) ;; deactive for now
   ("C-x c p" . counsel-projectile-ag)
   :bind
   (:map projectile-command-map
