@@ -278,20 +278,24 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
   :config
   (unbind-key "<C-tab>" magit-mode-map)
   (add-hook 'after-save-hook 'magit-after-save-refresh-status)
-  (setq magit-completing-read-function 'ivy-completing-read
-	magit-log-arguments
-	 (quote
-	  ("--graph" "--color" "--decorate" "--follow" "-n256")))
+  (setq magit-completing-read-function 'ivy-completing-read)
+  (setq magit-log-arguments '("--graph" "--color" "--decorate" "--follow" "-n256"))
   :bind
-  ("C-x g c" . magit-commit)
-  ("C-x g e" . magit-ediff-resolve)
-  ("C-x g l" . magit-log-popup)
-  ("C-x g p" . magit-push)
-  ("C-x g r" . magit-rebase-interactive)
-  ("C-x g s" . magit-status)
-  ("C-x g u" . magit-pull)
-  ("C-x g x" . magit-checkout)
-  ("C-x g L" . magit-diff-buffer-file))
+  (:prefix-map magit-prefix-map
+               :prefix "C-x g"
+               ("c" . magit-commit)
+               ("e" . magit-ediff-resolve)
+               ("l" . magit-log-popup)
+               ("p" . magit-push)
+               ("r" . magit-rebase-interactive)
+               ("s" . magit-status)
+               ("u" . magit-pull)
+               ("x" . magit-checkout)
+               ("L" . magit-diff-buffer-file))
+  :bind
+  (:map magit-mode-map
+        ("o" . nil)
+        ("O" . nil)))
 
 
 (use-package magit-filenotify :ensure t
