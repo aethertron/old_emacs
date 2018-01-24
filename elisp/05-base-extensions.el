@@ -83,6 +83,7 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 		:keymap counsel-find-file-map
 		:caller 'counsel-file-jump)))
 
+  (defvar counsel-prefix-map (make-sparse-keymap))
   (bind-keys :map counsel-mode-map
 	     :prefix-map counsel-prefix-map
 	     :prefix "C-c I"
