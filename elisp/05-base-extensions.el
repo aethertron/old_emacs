@@ -50,8 +50,9 @@
 
 
 (use-package counsel :ensure t
+  :demand
   :init
-  (counsel-mode)
+    (defvar counsel-prefix-map (make-sparse-keymap))
   :config
   (use-package ivy :ensure t)
   (defun bgs-counsel-file-jump (&optional initial-input initial-directory)
@@ -83,18 +84,7 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 		:keymap counsel-find-file-map
 		:caller 'counsel-file-jump)))
 
-  (defvar counsel-prefix-map (make-sparse-keymap))
-  (bind-keys :map counsel-mode-map
-	     :prefix-map counsel-prefix-map
-	     :prefix "C-c I"
-	     ("d" . counsel-dired-jump)
-	     ("f" . bgs-counsel-file-jump)
-	     ("l" . counsel-ag)
-	     ("o" . counsel-outline)
-             ("p" . counsel-package)
-	     ("s" . counsel-set-variable)
-	     ("u" . counsel-unicode-char)
-	     ("x" . counsel-linux-app))
+
 
   (bind-keys :map counsel-mode-map
 	     ("M-s f" . bgs-counsel-file-jump)
@@ -111,8 +101,19 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
       (message "BGS: global company mode off, do nothing!")))
 
   (setq counsel-find-file-at-point "t"
-	counsel-mode-lighter "")	; needs patch of counsel in order to work
-  )
+        counsel-mode-lighter "")	; needs patch of counsel in order to work
+  :bind
+  (:map counsel-mode-map
+        :prefix-map counsel-prefix-map
+        :prefix "C-c I"
+        ("d" . counsel-dired-jump)
+        ("f" . bgs-counsel-file-jump)
+        ("l" . counsel-ag)
+        ("o" . counsel-outline)
+        ("p" . counsel-package)
+        ("s" . counsel-set-variable)
+        ("u" . counsel-unicode-char)
+        ("x" . counsel-linux-app)))
 
 (bind-keys :map counsel-imenu-map
            ("C-M-p" . ivy-previous-line)
