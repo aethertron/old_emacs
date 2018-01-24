@@ -32,4 +32,12 @@ as input."
 
 
 
+;;; INSERT COMMANDS
+(defconst iso-timestamp-format-date-and-time "%Y-%m-%d, %H:%M")
+(defconst iso-timestamp-format-date "%Y-%m-%d")
+
+(defun insert-iso-timestamp ()
+  (interactive)
+  (insert (format-time-string iso-timestamp-format-date-and-time)))
+
 (provide '06-base-functions)
