@@ -109,6 +109,7 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
         ("o" . counsel-outline)
         ("p" . counsel-package)
         ("s" . counsel-set-variable)
+        ("t" . counsel-load-theme)
         ("u" . counsel-unicode-char)
         ("x" . counsel-linux-app)))
 
