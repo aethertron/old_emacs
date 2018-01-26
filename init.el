@@ -14,3 +14,11 @@
 
 (add-to-list 'load-path (concat user-emacs-directory "elisp"))
 (require '00-init)
+
+;;  load the local moudle, place for version-controlled site-specific stuff
+(let* ((local-feature "local")
+       (local-path (concat user-emacs-directory local-feature "/"))
+       (local-filename (concat local-path local-feature ".el")))
+  (when (file-exists-p local-filename)
+    (add-to-list 'load-path local-path)
+    (require 'local)))
