@@ -10,6 +10,7 @@
   (setq org-clock-report-include-clocking-task "t")
   (setq org-default-notes-file (concat org-directory "/todo.org"))
   (setq org-return-follows-link "t")
+  (setq org-startup-folded 'nofold)
   (setq org-time-clocksum-use-fractional "t")
   (setq org-todo-keywords '((sequence "TODO(t)" "WAIT(w)" "|" "CANCEL(c)" "DONE(d)")))
   (org-babel-do-load-languages 'org-babel-load-languages '((python . "t") (sh . "t")))
