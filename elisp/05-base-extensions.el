@@ -370,7 +370,7 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 
 
 (use-package smartparens :ensure t
-  :config
+  :init
   (require 'smartparens-config)
   (smartparens-global-mode))
 
