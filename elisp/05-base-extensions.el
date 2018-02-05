@@ -9,7 +9,7 @@
 
 (use-package ace-window :ensure t
   :bind
-  ("C-'" . ace-window)
+  ("C-;" . ace-window)
   :config
   ;; note "aw" = ace-window
   (setq aw-dispatch-always "t"))
@@ -22,7 +22,7 @@
 
 (use-package avy :ensure t
   :bind
-  ("C-;"     . avy-goto-word-1))
+  ("C-'"     . avy-goto-word-1))
 
 
 (use-package buffer-move :ensure t
