@@ -93,6 +93,9 @@
   (toggle-truncate-lines 1))
 (add-hook 'prog-mode-hook 'truncate-lines-mode)
 (add-hook 'text-mode-hook 'truncate-lines-mode)
+(add-hook 'special-mode-hook 'truncate-lines-mode)
+
+
 ;; fix for enriched mode part of Emacs 25.3 release, bug described here: https://www.gnu.org/software/emacs/news/NEWS.25.3
 (eval-after-load "enriched"
     '(defun enriched-decode-display-prop (start end &optional param)
