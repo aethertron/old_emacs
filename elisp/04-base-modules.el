@@ -11,6 +11,27 @@
   (global-auto-revert-mode))
 
 
+(use-package eshell :defer t)
+;; eshell
+
+(defvar eshell-extra-minor-mode-map (make-sparse-keymap))
+(define-minor-mode eshell-extra-minor-mode
+  :global nil :keymap eshell-extra-minor-mode-map)
+
+(use-package eshell
+  :init
+  ;; prompt function
+  (defun eshell-prompt-bgs ()
+    (concat (format-time-string "[%H:%M:%S] " (current-time))
+            (if (= (user-uid) 0) " # " " $ ")))
+  (defvar eshell-prompt-function #'eshell-prompt-bgs)
+  ;; minor mode for key config
+  :bind (:map eshell-extra-minor-mode-map)
+  ("C-a" . eshell-bol)
+  ("M-m" . eshell-bol)
+  :hook (eshell-mode . eshell-extra-minor-mode))
+
+
 (use-package hideshow :ensure t
   :config
   (add-hook 'prog-mode-hook 'hs-minor-mode))
