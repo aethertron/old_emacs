@@ -18,6 +18,22 @@
 (use-package ibuffer :ensure t
   :config
   (bind-keys ("C-x C-b" . ibuffer)))
+
+(use-package sort :ensure t
+  :init
+  (defvar sort-prefix-map (make-sparse-keymap))
+  :bind
+  ("C-c s" . sort-lines)
+  :bind
+  (:prefix-map sort-prefix-map
+               :prefix "C-c S"
+               ("s" . sort-lines)
+               ("p" . sort-pages)
+               ("f" . sort-fields)
+               ("c" . sort-columns)
+               ("g" . sort-paragraphs)
+               ("r" . sort-regexp-fields)
+               ("n" . sort-numeric-fields)))
 
 
 (use-package vc :ensure t
