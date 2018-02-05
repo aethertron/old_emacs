@@ -1,24 +1,19 @@
 (setq dired-dwim-target t)
+(setq dired-listing-switches "-alh --group-directories-first")
+(setq dired-omit-files "^\\.?#\\|^\\.$\\|^\\.\\.$\\|^\\..*$")
+(setq dired-omit-verbose nil)
 
-(use-package dired+ :ensure t
-  :config
-  (setq dired-omit-files "^\\.?#\\|^\\.$\\|^\\.\\.$\\|^\\..*$"
-	dired-listing-switches "-alh --group-directories-first")
-  (bind-keys :map dired-mode-map
+(bind-keys :map dired-mode-map
 	     ("M-p" . dired-previous-line)
-	     ("M-n" . dired-next-line)))
+	     ("M-n" . dired-next-line))
 
-(defun wgs-dired-mode-hook ()
-  (let ((prev-omit dired-omit-verbose))
-    (setq dired-omit-verbose nil)
-    (dired-omit-mode)
-    (setq dired-omit-verbose prev-omit)))
+(use-package dired+ :ensure t)
 
-(setq dired-mode-hook (last dired-mode-hook (- (length dired-mode-hook) 1)))
-(add-hook 'dired-mode-hook 'wgs-dired-mode-hook)
-
-;; dired and friends
+
 (require 'dired-x)
+;; dired-x section
+(add-hook 'dired-mode-hook 'dired-omit-mode)
+
 (require 'alist)
 (setq dired-guess-shell-alist-user nil)
 (setq dired-guess-shell-alist-user (put-alist "\\.pdf\\'" '("okular") dired-guess-shell-alist-user))
