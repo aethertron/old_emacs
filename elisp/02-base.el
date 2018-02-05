@@ -20,41 +20,35 @@
 (setq default-process-coding-system '(utf-8-unix . utf-8-unix))
 
 ;; Emacs customizations
-(setq confirm-kill-emacs                  'y-or-n-p
-      confirm-nonexistent-file-or-buffer  t
-      save-interprogram-paste-before-kill t
-      mouse-yank-at-point                 t
-      require-final-newline               t
-      visible-bell                        nil
-      ring-bell-function                  'ignore
-      custom-file                         "~/.emacs.d/.custom.el"
-      ;; http://ergoemacs.org/emacs/emacs_stop_cursor_enter_prompt.html
-      minibuffer-prompt-properties
-      '(read-only t point-entered minibuffer-avoid-prompt face minibuffer-prompt)
-      ;; Disable non selected window highlight
-      cursor-in-non-selected-windows     nil
-      highlight-nonselected-windows      nil
-      ;; PATH
-      exec-path                          (append exec-path '("/usr/local/bin/"))
-      indent-tabs-mode                   nil
-      inhibit-startup-message            t
-      fringes-outside-margins            t
-      select-enable-clipboard            t
-      use-package-always-ensure          t) ; finding always ensure doesn't work
-(setq-default indent-tabs-mode nil
-	      fill-column 84
-              tab-width 4)
+(setq confirm-kill-emacs                       'y-or-n-p)
+(setq confirm-nonexistent-file-or-buffer       t)
+(setq cursor-in-non-selected-windows           nil)
+(setq custom-file                              "~/.emacs.d/.custom.el")
+(setq exec-path                                (append exec-path '("/usr/local/bin/")))
+(setq fringes-outside-margins                  t)
+(setq highlight-nonselected-windows            nil)
+(setq indent-tabs-mode                         nil)
+(setq inhibit-startup-message                  t)
+(setq minibuffer-prompt-properties             '(read-only t point-entered minibuffer-avoid-prompt face minibuffer-prompt))
+(setq mouse-yank-at-point                      t)
+(setq require-final-newline                    t)
+(setq ring-bell-function                       'ignore)
+(setq save-interprogram-paste-before-kill      t)
+(setq select-enable-clipboard                  t)
+(setq visible-bell                             nil)
+
+(setq-default fill-column 84)
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
 
 ;; Unlock disabled features
-(put 'upcase-region 'disabled nil)
 (put 'narrow-to-region 'disabled nil)
 (put 'scroll-left 'disabled nil)
+(put 'upcase-region 'disabled nil)
 
 ;; Bookmarks
-(setq
- ;; persistent bookmarks
- bookmark-save-flag                      t
- bookmark-default-file              (concat temp-dir "/bookmarks"))
+(setq bookmark-save-flag                      t)
+(setq bookmark-default-file                   (concat temp-dir "/bookmarks"))
 
 ;; Backups enabled, use nil to disable
 (setq
@@ -69,7 +63,6 @@
  auto-save-file-name-transforms    `((".*" ,(concat temp-dir "/auto-save-list/") t)))
 
 (fset 'yes-or-no-p 'y-or-n-p)
-(global-auto-revert-mode t)
 
 ;; Disable toolbar & menubar
 (menu-bar-mode -1)
@@ -79,7 +72,6 @@
   (scroll-bar-mode -1))
 
 (show-paren-mode 1)
-
 (column-number-mode 1)
 
 ;; Delete trailing whitespace before save
@@ -96,6 +88,11 @@
 (add-hook 'kill-emacs-hook (lambda () (--each (buffer-list)
 			     (with-current-buffer it (comint-write-input-ring)))))
 
+;; Truncate Lines Mode Config
+(defun truncate-lines-mode ()
+  (toggle-truncate-lines 1))
+(add-hook 'prog-mode-hook 'truncate-lines-mode)
+(add-hook 'text-mode-hook 'truncate-lines-mode)
 ;; fix for enriched mode part of Emacs 25.3 release, bug described here: https://www.gnu.org/software/emacs/news/NEWS.25.3
 (eval-after-load "enriched"
     '(defun enriched-decode-display-prop (start end &optional param)

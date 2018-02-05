@@ -5,9 +5,10 @@
 
 
 (use-package autorevert :ensure t
-  :config
-  (global-auto-revert-mode)
-  (setq global-auto-revert-non-file-buffers "t"))
+  :init
+  (setq auto-revert-verbose nil)
+  (setq global-auto-revert-non-file-buffers "t")
+  (global-auto-revert-mode))
 
 
 (use-package hideshow :ensure t
@@ -18,6 +19,7 @@
 (use-package ibuffer :ensure t
   :config
   (bind-keys ("C-x C-b" . ibuffer)))
+
 
 (use-package sort :ensure t
   :init
