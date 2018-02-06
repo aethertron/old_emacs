@@ -5,14 +5,8 @@
   :config
   (load-theme 'solarized-dark t))
 
-;; Was run at some point:
-;; (use-package anti-zenburn-theme :ensure t :demand)
-;; (use-package cyberpunk-theme :ensure t :demand)
-;; (use-package darktooth-theme :ensure t :demand)
-;; (use-package monokai-theme :ensure t :demand)
-;; (use-package noctilux-theme :ensure t :demand)
-;; (use-package solarized-theme :ensure t :demand)
-;; (use-package spacemacs-theme :ensure t :demand)
-;; (use-package zenburn-theme :ensure t :demand)
+(use-package smart-mode-line-powerline-theme :ensure t)
+(setq sml/theme 'dark)
+(sml/setup)
 
 (provide '03-base-theme)
