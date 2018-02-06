@@ -9,11 +9,13 @@
   (setq org-agenda-ndays 1)
   (setq org-agenda-start-on-weekday nil)
   (setq org-clock-report-include-clocking-task t)
+  (setq org-clock-rounding-minutes t)
   (setq org-default-notes-file (concat org-directory "/todo.org"))
   (setq org-insert-heading-respect-content t)
   (setq org-return-follows-link t)
   (setq org-startup-folded 'nofold)
   (setq org-time-clocksum-use-fractional t)
+  (setq org-time-stamp-rounding-minutes '(6 6))
   (setq org-todo-keywords '((sequence "TODO(t)" "WAIT(w)" "|" "CANCEL(c)" "DONE(d)")))
   (org-babel-do-load-languages 'org-babel-load-languages '((python . t) (sh . t)))
   :bind
