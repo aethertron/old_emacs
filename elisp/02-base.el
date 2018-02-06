@@ -95,6 +95,10 @@
 (add-hook 'text-mode-hook 'truncate-lines-mode)
 (add-hook 'special-mode-hook 'truncate-lines-mode)
 
+;; async mode command config
+(require 'simple)
+(setq async-shell-command-buffer 'new-buffer)
+
 
 ;; fix for enriched mode part of Emacs 25.3 release, bug described here: https://www.gnu.org/software/emacs/news/NEWS.25.3
 (eval-after-load "enriched"
