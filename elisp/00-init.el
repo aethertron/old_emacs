@@ -16,6 +16,7 @@
 (require '05-base-extensions)
 (require '06-base-functions)
 (require '07-base-global-keys)
+(require '08-all-packages)
 
 ;; following should be written so that they can be imported in any order!
 (require 'lang-python)
