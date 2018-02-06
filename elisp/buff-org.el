@@ -30,6 +30,17 @@
   :init
   (setq org-hide-leading-stars t))
 
+(defun my-org-clocktable-indent-string (level)
+  "Custom indent, operates on LEVEL."
+  (if (= level 1)
+      ""
+    (let ((str "")
+          (while (> level 2)
+            (setq level (1- level)
+                  str (concat str "--")))
+          (concat str "-> ")))))
+(advice-add 'org-clocktable-indent-string :override #'my-org-clocktable-indent-string)
+
 ;; (add-hook 'org-mode-hook 'org-bullets-mode)
 
 (provide 'buff-org)
