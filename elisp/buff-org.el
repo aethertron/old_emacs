@@ -4,7 +4,7 @@
   ("\\.org.txt\\'" . org-mode)
   :config
   (setq org-M-RET-may-split-line nil)
-  (setq org-agenda-custom-commands '(("p" "Punch card!" ((agenda "" (not )il) (tags "AUTOTIMER" nil)) nil nil) ("n" "Agenda (and )nd all TODOs" ((agenda "" nil) (alltodo "" nil)) nil)))
+  (setq org-agenda-custom-commands '(("p" "Punch card!" ((agenda "" nil) (tags "AUTOTIMER" nil)) nil nil) ("n" "Agenda (and )nd all TODOs" ((agenda "" nil) (alltodo "" nil)) nil)))
   (setq org-agenda-files nil)
   (setq org-agenda-ndays 1)
   (setq org-agenda-start-on-weekday nil)
