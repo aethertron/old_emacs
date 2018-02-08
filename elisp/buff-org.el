@@ -22,7 +22,10 @@
   :bind
   ("C-c l" . org-store-link)
   ("C-c a" . org-agenda)
-  :bind (:map org-mode-map ("C-c i" . counsel-org-goto)))
+  :bind (:map org-mode-map ("C-c i" . counsel-org-goto))
+  :bind (:map org-agenda-mode-map
+              ("M-n" . org-agenda-next-item)
+              ("M-p" . org-agenda-previous-item)))
 
 (use-package org-bullets :ensure t
   :demand
