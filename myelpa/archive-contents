@@ -50,6 +50,7 @@
  (ivy . [(20180131 1134) ((emacs (24 1))) "Incremental Vertical completYon" tar])
  (ivy-hydra . [(20171130 1143) ((emacs (24 1)) (ivy (0 9 0)) (hydra (0 13 4))) "Additional key bindings for Ivy" single])
  (ivy-pages . [(20160728 1220) ((emacs (24 1)) (ivy (0 8 0))) "Complete current buffer's pages with Ivy" single])
+ (ivy-xref . [(20180201 1919) ((emacs (25 1)) (ivy (0 10 0))) "Ivy interface for xref results" single])
  (js-comint . [(20171129 2056) ((emacs (24 3))) "JavaScript interpreter in window." single])
  (js2-mode . [(20171224 1833) ((emacs (24 1)) (cl-lib (0 5))) "Improved JavaScript editing mode" tar])
  (js2-refactor . [(20180118 251) ((js2-mode (20101228)) (s (1 9 0)) (multiple-cursors (1 0 0)) (dash (1 0 0)) (s (1 0 0)) (yasnippet (0 9 0 1))) "A JavaScript refactoring library for emacs." tar])
