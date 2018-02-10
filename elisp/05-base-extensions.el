@@ -266,7 +266,7 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 	    :caller 'ivy-pages))
 
 
-(defun ivy-xref :ensure t
+(use-package ivy-xref :ensure t
        :init
        (setq xref-show-xrefs-function 'ivy-xref-show-xrefs))
 
