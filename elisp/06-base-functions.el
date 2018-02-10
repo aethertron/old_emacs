@@ -30,6 +30,17 @@ as input."
    (point-min) (point-max)
    (read-shell-command "Shell command on buffer: ")))
 
+(defun read-feature (prompt)
+  (intern (completing-read prompt features)))
+
+(defun reload-feature (feature)
+  (interactive (list (read-feature "Reload feature: ")))
+  (if (featurep feature)
+      (progn
+        (unload-feature feature t)
+        (require feature))
+    (message "Fail! Could not %s is not a feature" feature)))
+
 
 
 ;;; INSERT COMMANDS
