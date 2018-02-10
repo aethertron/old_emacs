@@ -7,6 +7,8 @@
 (use-package ace-link :ensure t
   :init
   (ace-link-setup-default "f")
+  (defvar org-agenda-keymap (make-sparse-keymap))
+  (defvar org-mode-map (make-sparse-keymap))
   :bind
   ("C-c f" . ace-link)
   (:map org-agenda-keymap
