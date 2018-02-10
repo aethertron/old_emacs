@@ -4,7 +4,15 @@
 ;;; Additional Packages
 
 
-(use-package ace-link :ensure t)
+(use-package ace-link :ensure t
+  :init
+  (ace-link-setup-default "f")
+  :bind
+  ("C-c f" . ace-link)
+  (:map org-agenda-keymap
+        ("C-c f" . ace-link))
+  (:map org-mode-map
+        ("C-c f" . ace-link)))
 
 
 (use-package ace-window :ensure t
