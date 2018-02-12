@@ -89,5 +89,12 @@
 	     ("d" . bgs-vc-dir-at-cwd)))
 
 
+(use-package xref
+  :bind
+  (:map xref--xref-buffer-mode-map
+        ("M-n" . xref-next-line)
+        ("M-p" . xref-prev-line)))
+
+
 
 (provide '04-base-modules)
