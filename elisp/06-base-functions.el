@@ -41,6 +41,12 @@ as input."
         (require feature))
     (message "Fail! Could not %s is not a feature" feature)))
 
+(defun rename-buffer-dwim (manual)
+  (interactive "P")
+  (if (not manual)
+      (rename-uniquely)
+    (call-interactively #'rename-buffer)))
+
 
 
 ;;; INSERT COMMANDS
