@@ -4,8 +4,6 @@
 
 (require 'bind-key)
 
-(bind-key "<C-tab>" 'next-multiframe-window)
-(bind-key "<C-S-iso-lefttab>" 'previous-multiframe-window)
 (bind-key "C-h A" 'customize-group)
 (bind-key "C-c h" 'hl-line-mode)
 
