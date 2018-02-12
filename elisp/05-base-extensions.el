@@ -48,15 +48,25 @@
 
 
 (use-package company :ensure t
-  :config
+
+  :init
   (defun bgs-print-backend ()
     (interactive)
     (message (format "Active Backend: %s" company-backend)))
-  (bind-keys :map company-active-map
+  (global-company-mode)
+  (defvar company-prefix-map (make-sparse-keymap))
+  :bind
+  ("C-M-i" . company-complete)
+  ("C-c c" . company-complete)
+  :bind (:map company-active-map
 	     ("C-n" . company-select-next)
 	     ("C-p" . company-select-previous)
 	     ("C-b" . bgs-print-backend))
-  (global-company-mode))
+  :bind (:prefix-map company-prefix-map
+              :prefix "C-c C"
+              ("f" . company-files)
+              ("c" . company-complete)
+              ("d" . company-dabbrev)))
 
 
 (use-package counsel :ensure t
