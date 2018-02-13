@@ -1,8 +1,7 @@
+(defvar org-agenda-keymap (make-sparse-keymap))
+
 (use-package org :ensure t
   :init
-  :mode
-  ("\\.org.txt\\'" . org-mode)
-  :config
   (setq org-M-RET-may-split-line nil)
   (setq org-agenda-custom-commands '(("p" "Punch card!" ((agenda "" nil) (tags "AUTOTIMER" nil)) nil nil) ("n" "Agenda (and )nd all TODOs" ((agenda "" nil) (alltodo "" nil)) nil)))
   (setq org-agenda-files nil)
@@ -11,7 +10,7 @@
   (setq org-clock-report-include-clocking-task t)
   (setq org-clock-rounding-minutes t)
   (setq org-cycle-open-archived-trees t)
-  (setq org-default-notes-file (concat org-directory "/todo.org"))
+  (setq org-default-notes-file (concat "~/todo.org"))
   (setq org-insert-heading-respect-content t)
   (setq org-return-follows-link t)
   (setq org-startup-folded 'nofold)
@@ -19,6 +18,8 @@
   (setq org-time-stamp-rounding-minutes '(6 6))
   (setq org-todo-keywords '((sequence "TODO(t)" "WAIT(w)" "|" "CANCEL(c)" "DONE(d)")))
   (org-babel-do-load-languages 'org-babel-load-languages '((python . t) (sh . t)))
+  :mode
+  ("\\.org.txt\\'" . org-mode)
   :bind
   ("C-c l" . org-store-link)
   ("C-c a" . org-agenda)

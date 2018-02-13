@@ -5,10 +5,9 @@
 
 
 (use-package ace-link :ensure t
+  :after (org)
   :init
   (ace-link-setup-default "f")
-  (defvar org-agenda-keymap (make-sparse-keymap))
-  (defvar org-mode-map (make-sparse-keymap))
   :bind
   ("C-c f" . ace-link)
   (:map org-agenda-keymap
@@ -167,6 +166,7 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 
 
 (use-package dashboard :ensure t
+  :after (org)
   :init
   (setq dashboard-items '((projects . 5)
                           (bookmarks . 5)
