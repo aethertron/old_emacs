@@ -7,7 +7,7 @@
 (bind-key "C-h A" 'customize-group)
 (bind-key "C-c h" 'hl-line-mode)
 
-(bind-key "C-c r" 'toggle-truncate-lines)
+(bind-key "C-c r" 'visual-line-mode)
 
 (bind-key "<f5>" 'revert-buffer)
 (bind-key "M-\\" 'bgs-shell-command-on-buffer)
