@@ -171,8 +171,7 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
   (setq dashboard-items '((projects . 5)
                           (bookmarks . 5)
                           (recents . 5)
-                          (agenda . 5)
-                          (register . 5)))
+                          (agenda . 5)))
   :config
   (dashboard-setup-startup-hook))
 
