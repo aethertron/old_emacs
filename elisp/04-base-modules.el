@@ -30,7 +30,14 @@
   :bind (:map eshell-extra-minor-mode-map)
   ("C-a" . eshell-bol)
   ("M-m" . eshell-bol)
-  :hook (eshell-mode . eshell-extra-minor-mode))
+  :hook (eshell-mode . eshell-extra-minor-mode)
+  :config
+  (eval-after-load "counsel"
+    '(progn
+       (bind-keys :map eshell-extra-minor-mode-map
+                  ("M-r" . counsel-esh-history)
+                  ("C-c C-f" . eshell-next-prompt)
+                  ("C-c C-b" . eshell-previous-prompt)))))
 
 
 (use-package hideshow :ensure t
