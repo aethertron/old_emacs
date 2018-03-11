@@ -36,6 +36,7 @@
 (setq save-interprogram-paste-before-kill      t)
 (setq select-enable-clipboard                  t)
 (setq visible-bell                             nil)
+(setq auto-window-vscroll                      nil)
 
 (setq-default fill-column 84)
 (setq-default indent-tabs-mode nil)
@@ -93,7 +94,8 @@
   (toggle-truncate-lines 1))
 (add-hook 'prog-mode-hook 'truncate-lines-mode)
 (add-hook 'text-mode-hook 'truncate-lines-mode)
-(add-hook 'special-mode-hook 'truncate-lines-mode)
+(add-hook 'comint-mode-hook #'truncate-lines-mode)
+(add-hook 'special-mode-hook #'truncate-lines-mode)
 
 ;; async mode command config
 (require 'simple)

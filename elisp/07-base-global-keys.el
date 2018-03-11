@@ -27,6 +27,9 @@
 (bind-key "C-a" 'back-to-indentation)
 (bind-key "M-m" 'move-beginning-of-line)
 
+(bind-key "M-/" #'dabbrev-completion)
+(bind-key "C-M-/" #'dabbrev-expand)
+
 ;; global keymaps: shells
 
 ;; run-prefix-map: inspired by projectile's command map
