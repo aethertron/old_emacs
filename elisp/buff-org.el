@@ -23,6 +23,9 @@
   :bind
   ("C-c l" . org-store-link)
   ("C-c a" . org-agenda)
+  ("C-'"   . nil)
+  ("C-,"   . nil)
+
   :bind (:map org-mode-map ("C-c i" . counsel-org-goto))
   :bind (:map org-agenda-mode-map
               ("M-n" . org-agenda-next-item)
