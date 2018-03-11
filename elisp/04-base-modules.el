@@ -17,6 +17,7 @@
 (defvar eshell-extra-minor-mode-map (make-sparse-keymap))
 (define-minor-mode eshell-extra-minor-mode
   :global nil :keymap eshell-extra-minor-mode-map)
+(add-hook 'eshell-extra-minor-mode-hook #'truncate-lines-mode)
 
 (use-package eshell
   :init
