@@ -57,6 +57,7 @@
   :bind
   ("C-M-i" . company-complete)
   ("C-c c" . company-complete)
+  ("C-c d" . company-files)
   :bind (:map company-active-map
 	     ("C-n" . company-select-next)
 	     ("C-p" . company-select-previous)
