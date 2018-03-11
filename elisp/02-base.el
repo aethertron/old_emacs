@@ -20,6 +20,7 @@
 (setq default-process-coding-system '(utf-8-unix . utf-8-unix))
 
 ;; Emacs customizations
+(setq auto-window-vscroll                      nil)
 (setq confirm-kill-emacs                       'y-or-n-p)
 (setq confirm-nonexistent-file-or-buffer       t)
 (setq cursor-in-non-selected-windows           nil)
@@ -36,7 +37,6 @@
 (setq save-interprogram-paste-before-kill      t)
 (setq select-enable-clipboard                  t)
 (setq visible-bell                             nil)
-(setq auto-window-vscroll                      nil)
 
 (setq-default fill-column 84)
 (setq-default indent-tabs-mode nil)
