@@ -20,6 +20,7 @@
         indent-for-tab-command
         kill-region
         mark-sexp
+        markdown-toggle-gfm-checkbox
         org-backward-sentence
         org-beginning-of-line
         org-columns-edit-value
