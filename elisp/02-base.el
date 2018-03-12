@@ -101,6 +101,11 @@
 (require 'simple)
 (setq async-shell-command-buffer 'new-buffer)
 
+;; elisp mode config
+(bind-keys :map emacs-lisp-mode-map
+           :bind emacs-lisp-mode-hook
+           ("C-M-i" nil))
+
 
 ;; fix for enriched mode part of Emacs 25.3 release, bug described here: https://www.gnu.org/software/emacs/news/NEWS.25.3
 (eval-after-load "enriched"
