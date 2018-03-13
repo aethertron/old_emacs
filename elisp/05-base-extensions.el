@@ -133,6 +133,9 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
     '(progn
        (bind-keys :map counsel-mode-map ("C-:" . counsel-company)))))
 
+(bind-keys :map comint-mode-map
+           ("M-r" . counsel-shell-history))
+
 (bind-keys :map counsel-imenu-map
            ("C-M-p" . ivy-previous-line)
            ("C-p" . ivy-previous-line-and-call)
