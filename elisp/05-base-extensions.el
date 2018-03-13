@@ -374,15 +374,18 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 
 (use-package projectile :ensure t
   :demand
+  :init
+  (projectile-global-mode)
   :bind
   (:map projectile-command-map
         ("s a" . projectile-ag))
-  :config
-  (setq projectile-cache-file (expand-file-name "projectile-cache" temp-dir))
-  (setq projectile-completion-system 'ivy)
-  (setq projectile-known-projects-file (expand-file-name "projectile-bookmarks.eld" temp-dir))
-  (setq projectile-switch-project-action #'projectile-vc)
-  (projectile-global-mode))
+  :custom
+  (projectile-cache-file (expand-file-name "projectile-cache" temp-dir) "use temp-dir for projectile-cache")
+  (projectile-completion-system 'ivy "use ivy for completion")
+  (projectile-known-projects-file (expand-file-name "projectile-bookmarks.eld" temp-dir) "set bookmarks")
+  (projectile-switch-project-action #'projectile-vc "show vc when switching to project")
+  (projectile-enable-idle-timer nil "turn on background stuff")
+  (projectile-find-dir-includes-top-level t "allow you to switch to top level, very convenient"))
 
 
 (use-package recentf :ensure t
