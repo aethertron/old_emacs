@@ -10,6 +10,7 @@
   (ace-link-setup-default "f")
   :bind
   ("C-c f" . ace-link)
+  ("M-g l" . ace-link)
   (:map org-agenda-keymap
         ("C-c f" . ace-link))
   (:map org-mode-map
@@ -19,6 +20,7 @@
 (use-package ace-window :ensure t
   :bind
   ("C-;" . ace-window)
+  ("M-g b" . ace-window)
   :config
   ;; note "aw" = ace-window
   (setq aw-dispatch-always "t"))
@@ -30,8 +32,12 @@
 
 
 (use-package avy :ensure t
+  :init
+  ;; (defvar nav-prefix-map (make-sparse-keymap))
   :bind
-  ("C-'"     . avy-goto-word-1))
+  ("C-'"     . avy-goto-word-1)
+  ("M-g r" . avy-goto-line)
+  ("M-g w" . avy-goto-word-1))
 
 
 (use-package buffer-move :ensure t
