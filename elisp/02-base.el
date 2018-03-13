@@ -103,7 +103,6 @@
 
 ;; elisp mode config
 (bind-keys :map emacs-lisp-mode-map
-           :bind emacs-lisp-mode-hook
            ("C-M-i" nil))
 
 
