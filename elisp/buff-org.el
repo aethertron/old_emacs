@@ -1,5 +1,10 @@
 (defvar org-agenda-keymap (make-sparse-keymap))
 
+(defun org-global-cycle-1 () (interactive) (org-global-cycle 1))
+(defun org-global-cycle-2 () (interactive) (org-global-cycle 2))
+(defun org-global-cycle-3 () (interactive) (org-global-cycle 3))
+(defun org-global-show-all () (interactive) (org-global-cycle '(64)))
+
 (use-package org :ensure t
   :init
   (org-babel-do-load-languages 'org-babel-load-languages '((python . t) (sh . t)))
@@ -33,8 +38,12 @@
   ("C-c a" . org-agenda)
   :bind (:map org-mode-map
               ("C-c i" . counsel-org-goto)
+              ("C-,"   . nil)
               ("C-'"   . nil)
-              ("C-,"   . nil))
+              ("M-1" . org-global-cycle-1)
+              ("M-2" . org-global-cycle-2)
+              ("M-3" . org-global-cycle-3)
+              ("M-4" . org-global-show-all))
   :bind (:map org-agenda-mode-map
               ("M-n" . org-agenda-next-item)
               ("M-p" . org-agenda-previous-item)))
