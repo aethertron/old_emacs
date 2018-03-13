@@ -96,6 +96,10 @@
 (add-hook 'text-mode-hook 'truncate-lines-mode)
 (add-hook 'comint-mode-hook #'truncate-lines-mode)
 (add-hook 'special-mode-hook #'truncate-lines-mode)
+
+(bind-keys :map comint-mode-map
+           ("C-c C-b" . comint-previous-prompt)
+           ("C-c C-f" . comint-next-prompt))
 
 ;; async mode command config
 (require 'simple)
