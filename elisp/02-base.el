@@ -89,25 +89,26 @@
 (add-hook 'kill-emacs-hook (lambda () (--each (buffer-list)
 			     (with-current-buffer it (comint-write-input-ring)))))
 
+;; elisp mode config
+(bind-keys :map emacs-lisp-mode-map
+           ("C-M-i" nil))
+
 ;; Truncate Lines Mode Config
 (defun truncate-lines-mode ()
   (toggle-truncate-lines 1))
-(add-hook 'prog-mode-hook 'truncate-lines-mode)
-(add-hook 'text-mode-hook 'truncate-lines-mode)
 (add-hook 'comint-mode-hook #'truncate-lines-mode)
+(add-hook 'prog-mode-hook 'truncate-lines-mode)
 (add-hook 'special-mode-hook #'truncate-lines-mode)
+(add-hook 'text-mode-hook 'truncate-lines-mode)
 
 (bind-keys :map comint-mode-map
            ("C-c C-b" . comint-previous-prompt)
            ("C-c C-f" . comint-next-prompt))
 
+
 ;; async mode command config
 (require 'simple)
 (setq async-shell-command-buffer 'new-buffer)
-
-;; elisp mode config
-(bind-keys :map emacs-lisp-mode-map
-           ("C-M-i" nil))
 
 
 ;; fix for enriched mode part of Emacs 25.3 release, bug described here: https://www.gnu.org/software/emacs/news/NEWS.25.3
