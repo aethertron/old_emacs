@@ -6,10 +6,14 @@
   :custom
   (org-M-RET-may-split-line nil)
   (org-agenda-custom-commands '(("p" "Punch card!" ((agenda "" nil) (tags "AUTOTIMER" nil)) nil nil) ("n" "Agenda (and )nd all TODOs" ((agenda "" nil) (alltodo "" nil)) nil)))
+  (org-agenda-file-regexp "\\`[^.].*\\.org\\'")
   (org-agenda-files nil)
   (org-agenda-ndays 1)
   (org-agenda-start-on-weekday nil)
   (org-agenda-use-time-grid nil "no time grid by default")
+  (org-clock-in-resume t)
+  (org-clock-persist '(clock))
+  (org-clock-persist-file (concat temp-dir "/org-clock-save.el"))
   (org-clock-report-include-clocking-task t)
   (org-clock-rounding-minutes t)
   (org-cycle-open-archived-trees t)
@@ -18,6 +22,8 @@
   (org-return-follows-link t)
   (org-startup-folded 'nofold)
   (org-time-clocksum-use-fractional t)
+  (org-time-clocksum-use-fractional t)
+  (org-time-stamp-rouding-minutes '(6 6))
   (org-time-stamp-rounding-minutes '(6 6))
   (org-todo-keywords '((sequence "TODO(t)" "WAIT(w)" "|" "CANCEL(c)" "DONE(d)")))
   :mode
@@ -25,10 +31,10 @@
   :bind
   ("C-c l" . org-store-link)
   ("C-c a" . org-agenda)
-  ("C-'"   . nil)
-  ("C-,"   . nil)
-
-  :bind (:map org-mode-map ("C-c i" . counsel-org-goto))
+  :bind (:map org-mode-map
+              ("C-c i" . counsel-org-goto)
+              ("C-'"   . nil)
+              ("C-,"   . nil))
   :bind (:map org-agenda-mode-map
               ("M-n" . org-agenda-next-item)
               ("M-p" . org-agenda-previous-item)))
