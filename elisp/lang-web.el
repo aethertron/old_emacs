@@ -3,16 +3,18 @@
          ("C-c [" . emmet-prev-edit-point)
          ("C-c o b" . browse-url-of-file))
   :mode
-  (("\\.js\\'" . web-mode)
+  (("\\.[agj]sp\\'" . web-mode)
+   ("\\.as[cp]x\\'" . web-mode)
+   ("\\.djhtml\\'" . web-mode)
+   ("\\.erb\\'" . web-mode)
    ("\\.html?\\'" . web-mode)
+   ("\\.js\\'" . web-mode)
+   ("\\.jsx$" . web-mode)
+   ("\\.kml$" . web-mode)
+   ("\\.mustache\\'" . web-mode)
    ("\\.phtml?\\'" . web-mode)
    ("\\.tpl\\.php\\'" . web-mode)
-   ("\\.[agj]sp\\'" . web-mode)
-   ("\\.as[cp]x\\'" . web-mode)
-   ("\\.erb\\'" . web-mode)
-   ("\\.mustache\\'" . web-mode)
-   ("\\.djhtml\\'" . web-mode)
-   ("\\.jsx$" . web-mode))
+   ("\\.xml$" . web-mode))
   :config
   (setq web-mode-markup-indent-offset 2
         web-mode-css-indent-offset 2
