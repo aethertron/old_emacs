@@ -204,9 +204,18 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 
 
 (use-package expand-region :ensure t
-
+  :init
+  (defvar expand-region-prefix-map (make-sparse-keymap))
   :bind
-  ("C-=" . er/expand-region))
+  ("C-=" . er/expand-region)
+  :bind (:prefix-map expand-region-prefix-map
+              :prefix "C-c M"
+              ("c" . er/contract-region)
+              ("o" . er/mark-org-code-block)
+              ("p" . er/mark-python-statement)
+              ("s" . er/mark-sentence)
+              ("t" . er/mark-text-sentence)
+              ("u" . er/mark-symbol)))
 
 
 (use-package flycheck :ensure t)
