@@ -305,12 +305,37 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
   (add-hook 'text-mode-hook 'linum-mode))
 
 
+(use-package magit :defer t)
+
+(defun magit-insert-last-fetch-time ()
+  (let ((headfile (concat (vc-git-root default-directory) ".git/FETCH_HEAD")))
+    (if (file-exists-p headfile)
+        (let ((age (substring (shell-command-to-string (concat "stat -c %y " headfile)) 0 16)))
+          (insert (format "Fetch:    %s\n" age)))
+      (insert "Haven't fetched yet!!\n"))))
+
 (use-package magit :ensure t
-  :config
-  (unbind-key "<C-tab>" magit-mode-map)
-  (add-hook 'after-save-hook 'magit-after-save-refresh-status)
-  (setq magit-completing-read-function 'ivy-completing-read)
-  (setq magit-log-arguments '("--graph" "--color" "--decorate" "--follow" "-n256"))
+  :custom
+  (magit-completing-read-function #'ivy-completing-read)
+  (magit-log-arguments '("--graph" "--color" "--decorate" "--follow" "-n256"))
+  (magit-status-sections-hook '(magit-insert-last-fetch-time
+                                magit-insert-status-headers
+                                magit-insert-merge-log
+                                magit-insert-rebase-sequence
+                                magit-insert-am-sequence
+                                magit-insert-sequencer-sequence
+                                magit-insert-bisect-output
+                                magit-insert-bisect-rest
+                                magit-insert-bisect-log
+                                magit-insert-untracked-files
+                                magit-insert-unstaged-changes
+                                magit-insert-staged-changes
+                                magit-insert-stashes
+                                magit-insert-unpulled-from-upstream
+                                magit-insert-unpulled-from-pushremote
+                                magit-insert-unpushed-to-upstream-or-recent
+                                magit-insert-unpushed-to-pushremote))
+  (magit-status-show-hashes-in-headers t "Want to add more information")
   :bind
   (:prefix-map magit-prefix-map
                :prefix "C-x g"
@@ -326,7 +351,9 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
   :bind
   (:map magit-mode-map
         ("o" . nil)
-        ("O" . nil)))
+        ("O" . nil))
+  :config
+  (add-hook 'after-save-hook 'magit-after-save-refresh-status))
 
 
 (use-package magit-filenotify :ensure t
