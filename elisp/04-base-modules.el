@@ -27,9 +27,10 @@
             (if (= (user-uid) 0) " # " " $ ")))
   (defvar eshell-prompt-function #'eshell-prompt-bgs)
   ;; minor mode for key config
-  :bind (:map eshell-extra-minor-mode-map)
-  ("C-a" . eshell-bol)
-  ("M-m" . eshell-bol)
+  :bind (:map eshell-extra-minor-mode-map
+              ("C-a" . eshell-bol)
+              ("M-m" . eshell-bol)
+              ("<tab>" . completion-at-point))
   :hook (eshell-mode . eshell-extra-minor-mode)
   :config
   (eval-after-load "counsel"
