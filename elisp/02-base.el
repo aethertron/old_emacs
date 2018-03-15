@@ -41,6 +41,7 @@
 (setq-default fill-column 84)
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
+(setq-default truncate-lines t)
 
 ;; Unlock disabled features
 (put 'narrow-to-region 'disabled nil)
@@ -92,10 +93,6 @@
 ;; Truncate Lines Mode Config
 (defun truncate-lines-mode ()
   (toggle-truncate-lines 1))
-(add-hook 'comint-mode-hook #'truncate-lines-mode)
-(add-hook 'prog-mode-hook 'truncate-lines-mode)
-(add-hook 'special-mode-hook #'truncate-lines-mode)
-(add-hook 'text-mode-hook 'truncate-lines-mode)
 
 (bind-keys :map comint-mode-map
            ("C-c C-b" . comint-previous-prompt)
