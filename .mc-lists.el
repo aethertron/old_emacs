@@ -13,6 +13,7 @@
         counsel-M-x
         dabbrev-expand
         delete-indentation
+        diredp-capitalize-this-file
         electric-newline-and-maybe-indent
         eval-last-sexp
         forward-sexp
@@ -20,6 +21,7 @@
         indent-for-tab-command
         kill-region
         mark-sexp
+        markdown-cycle
         markdown-toggle-gfm-checkbox
         org-backward-sentence
         org-beginning-of-line
@@ -52,7 +54,9 @@
         org-yank
         smex
         vc-next-action
+        wdired-capitalize-word
         wdired-finish-edit
+        wdired-previous-line
         ))
 
 (setq mc/cmds-to-run-once
