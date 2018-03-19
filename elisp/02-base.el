@@ -24,8 +24,6 @@
 (setq confirm-kill-emacs                       'y-or-n-p)
 (setq confirm-nonexistent-file-or-buffer       t)
 (setq cursor-in-non-selected-windows           nil)
-(setq custom-file                              "~/.emacs.d/local/local.el")
-(setq custom-safe-themes                       t)
 (setq exec-path                                (append exec-path '("/usr/local/bin/")))
 (setq fringes-outside-margins                  t)
 (setq highlight-nonselected-windows            nil)
@@ -48,6 +46,10 @@
 (put 'narrow-to-region 'disabled nil)
 (put 'scroll-left 'disabled nil)
 (put 'upcase-region 'disabled nil)
+
+;; Custom
+(setq custom-file                              "~/.emacs.d/local/custom.el")
+(load custom-file 'noerror)
 
 ;; Bookmarks
 (setq bookmark-save-flag                      t)
