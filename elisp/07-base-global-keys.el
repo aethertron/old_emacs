@@ -21,6 +21,8 @@
 
 (bind-key "C-z" nil)
 
+(bind-key "C-c t" (lambda () (interactive) (insert (format-time-string iso-timestamp-format-date-and-time (current-time)))))
+
 ;; swap C-a and M-m
 (bind-key "C-a" nil)
 (bind-key "M-m" nil)
