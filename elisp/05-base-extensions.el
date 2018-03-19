@@ -194,7 +194,9 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
   :config
   (setq ediff-window-setup-function 'ediff-setup-windows-plain)
   (setq-default ediff-highlight-all-diffs 'nil)
-  (setq ediff-diff-options "-w"))
+  (setq ediff-diff-options "-w")
+  :bind
+  ("C-c v" . ediff-buffers))
 
 
 (use-package exec-path-from-shell :ensure t
