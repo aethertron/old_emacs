@@ -22,6 +22,7 @@
         kill-region
         mark-sexp
         markdown-cycle
+        markdown-outdent-or-delete
         markdown-toggle-gfm-checkbox
         org-backward-sentence
         org-beginning-of-line
