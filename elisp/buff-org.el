@@ -8,10 +8,10 @@
 (use-package org :ensure t
   :init
   (org-babel-do-load-languages 'org-babel-load-languages '((python . t) (sh . t)))
+  (setq org-agenda-custom-commands '(("p" "Punch card!" ((agenda "" nil) (tags "AUTOTIMER" nil)) nil nil) ("n" "Agenda (and )nd all TODOs" ((agenda "" nil) (alltodo "" nil)) nil)))
   (setq org-agenda-files nil)
   :custom
   (org-M-RET-may-split-line nil)
-  (org-agenda-custom-commands '(("p" "Punch card!" ((agenda "" nil) (tags "AUTOTIMER" nil)) nil nil) ("n" "Agenda (and )nd all TODOs" ((agenda "" nil) (alltodo "" nil)) nil)))
   (org-agenda-file-regexp "\\`[^.].*\\.org\\'")
   (org-agenda-ndays 1)
   (org-agenda-start-on-weekday nil)
