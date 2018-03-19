@@ -25,6 +25,7 @@
 (setq confirm-nonexistent-file-or-buffer       t)
 (setq cursor-in-non-selected-windows           nil)
 (setq custom-file                              "~/.emacs.d/local/local.el")
+(setq custom-safe-themes                       t)
 (setq exec-path                                (append exec-path '("/usr/local/bin/")))
 (setq fringes-outside-margins                  t)
 (setq highlight-nonselected-windows            nil)
