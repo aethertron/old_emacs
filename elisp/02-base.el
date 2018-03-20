@@ -87,6 +87,13 @@
 (minibuffer-depth-indicate-mode)
 
 
+;;; basic display
+(setq default-frame-alist
+      '((top . 200) (left . 400)
+        (width . 160) (height . 40)))
+
+(setq initial-frame-alist '((top . 10) (left . 30)))
+
 ;;; comint section
 (require 'comint)
 (bind-keys :map comint-mode-map
