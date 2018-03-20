@@ -86,21 +86,23 @@
 (setq enable-recursive-minibuffers t)
 (minibuffer-depth-indicate-mode)
 
+
+;;; comint section
+(require 'comint)
+(bind-keys :map comint-mode-map
+           ("C-c C-b" . comint-previous-prompt)
+           ("C-c C-f" . comint-next-prompt)
+           ("M-p" . comint-previous-matching-input-from-input)
+           ("M-n" . comint-next-matching-input-from-input))
 ;; Write comint input rings (for history, etc) when buffers are killed
 (use-package dash :ensure t)
-(require 'comint)
 (add-hook 'kill-buffer-hook #'comint-write-input-ring)
-(add-hook 'kill-emacs-hook (lambda () (--each (buffer-list)
-			     (with-current-buffer it (comint-write-input-ring)))))
+(add-hook 'kill-emacs-hook (lambda () (--each (buffer-list) (with-current-buffer it (comint-write-input-ring)))))
 
+
 ;; Truncate Lines Mode Config
 (defun truncate-lines-mode ()
   (toggle-truncate-lines 1))
-
-(bind-keys :map comint-mode-map
-           ("C-c C-b" . comint-previous-prompt)
-           ("C-c C-f" . comint-next-prompt))
-
 
 ;; async mode command config
 (require 'simple)

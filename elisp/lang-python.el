@@ -7,11 +7,7 @@
 
 (use-package python :ensure t
   :mode ("\\.py" . python-mode)
-  :config
-  (bind-keys :map inferior-python-mode-map
-	     ("M-p" . comint-previous-matching-input-from-input)
-	     ("M-n" . comint-next-matching-input-from-input))
-  (bind-keys :map python-mode-map
+  :bind (:map python-mode-map
 	     ("C-c C-l" . python-shell-send-file)))
 
 (use-package elpy :ensure t
