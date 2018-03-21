@@ -513,7 +513,8 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
   (defun bgs-treemacs-mode-hook ()
     ;; (face-remap-add-relative 'hl-line :background "purple4")
     (setq cursor-type t))
-  (add-hook 'treemacs-mode-hook #'bgs-treemacs-mode-hook))
+  (add-hook 'treemacs-mode-hook #'bgs-treemacs-mode-hook)
+  (add-hook 'treemacs-mode-hook #'treemacs-toggle-fixed-width))
 
 
 (use-package treemacs-projectile :ensure t
