@@ -87,12 +87,15 @@
 (minibuffer-depth-indicate-mode)
 
 
-;;; basic display
-(setq default-frame-alist
-      '((top . 200) (left . 400)
-        (width . 160) (height . 40)))
+;; ;;; basic display / window config
+;; Looks like 25.1 doesn't properly handle make-frame properly, width and heigh not setting correctly
+(defun wgs--rearranged ()
+  (interactive)
+  (set-frame-height (selected-frame) 40)
+  (set-frame-width (selected-frame) 120))
+(add-hook 'window-configuration-change-hook #'wgs--rearranged)
+;; (add-hook 'window-setup-hook #'wgs--rearranged) note: this doesn't work!
 
-(setq initial-frame-alist '((top . 10) (left . 30)))
 
 ;;; comint section
 (require 'comint)
