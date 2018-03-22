@@ -293,12 +293,36 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
       (shrink-window arg)
     (enlarge-window arg)))
 
-(defhydra hydra-splitter (global-map "C-c e")
+(defun hydra-frame-shrink-left (arg)
+  "Move window splitter left."
+  (interactive "p")
+  (set-frame-width (selected-frame) (- (frame-width) arg)))
+
+(defun hydra-frame-grow-right (arg)
+  "Move window splitter right."
+  (interactive "p")
+  (set-frame-width (selected-frame) (+ (frame-width) arg)))
+
+(defun hydra-frame-shrink-up (arg)
+  "Move window splitter up."
+  (interactive "p")
+  (set-frame-height (selected-frame) (- (frame-height) arg)))
+
+(defun hydra-frame-grow-down (arg)
+  "Move window splitter down."
+  (interactive "p")
+  (set-frame-height (selected-frame) (+ (frame-height) arg)))
+
+(defhydra hydra-splitter-and-window (global-map "C-c e")
     "splitter"
     ("h" hydra-move-splitter-left)
     ("j" hydra-move-splitter-down)
     ("k" hydra-move-splitter-up)
-    ("l" hydra-move-splitter-right))
+    ("l" hydra-move-splitter-right)
+    ("H" hydra-frame-shrink-left)
+    ("J" hydra-frame-grow-down)
+    ("K" hydra-frame-shrink-up)
+    ("L" hydra-frame-grow-right))
 
 (use-package hydra :ensure t)
 
