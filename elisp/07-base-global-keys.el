@@ -21,6 +21,8 @@
 
 (bind-key "C-z" nil)
 
+(bind-key "C-c q" #'wgs--rearranged)
+
 (bind-key "C-c t" #'insert-iso-timestamp)
 
 ;; swap C-a and M-m

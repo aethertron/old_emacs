@@ -93,7 +93,7 @@
   (interactive)
   (set-frame-height (selected-frame) 40)
   (set-frame-width (selected-frame) 120))
-(add-hook 'window-configuration-change-hook #'wgs--rearranged)
+;; (add-hook 'window-configuration-change-hook #'wgs--rearranged) this slows things down immensely, abort
 ;; (add-hook 'window-setup-hook #'wgs--rearranged) note: this doesn't work!
 
 
