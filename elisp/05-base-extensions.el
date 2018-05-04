@@ -494,9 +494,7 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
   :config
   (setq neo-theme 'arrow
         neotree-smart-optn t
-        neo-window-fixed-size nil)
-  ;; Disable linum for neotree
-  (add-hook 'neo-after-create-hook 'disable-neotree-hook))
+        neo-window-fixed-size nil))
 
 
 (use-package page-break-lines :ensure t
