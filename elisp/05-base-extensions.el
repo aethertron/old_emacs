@@ -530,11 +530,14 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 
 (use-package treemacs :ensure t
   :config
+  (require 'bgs-utils)
   (setq treemacs-show-hidden-files nil
 	treemacs-file-event-delay 5000)
   (treemacs-filewatch-mode t)
   (treemacs-follow-mode t)
   (treemacs-git-mode 'simple)
+  ;; configure mode map
+  (add-name-to-map-and-key treemacs-mode-map "o a" "treemacs-ace-prefix")
   ;; mode hook
   (defun bgs-treemacs-mode-hook ()
     ;; (face-remap-add-relative 'hl-line :background "purple4")

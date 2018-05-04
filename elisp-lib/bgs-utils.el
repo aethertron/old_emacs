@@ -16,7 +16,7 @@
         (add-name-to-prefix-map (symbol-function prefix-map) name)))))
 
 (defun add-name-to-map-and-key (key-map key name)
-  (assert (add (keymapp key-map) (stringp name)))
+  (assert (and (keymapp key-map) (stringp name)))
   (let ((prefix-map (lookup-key key-map (kbd key)))
         (named-prefix-map nil))
     (setq named-prefix-map (add-name-to-prefix-map prefix-map name))
