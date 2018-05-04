@@ -47,6 +47,8 @@
 
 
 (use-package ibuffer :ensure t
+  :custom
+  (ibuffer-old-time 2 "time in hours to consider 'old', make it short")
   :config
   (bind-keys ("C-x C-b" . ibuffer)))
 
