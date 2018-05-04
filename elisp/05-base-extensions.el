@@ -78,9 +78,13 @@
 (use-package counsel :ensure t :defer t)
 
 (defun counsel-ag-modified (&optional initial-input initial-directory extra-ag-args ag-prompt)
-  "Modified to override counsel-ag's decision to look for .git files, this shoiuld be low level in cwd"
+  "Modified to override counsel-ag's decision to look for .git files, this should be low level in cwd.
+   Fixes everything by setting `initial-directory' to `default-directory' whenever prefix arg isn't present"
   (interactive)
-  (counsel-ag initial-input (or initial-directory default-directory) extra-ag-args ag-prompt))
+  (unless current-prefix-arg
+    (unless initial-directory
+      (setq initial-directory default-directory)))
+  (counsel-ag initial-input initial-directory extra-ag-args ag-prompt))
 
 (use-package counsel :ensure t
   :init
