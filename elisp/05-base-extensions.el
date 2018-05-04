@@ -75,13 +75,20 @@
               ("d" . company-dabbrev)))
 
 
+(use-package counsel :ensure t :defer t)
+
+(defun counsel-ag-modified (&optional initial-input initial-directory extra-ag-args ag-prompt)
+  "Modified to override counsel-ag's decision to look for .git files, this shoiuld be low level in cwd"
+  (interactive)
+  (counsel-ag initial-input (or initial-directory default-directory) extra-ag-args ag-prompt))
+
 (use-package counsel :ensure t
   :init
   (defvar counsel-prefix-map (make-sparse-keymap))
   (counsel-mode)
   :bind (:map counsel-mode-map
               ("M-s f" . bgs-counsel-file-jump)
-              ("M-s l" . counsel-ag)
+              ("M-s l" . counsel-ag-modified)
               ("M-s d" . counsel-dired-jump)
               ("C-h p" . counsel-find-library))
 
@@ -91,7 +98,7 @@
         :prefix "C-c I"
         ("d" . counsel-dired-jump)
         ("f" . bgs-counsel-file-jump)
-        ("l" . counsel-ag)
+        ("l" . counsel-ag-modified)
         ("o" . counsel-outline)
         ("p" . counsel-package)
         ("s" . counsel-set-variable)
