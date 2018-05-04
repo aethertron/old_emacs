@@ -98,6 +98,9 @@
         ("t" . counsel-load-theme)
         ("u" . counsel-unicode-char)
         ("x" . counsel-linux-app))
+  :custom
+  (counsel-find-file-at-point t)
+  (counsel-yank-pop-preselect-last 0)
   :config
   (use-package ivy :ensure t)
   (defun bgs-counsel-file-jump (&optional initial-input initial-directory)
@@ -128,7 +131,6 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
                 :history 'file-name-history
                 :keymap counsel-find-file-map
                 :caller 'counsel-file-jump)))
-  (setq counsel-find-file-at-point t)
   (eval-after-load "company"
     '(progn
        (bind-keys :map counsel-mode-map ("C-:" . counsel-company)))))
