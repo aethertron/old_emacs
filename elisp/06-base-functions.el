@@ -47,6 +47,17 @@ as input."
       (rename-uniquely)
     (call-interactively #'rename-buffer)))
 
+;;; WINDOW MGMT COMMANDS
+(defun toggle-dedicated-window (arg)
+  """
+  interactive: P, no arg -> nil
+  if ARG, then condition on value
+  """
+  (interactive "P")
+  (if (not arg)
+      (set-window-dedicated-p (selected-window) (not (window-dedicated-p)))
+    (set-window-dedicated-p (selected-window) (if (> (car arg) 0) t nil))))
+
 
 
 ;;; INSERT COMMANDS
