@@ -99,6 +99,13 @@
   (bind-keys :map vc-prefix-map
 	     ("D" . bgs-vc-dir-at-root)
 	     ("d" . bgs-vc-dir-at-cwd)))
+
+(use-package view
+  :init
+  (bind-keys :map view-mode-map
+             ("j" . next-line)
+             ("k" . previous-line)
+             ("RET" . nil)))
 
 
 (use-package xref
