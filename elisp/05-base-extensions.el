@@ -53,7 +53,6 @@
 
 
 (use-package company :ensure t
-
   :init
   (defun bgs-print-backend ()
     (interactive)

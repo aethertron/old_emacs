@@ -101,7 +101,7 @@
 	     ("d" . bgs-vc-dir-at-cwd)))
 
 (use-package view
-  :init
+  :config
   (bind-keys :map view-mode-map
              ("j" . next-line)
              ("k" . previous-line)
