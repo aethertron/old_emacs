@@ -144,8 +144,9 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
                 :caller 'counsel-file-jump)))
   (defun print-variable (var)
     (interactive)
-    (insert (format "%s" (eval (intern var))))
-    (ivy-add-actions #'counsel-describe-variable '(("p" print-variable "print"))))
+    (insert (format "%s" (eval (intern var)))))
+  (ivy-add-actions #'counsel-describe-variable '(("p" print-variable "print")))
+  (ivy-add-actions #'counsel-find-file '(("v" vlf "open as very large file")))
   (eval-after-load "company"
     '(progn
        (bind-keys :map counsel-mode-map ("C-:" . counsel-company)))))
