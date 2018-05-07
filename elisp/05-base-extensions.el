@@ -402,6 +402,8 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
   (global-linum-mode -1)
   (add-hook 'prog-mode-hook 'linum-mode)
   (add-hook 'text-mode-hook 'linum-mode))
+
+(use-package lispy :ensure t)
 
 
 (use-package magit :defer t)
