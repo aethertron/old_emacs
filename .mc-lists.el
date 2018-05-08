@@ -58,6 +58,7 @@
         wdired-capitalize-word
         wdired-finish-edit
         wdired-previous-line
+        wdired-upcase-word
         ))
 
 (setq mc/cmds-to-run-once
