@@ -64,9 +64,11 @@ as input."
 (defconst iso-timestamp-format-date-and-time "%Y-%m-%d, %H:%M")
 (defconst iso-timestamp-format-date "%Y-%m-%d")
 
-(defun insert-iso-timestamp ()
-  (interactive)
-  (insert (format-time-string iso-timestamp-format-date-and-time)))
+(defun insert-iso-timestamp (just-date)
+  (interactive "P")
+  (insert (format-time-string
+           (if (not just-date) iso-timestamp-format-date-and-time
+             iso-timestamp-format-date))))
 
 
 
