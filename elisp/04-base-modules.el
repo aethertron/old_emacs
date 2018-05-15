@@ -48,7 +48,6 @@
 
 (use-package ibuffer :ensure t
   :custom
-  (ibuffer-formats (quote ((make modified read-only " " (name 28 28 :left :elide) " " (size 9 -1 :right) " " (mode 16 16 :left :elide) " " filename-and-process) (make " " (name 16 -1) " " filename))))
   (ibuffer-old-time 2 "time in hours to consider 'old', make it short")
   :config
   (bind-keys ("C-x C-b" . ibuffer)))
