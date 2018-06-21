@@ -17,8 +17,9 @@
   ;; "java": The default style for java-mode (see below)
   ;; "user": When you want to define your own style
   (setq c-default-style "gnu") ;; set style to "gnu", two spaces for tabs!
-  (setq gdb-many-windows t) ;; use gdb-many-windows by default
-  (setq gdb-show-main t))
+  (setq gdb-many-windows t)    ;; use gdb-many-windows by default
+  (setq gdb-show-main t)
+  :bind (:map c++-mode-map ("<tab>" . company-complete)))
 
 (use-package semantic :ensure t
   :config
