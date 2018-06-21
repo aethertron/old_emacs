@@ -7,17 +7,22 @@
         beginning-of-buffer
         bgs-open-next-line
         bgs-open-prev-line
+        c-electric-brace
         c-electric-colon
         c-electric-delete-forward
+        c-electric-paren
+        c-electric-semi&comma
         comint-delchar-or-maybe-eof
         company-complete
         counsel-M-x
+        dabbrev-completion
         dabbrev-expand
         delete-indentation
         diredp-capitalize-this-file
         electric-newline-and-maybe-indent
         eval-last-sexp
         forward-sexp
+        ggtags-navigation-mode-done
         helm-M-x
         indent-for-tab-command
         kill-region
@@ -135,6 +140,7 @@
 (setq mc/cmds-to-run-once
       '(
         ace-window
+        iedit-switch-to-mc-mode
         next-multiframe-window
         outline-show-children
         swiper-mc
