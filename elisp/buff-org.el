@@ -7,7 +7,7 @@
 
 (use-package org :ensure t
   :init
-  (org-babel-do-load-languages 'org-babel-load-languages '((python . t) (sh . t)))
+  (org-babel-do-load-languages 'org-babel-load-languages '((python . t) (shell . t)))
   (setq org-agenda-custom-commands '(("p" "Punch card!" ((agenda "" nil) (tags "AUTOTIMER" nil)) nil nil) ("n" "Agenda (and )nd all TODOs" ((agenda "" nil) (alltodo "" nil)) nil)))
   (setq org-agenda-files nil)
   :custom
@@ -28,7 +28,6 @@
   (org-startup-folded 'nofold)
   (org-time-clocksum-use-fractional t)
   (org-time-clocksum-use-fractional t)
-  (org-time-stamp-rouding-minutes '(6 6))
   (org-time-stamp-rounding-minutes '(6 6))
   (org-todo-keywords '((sequence "TODO(t)" "WAIT(w)" "|" "CANCEL(c)" "DONE(d)")))
   :mode
