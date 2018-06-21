@@ -205,7 +205,6 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 
 (use-package dumb-jump :ensure t)
 
-
 
 (use-package ediff :ensure t
   :config
@@ -241,7 +240,6 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 
 
 (use-package flycheck :ensure t)
-
 
 
 (use-package help-fns+ :ensure t
@@ -402,6 +400,7 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
   (global-linum-mode -1)
   (add-hook 'prog-mode-hook 'linum-mode)
   (add-hook 'text-mode-hook 'linum-mode))
+
 
 (use-package lispy :ensure t
   :init
@@ -465,7 +464,6 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 
 
 (use-package magit-popup :ensure t)
-
 
 
 (use-package man :ensure t
@@ -539,10 +537,8 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 
 (use-package smex :ensure t)
 
-
 
 (use-package string-inflection :ensure t)
-
 
 
 (use-package treemacs :ensure t
