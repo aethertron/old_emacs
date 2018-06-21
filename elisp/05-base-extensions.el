@@ -165,15 +165,35 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
    ("C-h v" . counsel-describe-variable))
 
 
+(use-package counsel-projectile :ensure t :defer t)
+
+(defun counsel-projectile-ibuffer ()
+  (interactive)
+  (let* ((project-root (projectile-project-root))
+         (ibuffer-name (format "*%s Buffers*" (funcall projectile-project-name-function project-root))))
+    (unless (get-buffer ibuffer-name)
+      (projectile-ibuffer-by-project project-root))
+    (counsel-ibuffer ibuffer-name)))
+
 (use-package counsel-projectile :ensure t
+  :after (projectile)
   :demand
   :bind
   ("C-x c p" . counsel-projectile-ag)
-  :bind
-  (:map projectile-command-map
-        ("s s" . counsel-projectile-ag))
+  :custom
+  (counsel-projectile-switch-project-action #'counsel-projectile-switch-project-action-find-file-manually "can select files or directories")
   :config
-  (projectile-mode))
+  (counsel-projectile-mode)
+  (bind-keys :map counsel-projectile-command-map
+             ("B" . counsel-projectile-ibuffer))
+  (setq counsel-projectile-search-map (make-sparse-keymap))
+  (bind-keys :map counsel-projectile-command-map ;;  try as I may, I cannot get emacs to "name" keymap at "C-c p s" whereas "C-c p x" works just fine
+             :prefix-map counsel-projectile-search-map
+             :prefix "s"
+             ("s" . counsel-projectile-ag)
+             ("a" . counsel-projectile-ag)
+             ("g" . counsel-projectile-grep)
+             ("r" . counsel-projectile-rg)))
 
 
 (use-package counsel-pydoc :ensure t)
@@ -517,7 +537,13 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
   (projectile-known-projects-file (expand-file-name "projectile-bookmarks.eld" temp-dir) "set bookmarks")
   (projectile-switch-project-action #'projectile-vc "show vc when switching to project")
   (projectile-enable-idle-timer nil "turn on background stuff")
-  (projectile-find-dir-includes-top-level t "allow you to switch to top level, very convenient"))
+  (projectile-find-dir-includes-top-level t "allow you to switch to top level, very convenient")
+  :config
+  (projectile-global-mode)
+  (require 'bgs-utils)
+  ;; configure mode map
+  (add-name-to-map-and-key projectile-command-map "x" "projectile-execute")
+  (add-name-to-map-and-key projectile-command-map "s" "projectile-search")) ; not currently working on child keymap counsel-projectile-command-map!
 
 
 (use-package recentf :ensure t
