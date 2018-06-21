@@ -16,9 +16,9 @@
   ;; "python": What Python developers use for extension modules
   ;; "java": The default style for java-mode (see below)
   ;; "user": When you want to define your own style
-  (setq c-default-style "linux") ;; set style to "linux"
-  (setq gdb-many-windows t ;; use gdb-many-windows by default
-	gdb-show-main t))
+  (setq c-default-style "gnu") ;; set style to "gnu", two spaces for tabs!
+  (setq gdb-many-windows t) ;; use gdb-many-windows by default
+  (setq gdb-show-main t))
 
 (use-package semantic :ensure t
   :config
