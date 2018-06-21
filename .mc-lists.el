@@ -7,6 +7,7 @@
         beginning-of-buffer
         bgs-open-next-line
         bgs-open-prev-line
+        c-electric-colon
         c-electric-delete-forward
         comint-delchar-or-maybe-eof
         company-complete
