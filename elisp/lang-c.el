@@ -4,6 +4,7 @@
 (defcustom use-irony nil "whether to use irony")
 
 (use-package cc-mode :ensure t
+  :mode ("\\.h" . c++-mode)
   :config
   ;; Available C style:
   ;; "gnu": The default style for GNU projects
