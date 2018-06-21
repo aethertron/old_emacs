@@ -68,11 +68,6 @@
   :init
   (add-to-list 'company-backends 'company-c-headers))
 
-(use-package cc-mode :ensure t
-  :init
-  (define-key c-mode-map  [(tab)] 'company-complete)
-  (define-key c++-mode-map  [(tab)] 'company-complete))
-
 ;; git@github.com:syohex/emacs-counsel-gtags.git
 ;(use-package counsel-gtags :ensure t
 ;  :load-path "vendor/emacs-counsel-gtags/"
