@@ -13,6 +13,7 @@
 /smex-items
 /snippets
 /tramp
+/.cache/treemacs-persist
 
 # Locally built products
 /elpa/
