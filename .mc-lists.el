@@ -26,6 +26,8 @@
         helm-M-x
         indent-for-tab-command
         kill-region
+        lispy-kill-word
+        lispy-space
         mark-sexp
         markdown-cycle
         markdown-outdent-or-delete
