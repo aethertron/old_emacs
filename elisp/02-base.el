@@ -3,12 +3,9 @@
 
 
 
-(defconst private-dir  (expand-file-name "private" user-emacs-directory))
-(defconst temp-dir (format "%s/cache" private-dir)
-  "Hostname-based elisp temp directories")
+(defconst temp-dir (expand-file-name "cache" local-module-path) "Hostname-based elisp temp directories")
 
 (server-start)
-
 
 ;; UTF-8 please
 (set-charset-priority 'unicode)
@@ -48,12 +45,12 @@
 (put 'upcase-region 'disabled nil)
 
 ;; Custom
-(setq custom-file                              "~/.emacs.d/local/custom.el")
+(setq custom-file (expand-file-name "custom.el" local-module-path))
 (load custom-file 'noerror)
 
 ;; Bookmarks
 (setq bookmark-save-flag                      t)
-(setq bookmark-default-file                   (concat temp-dir "/bookmarks"))
+(setq bookmark-default-file                   (expand-file-name "bookmarks" temp-dir))
 
 ;; Backups enabled, use nil to disable
 (setq
@@ -61,11 +58,13 @@
  backup-inhibited                   nil
  make-backup-files                  t
  auto-save-default                  t
- auto-save-list-file-name           (concat temp-dir "/autosave")
+ auto-save-list-file-name           (expand-file-name "autosave" temp-dir)
  make-backup-files                  t
  create-lockfiles                   nil
  backup-directory-alist            `((".*" . ,(concat temp-dir "/backup/")))
  auto-save-file-name-transforms    `((".*" ,(concat temp-dir "/auto-save-list/") t)))
+(unless (file-exists-p (expand-file-name "auto-save-list" temp-dir))
+  (make-directory (expand-file-name "auto-save-list" temp-dir) 1))
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
