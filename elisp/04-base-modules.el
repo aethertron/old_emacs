@@ -32,6 +32,8 @@
               ("M-m" . eshell-bol)
               ("<tab>" . completion-at-point))
   :hook (eshell-mode . eshell-extra-minor-mode)
+  :custom
+  (eshell-directory-name (expand-file-name "eshell" temp-dir))
   :config
   (eval-after-load "counsel"
     '(progn
@@ -81,36 +83,40 @@
                           ("g" . sort-paragraphs)
                           ("r" . sort-regexp-fields)
                           ("n" . sort-numeric-fields)))
+
+(use-package tramp
+  :custom
+  (tramp-auto-save-directory temp-dir))
 
 
 (use-package vc :ensure t
-  :config
-  (require 'dash)
-  (require 'vc-dir)
+             :config
+             (require 'dash)
+             (require 'vc-dir)
 
-  (setq vc-log-show-limit 32)
+             (setq vc-log-show-limit 32)
 
-  (defun bgs-vc-copy-marked-as-kill ()
-    (interactive)
-    (let ((string (s-join " " (vc-dir-marked-files))))
-      (kill-new string)
-      (message (format "Copied to kill ring: %s" string))))
+             (defun bgs-vc-copy-marked-as-kill ()
+               (interactive)
+               (let ((string (s-join " " (vc-dir-marked-files))))
+                 (kill-new string)
+                 (message (format "Copied to kill ring: %s" string))))
 
-  (defun bgs-vc-dir-at-root ()
-    (interactive)
-    (vc-dir (vc-root-dir)))
+             (defun bgs-vc-dir-at-root ()
+               (interactive)
+               (vc-dir (vc-root-dir)))
 
-  (defun bgs-vc-dir-at-cwd ()
-    (interactive)
-    (vc-dir default-directory))
+             (defun bgs-vc-dir-at-cwd ()
+               (interactive)
+               (vc-dir default-directory))
 
-  (bind-key "w" 'bgs-vc-copy-marked-as-kill vc-dir-mode-map)
+             (bind-key "w" 'bgs-vc-copy-marked-as-kill vc-dir-mode-map)
 
-  (bind-key "C-x v" 'vc-prefix-map)
+             (bind-key "C-x v" 'vc-prefix-map)
 
-  (bind-keys :map vc-prefix-map
-	     ("D" . bgs-vc-dir-at-root)
-	     ("d" . bgs-vc-dir-at-cwd)))
+             (bind-keys :map vc-prefix-map
+	                    ("D" . bgs-vc-dir-at-root)
+	                    ("d" . bgs-vc-dir-at-cwd)))
 
 (use-package view
   :config
