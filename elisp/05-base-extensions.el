@@ -544,8 +544,7 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 
 (use-package recentf :ensure t
   :config
-  (setq recentf-save-file (recentf-expand-file-name
-                           (expand-file-name "~/.emacs.d/private/cache/recentf" temp-dir)))
+  (setq recentf-save-file (recentf-expand-file-name (expand-file-name "recentf" temp-dir)))
   (recentf-mode 1))
 
 
@@ -569,8 +568,9 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 (use-package treemacs :ensure t
   :config
   (require 'bgs-utils)
-  (setq treemacs-show-hidden-files nil
-	treemacs-file-event-delay 5000)
+  (setq treemacs-file-event-delay 5000)
+  (setq treemacs-persist-file (expand-file-name "treemacs-persist" temp-dir))
+  (setq treemacs-show-hidden-files nil)
   (treemacs-filewatch-mode t)
   (treemacs-follow-mode t)
   (treemacs-git-mode 'simple)
