@@ -3,9 +3,15 @@
 (setq dired-omit-files "^\\.?#\\|^\\.$\\|^\\.\\.$\\|^\\..*$")
 (setq dired-omit-verbose nil)
 
+(defun dired-find-file-extern ()
+  (interactive)
+  (let ((find-file-run-dired t))
+    (counsel-locate-action-extern (dired-get-file-for-visit))))
+
 (bind-keys :map dired-mode-map
-	     ("M-p" . dired-previous-line)
-	     ("M-n" . dired-next-line))
+	       ("M-p" . dired-previous-line)
+	       ("M-n" . dired-next-line)
+           ("e" . dired-find-file-extern))
 
 (use-package dired+ :ensure t)
 
