@@ -486,11 +486,6 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 (use-package magit-popup :ensure t)
 
 
-(use-package man :ensure t
-  :config
-  (setq Man-width 90))
-
-
 (use-package move-text :ensure t
   :bind
   ("M-n"      . move-text-down)

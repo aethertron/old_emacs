@@ -53,21 +53,34 @@
   (bind-keys ("C-x C-b" . ibuffer)))
 
 
+(use-package man :ensure t
+             :init
+             (setq man-command-map (make-sparse-keymap))
+             :config
+             (setq Man-width 90)
+             (bind-keys :prefix-map man-command-map
+                        :prefix "C-c M"
+                        ("." . man-follow)
+                        ("f" . man-follow)
+                        ("m" . man)
+                        ("w" . woman)))
+
+
 (use-package sort :ensure t
-  :init
-  (defvar sort-prefix-map (make-sparse-keymap))
-  :bind
-  ("C-c s" . sort-lines)
-  :bind
-  (:prefix-map sort-prefix-map
-               :prefix "C-c S"
-               ("s" . sort-lines)
-               ("p" . sort-pages)
-               ("f" . sort-fields)
-               ("c" . sort-columns)
-               ("g" . sort-paragraphs)
-               ("r" . sort-regexp-fields)
-               ("n" . sort-numeric-fields)))
+             :init
+             (defvar sort-prefix-map (make-sparse-keymap))
+             :bind
+             ("C-c s" . sort-lines)
+             :bind
+             (:prefix-map sort-prefix-map
+                          :prefix "C-c S"
+                          ("s" . sort-lines)
+                          ("p" . sort-pages)
+                          ("f" . sort-fields)
+                          ("c" . sort-columns)
+                          ("g" . sort-paragraphs)
+                          ("r" . sort-regexp-fields)
+                          ("n" . sort-numeric-fields)))
 
 
 (use-package vc :ensure t
