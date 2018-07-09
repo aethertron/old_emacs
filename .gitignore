@@ -4,21 +4,6 @@
 /local/
 
 # Local state stuff
-/eshell/
-/image-dired/
-/irony/
-/private/
-/recentf/
-/semanticdb/
-/smex-items
-/snippets
-/tramp
 
 # Locally built products
 /elpa/
-
-# Unimportant local stuff
-/.custom.el
-
-# Stuff that currently appears to be local
-/projectile-bookmarks.eld
