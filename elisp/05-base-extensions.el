@@ -215,10 +215,10 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 (use-package dashboard :ensure t
   :after (org)
   :init
-  (setq dashboard-items '((projects . 5)
+  (setq dashboard-items '((agenda . 5)
+                          (projects . 5)
                           (bookmarks . 5)
-                          (recents . 5)
-                          (agenda . 5)))
+                          (recents . 5)))
   :config
   (dashboard-setup-startup-hook))
 
@@ -544,7 +544,8 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 
 (use-package recentf :ensure t
   :config
-  (setq recentf-save-file (recentf-expand-file-name "~/.emacs.d/private/cache/recentf"))
+  (setq recentf-save-file (recentf-expand-file-name
+                           (expand-file-name "~/.emacs.d/private/cache/recentf" temp-dir)))
   (recentf-mode 1))
 
 
@@ -557,7 +558,9 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
   (smartparens-global-mode))
 
 
-(use-package smex :ensure t)
+(use-package smex :ensure t
+             :custom
+             (smex-save-file (expand-file-name "smex-items" temp-dir)))
 
 
 (use-package string-inflection :ensure t)
@@ -630,8 +633,10 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 
 
 (use-package yasnippet :ensure t
-  :config
-  (yas-global-mode 1))
+             :custom
+             (yas-snippet-dirs (list (expand-file-name "snippets" local-module-path)))
+             :config
+             (yas-global-mode 1))
 
 
 (use-package zygospore :ensure t
