@@ -463,6 +463,7 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
                :prefix "C-x g"
                ("c" . magit-commit)
                ("e" . magit-ediff-resolve)
+               ("f" . magit-fetch)
                ("l" . magit-log-popup)
                ("p" . magit-push)
                ("r" . magit-rebase-interactive)
