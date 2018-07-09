@@ -11,3 +11,7 @@
 
 ## EMACS_USE_PYENV
 - Thinking about this one
+
+## EMACS_LOCAL_MODULE_PATH
+- Specify path for the "local" module, this is loaded as is
+- This defines a custom file and optionally a local.el that can be loaded
