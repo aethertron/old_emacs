@@ -250,7 +250,7 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
   :bind
   ("C-=" . er/expand-region)
   :bind (:prefix-map expand-region-prefix-map
-              :prefix "C-c M"
+              :prefix "C-c R"
               ("c" . er/contract-region)
               ("o" . er/mark-org-code-block)
               ("p" . er/mark-python-statement)
