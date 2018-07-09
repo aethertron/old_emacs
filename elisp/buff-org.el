@@ -9,7 +9,6 @@
   :init
   (org-babel-do-load-languages 'org-babel-load-languages '((python . t) (shell . t)))
   (setq org-agenda-custom-commands '(("p" "Punch card!" ((agenda "" nil) (tags "AUTOTIMER" nil)) nil nil) ("n" "Agenda (and )nd all TODOs" ((agenda "" nil) (alltodo "" nil)) nil)))
-  (setq org-agenda-files nil)
   :custom
   (org-M-RET-may-split-line nil)
   (org-agenda-file-regexp "\\`[^.].*\\.org\\'")
@@ -17,7 +16,7 @@
   (org-agenda-start-on-weekday nil)
   (org-agenda-use-time-grid nil "no time grid by default")
   (org-clock-in-resume t)
-  (org-clock-persist '(clock))
+  (org-clock-persist t)
   (org-clock-persist-file (concat temp-dir "/org-clock-save.el"))
   (org-clock-report-include-clocking-task t)
   (org-clock-rounding-minutes t)
