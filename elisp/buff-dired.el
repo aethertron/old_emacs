@@ -3,6 +3,7 @@
 (setq dired-omit-files "^\\.?#\\|^\\.$\\|^\\.\\.$\\|^\\..*$")
 (setq dired-omit-verbose nil)
 
+(use-package counsel)
 (defun dired-find-file-extern ()
   (interactive)
   (let ((find-file-run-dired t))
