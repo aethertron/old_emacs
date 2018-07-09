@@ -23,11 +23,13 @@
   :bind (:map c++-mode-map ("<tab>" . company-complete)))
 
 (use-package semantic :ensure t
-  :config
-  (global-semanticdb-minor-mode 1)
-  (global-semantic-idle-scheduler-mode 1)
-  (global-semantic-stickyfunc-mode 1)
-  (semantic-mode 1))
+             :custom
+             (semanticdb-default-save-directory (expand-file-name "semanticdb" temp-dir))
+             :config
+             (global-semanticdb-minor-mode 1)
+             (global-semantic-idle-scheduler-mode 1)
+             (global-semantic-stickyfunc-mode 1)
+             (semantic-mode 1))
 
 (use-package ede :ensure t
   :config
