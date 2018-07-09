@@ -34,17 +34,18 @@
   :bind
   ("C-c l" . org-store-link)
   ("C-c a" . org-agenda)
-  :bind (:map org-mode-map
-              ("C-c i" . counsel-org-goto)
-              ("C-,"   . nil)
-              ("C-'"   . nil)
-              ("M-1" . org-global-cycle-1)
-              ("M-2" . org-global-cycle-2)
-              ("M-3" . org-global-cycle-3)
-              ("M-4" . org-global-show-all))
-  :bind (:map org-agenda-mode-map
-              ("M-n" . org-agenda-next-item)
-              ("M-p" . org-agenda-previous-item)))
+  :config
+  (bind-keys :map org-mode-map
+             ("C-c i" . counsel-org-goto)
+             ("C-,"   . nil)
+             ("C-'"   . nil)
+             ("M-1" . org-global-cycle-1)
+             ("M-2" . org-global-cycle-2)
+             ("M-3" . org-global-cycle-3)
+             ("M-4" . org-global-show-all))
+  (bind-keys :map org-agenda-mode-map
+             ("M-n" . org-agenda-next-item)
+             ("M-p" . org-agenda-previous-item)))
 
 (use-package org-bullets :ensure t
   :demand
