@@ -89,29 +89,28 @@
   :init
   (defvar counsel-prefix-map (make-sparse-keymap))
   (counsel-mode)
-  :bind (:map counsel-mode-map
-              ("M-s f" . bgs-counsel-file-jump)
-              ("M-s l" . counsel-ag-modified)
-              ("M-s d" . counsel-dired-jump)
-              ("C-h p" . counsel-find-library))
-
-  :bind
-  (:map counsel-mode-map
-        :prefix-map counsel-prefix-map
-        :prefix "C-c I"
-        ("d" . counsel-dired-jump)
-        ("f" . bgs-counsel-file-jump)
-        ("l" . counsel-ag-modified)
-        ("o" . counsel-outline)
-        ("p" . counsel-package)
-        ("s" . counsel-set-variable)
-        ("t" . counsel-load-theme)
-        ("u" . counsel-unicode-char)
-        ("x" . counsel-linux-app))
   :custom
   (counsel-find-file-at-point t)
   (counsel-yank-pop-preselect-last 0)
   :config
+  (bind-keys :map counsel-mode-map
+             ("M-s f" . bgs-counsel-file-jump)
+             ("M-s l" . counsel-ag-modified)
+             ("M-s d" . counsel-dired-jump)
+             ("C-h p" . counsel-find-library))
+  (bind-keys :map counsel-mode-map
+             :prefix-map counsel-prefix-map
+             :prefix "C-c I"
+             ("d" . counsel-dired-jump)
+             ("f" . bgs-counsel-file-jump)
+             ("g" . counsel-git)
+             ("l" . counsel-ag-modified)
+             ("o" . counsel-outline)
+             ("p" . counsel-package)
+             ("s" . counsel-set-variable)
+             ("t" . counsel-load-theme)
+             ("u" . counsel-unicode-char)
+             ("x" . counsel-linux-app))
   (use-package ivy :ensure t)
   (defun bgs-counsel-file-jump (&optional initial-input initial-directory)
     "Jump to a file below the current directory.
@@ -365,9 +364,10 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 (use-package ivy :ensure t
   :init
   (ivy-mode 1)
-  (setq ivy-use-virtual-buffers nil)
   (bind-key "C-r" 'counsel-expression-history read-expression-map)
   (bind-keys ("M-s s" . isearch-forward))
+  :custom
+  (ivy-use-virtual-buffers nil)
   :bind
   ("C-s" . swiper)
   ("C-x C-r" . ivy-resume))
