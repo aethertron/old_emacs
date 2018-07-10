@@ -34,11 +34,6 @@
 (add-to-list 'load-path "~/.emacs.d/elisp-pkgs/elpa-mirror")
 (require 'elpa-mirror)
 
-(setq rewrite nil)
-(if rewrite
-    (if (null use-local)
-	(progn
-	  (setq elpamr-default-output-directory "~/.emacs.d/myelpa")
-	  (elpamr-create-mirror-for-installed))))
+
 
 (provide '00-init)
