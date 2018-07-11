@@ -409,9 +409,13 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 	    :caller 'ivy-pages))
 
 
+(require 'ivy-rich)
+(ivy-rich-mode 1)
+(setq ivy-rich-path-style 'abbrev)
+
 (use-package ivy-xref :ensure t
-       :init
-       (setq xref-show-xrefs-function 'ivy-xref-show-xrefs))
+  :init
+  (setq xref-show-xrefs-function 'ivy-xref-show-xrefs))
 
 
 (use-package linum :ensure t

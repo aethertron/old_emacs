@@ -4,10 +4,13 @@
 ;; You may delete these explanatory comments.
 (package-initialize)
 
-;; add elisp lib to path before loading scripts!
+;;; load-path config:
+;;  - 1: elisp-lib/, personal library, downstream may depend on this, no deps rn
+;;  - 2: elisp/, emacs config
+;;  - 3: elisp-pkgs/, standalone packages that will likely be used by elisp/
 (add-to-list 'load-path (concat user-emacs-directory "elisp-lib"))
-
 (add-to-list 'load-path (concat user-emacs-directory "elisp"))
+(mapc (lambda (x) (add-to-list 'load-path x)) (directory-files (expand-file-name "elisp-pkgs" user-emacs-directory) t "[^.]"))
 
 (require '01-elpa-bootstrap)
 (require '02-base)
@@ -31,7 +34,7 @@
 (require 'buff-shell)
 
 ;; back-up and create local copy if not using local already
-(add-to-list 'load-path "~/.emacs.d/elisp-pkgs/elpa-mirror")
+
 (require 'elpa-mirror)
 
 
