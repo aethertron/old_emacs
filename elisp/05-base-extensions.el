@@ -107,6 +107,7 @@
              ("l" . counsel-ag-modified)
              ("o" . counsel-outline)
              ("p" . counsel-package)
+             ("r" . counsel-recentf)
              ("s" . counsel-set-variable)
              ("t" . counsel-load-theme)
              ("u" . counsel-unicode-char)
