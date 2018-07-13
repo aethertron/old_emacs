@@ -13,6 +13,7 @@
         c-electric-paren
         c-electric-semi&comma
         comint-delchar-or-maybe-eof
+        comment-dwim
         company-complete
         counsel-M-x
         dabbrev-completion
@@ -26,8 +27,16 @@
         helm-M-x
         indent-for-tab-command
         kill-region
+        lispy-braces
+        lispy-brackets
+        lispy-delete
+        lispy-delete-backward
+        lispy-kill
         lispy-kill-word
+        lispy-parens
+        lispy-quotes
         lispy-space
+        lispy-yank
         mark-sexp
         markdown-cycle
         markdown-outdent-or-delete
