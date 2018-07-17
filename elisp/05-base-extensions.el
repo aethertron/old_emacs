@@ -605,7 +605,7 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
   :config
   (require 'bgs-utils)
   (setq treemacs-file-event-delay 5000)
-  (setq treemacs--persist-file (expand-file-name "treemacs-persist" temp-dir))
+  (setq treemacs-persist-file (expand-file-name "treemacs-persist" temp-dir))
   (setq treemacs-show-hidden-files nil)
   (treemacs-filewatch-mode t)
   (treemacs-follow-mode t)
