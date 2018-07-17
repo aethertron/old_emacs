@@ -74,6 +74,7 @@
               ("d" . company-dabbrev)))
 
 
+
 (use-package counsel :ensure t :defer t)
 
 (defun counsel-ag-modified (&optional initial-input initial-directory extra-ag-args ag-prompt)
@@ -296,6 +297,7 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 
 (use-package hydra :ensure t :defer t)
 
+;; splitter moving hydras
 (defun hydra-move-splitter-left (arg)
   "Move window splitter left."
   (interactive "p")
@@ -348,16 +350,45 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
   (interactive "p")
   (set-frame-height (selected-frame) (+ (frame-height) arg)))
 
-(defhydra hydra-splitter-and-window (global-map "C-c e")
-    "splitter"
-    ("h" hydra-move-splitter-left)
-    ("j" hydra-move-splitter-down)
-    ("k" hydra-move-splitter-up)
-    ("l" hydra-move-splitter-right)
-    ("H" hydra-frame-shrink-left)
-    ("J" hydra-frame-grow-down)
-    ("K" hydra-frame-shrink-up)
-    ("L" hydra-frame-grow-right))
+(defhydra hydra-splitter-and-window ()
+  "splitter"
+  ("h" hydra-move-splitter-left "left")
+  ("j" hydra-move-splitter-down "down")
+  ("k" hydra-move-splitter-up "up")
+  ("l" hydra-move-splitter-right "right")
+  ("H" hydra-frame-shrink-left "shrink-left")
+  ("J" hydra-frame-grow-down "grow-down")
+  ("K" hydra-frame-shrink-up "shrink-up")
+  ("L" hydra-frame-grow-right "grow-right"))
+
+(bind-key "C-c e" #'hydra-splitter-and-window/body)
+
+;; scrolling hydras
+(defun scroll-left-4 () (interactive) (scroll-left 4))
+(defun scroll-right-4 () (interactive) (scroll-right 4))
+(defun scroll-up-4 () (interactive) (scroll-up-command 4))
+(defun scroll-down-4 () (interactive) (scroll-up-command -4))
+
+(defhydra hydra-scroll ()
+  "scroll"
+  ("<" scroll-left "scroll-left")
+  (">" scroll-right "scroll-right")
+  ("v" scroll-up "scroll-up")
+  ("V" scroll-down "scroll-down")
+  ("h" scroll-left-4 "go left")
+  ("l" scroll-right-4 "go right")
+  ("j" scroll-up-4 "go up")
+  ("k" scroll-down-4 "go down")
+  ("<left>" scroll-left-4 "go left")
+  ("<right>" scroll-right-4 "go right")
+  ("<up>" scroll-up-4 "go up")
+  ("<down>" scroll-down-4 "go down"))
+
+(bind-keys ("C-c n" . hydra-scroll/body)
+           ("C-c <" . hydra-scroll/scroll-left)
+           ("C-c >" . hydra-scroll/scroll-right)
+           ("C-v" . hydra-scroll/scroll-up)
+           ("C-S-v" . hydra-scroll/scroll-down))
 
 (use-package hydra :ensure t)
 
