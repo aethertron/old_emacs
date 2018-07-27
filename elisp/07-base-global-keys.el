@@ -25,6 +25,9 @@
 
 (bind-key "C-c t" #'insert-iso-timestamp)
 
+;; Complement to C-x C-e
+(bind-key "C-c C-e" #'sh-execute-region)
+
 ;; swap C-a and M-m
 (bind-key "C-a" nil)
 (bind-key "M-m" nil)
