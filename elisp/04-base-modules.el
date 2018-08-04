@@ -84,6 +84,11 @@
                           ("r" . sort-regexp-fields)
                           ("n" . sort-numeric-fields)))
 
+(use-package time
+  :config
+  (display-time-mode))
+
+
 (use-package tramp
   :custom
   (tramp-auto-save-directory temp-dir))
