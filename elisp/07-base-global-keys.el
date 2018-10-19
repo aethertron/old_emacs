@@ -34,8 +34,14 @@
 (bind-key "C-a" #'back-to-indentation)
 (bind-key "M-m" #'move-beginning-of-line)
 
-(bind-key "M-/" #'dabbrev-completion)
-(bind-key "C-M-/" #'dabbrev-expand)
+;; kill-whole-line: introduce binding that can be used
+;;   with character device (such as terminal/konsole/xterm)
+;;   as well as in Emacs
+(bind-key "M-K" #'kill-whole-line)
+
+;; no longer swap completion and expand!
+(bind-key "M-/" #'dabbrev-expand)
+(bind-key "C-M-/" #'dabbrev-completion)
 
 ;; global keymaps: shells
 
