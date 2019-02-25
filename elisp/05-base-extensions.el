@@ -185,6 +185,7 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
   (counsel-projectile-switch-project-action #'counsel-projectile-switch-project-action-find-file-manually "can select files or directories")
   :config
   (counsel-projectile-mode)
+  (setq counsel-projectile-command-map (make-sparse-keymap))
   (bind-keys :map counsel-projectile-command-map
              ("B" . counsel-projectile-ibuffer))
   (setq counsel-projectile-search-map (make-sparse-keymap))
@@ -536,12 +537,14 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
   ("C-S-c C-S-c" . mc/edit-lines)
   ("C->" . mc/mark-next-like-this)
   ("C-<" . mc/mark-previous-like-this)
+  ("C-c J" . mc/mark-next-like-this)
+  ("C-c K" . mc/mark-previous-like-this)
   ("C-c C->" . mc/mark-all-like-this)
   ("C-c C-<" . mc/mark-more-like-this-extended)
   :bind
   (:map mc/keymap
-	("C-c C-n" . mc/insert-numbers)
-	("C-'" . mc-hide-unmatched-lines-mode)))
+	    ("C-c C-n" . mc/insert-numbers)
+	    ("C-'" . mc-hide-unmatched-lines-mode)))
 
 
 (use-package neotree :ensure t
