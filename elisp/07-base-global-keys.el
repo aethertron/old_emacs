@@ -13,7 +13,8 @@
 (bind-key "M-\\" #'bgs-shell-command-on-buffer)
 
 (bind-key "C-o" #'bgs-open-next-line)
-(bind-key "C-S-o" #'bgs-open-prev-line)
+(bind-key "C-M-o" #'bgs-open-prev-line) ; replaces "split-line"
+(bind-key "C-S-o" #'split-line)         ; x-win-only binding, make seldomly used split-line available there
 
 (bind-key "C-c i" #'imenu)
 (bind-key "C-c m" #'man)
