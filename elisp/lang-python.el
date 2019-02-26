@@ -17,11 +17,13 @@
   ;;flycheck-python-flake8-executable "/usr/local/bin/flake8"
   (elpy-enable)
   (bind-keys :map elpy-mode-map
-	     ("M-." . elpy-goto-definition)
-	     ("M-," . pop-tag-mark))
+	         ("M-." . elpy-goto-definition)
+	         ("M-," . pop-tag-mark))
   (setq bgs-python-common-map (make-sparse-keymap))
   (bind-keys :map bgs-python-common-map
-	     ("d" . elpy-doc))
+	         ("d" . elpy-doc)
+             ("a" . elpy-goto-assignment)
+             ("s" . elpy-goto-definition))
   (bind-key "C-c E" bgs-python-common-map elpy-mode-map)
   (bind-key "C-c E" bgs-python-common-map inferior-python-mode-map))
 
