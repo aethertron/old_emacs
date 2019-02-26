@@ -100,8 +100,6 @@
 (use-package string-inflection :ensure t :defer t)
 (use-package swiper :ensure t :defer t)
 (use-package tern :ensure t :defer t)
-(use-package treemacs :ensure t :defer t)
-(use-package treemacs-projectile :ensure t :defer t)
 (use-package undo-tree :ensure t :defer t)
 (use-package use-package :ensure t :defer t)
 (use-package vlf :ensure t :defer t)

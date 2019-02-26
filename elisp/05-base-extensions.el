@@ -604,31 +604,6 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 (use-package string-inflection :ensure t)
 
 
-(use-package treemacs :ensure t
-  :config
-  (require 'bgs-utils)
-  (setq treemacs-file-event-delay 5000)
-  (setq treemacs-persist-file (expand-file-name "treemacs-persist" temp-dir))
-  (setq treemacs-show-hidden-files nil)
-  (treemacs-filewatch-mode t)
-  (treemacs-follow-mode t)
-  (treemacs-git-mode 'simple)
-  ;; configure mode map
-  (add-name-to-map-and-key treemacs-mode-map "o a" "treemacs-ace-prefix")
-  ;; mode hook
-  (defun bgs-treemacs-mode-hook ()
-    ;; (face-remap-add-relative 'hl-line :background "purple4")
-    (setq cursor-type t))
-  (add-hook 'treemacs-mode-hook #'bgs-treemacs-mode-hook)
-  (add-hook 'treemacs-mode-hook #'treemacs-toggle-fixed-width))
-
-
-(use-package treemacs-projectile :ensure t
-  :bind
-  ("<f8>" . treemacs-toggle)
-  ("<f9>" . treemacs-projectile-toggle))
-
-
 (use-package undo-tree :ensure t
   :config
   ;; Remember undo history
