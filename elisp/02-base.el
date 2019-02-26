@@ -123,10 +123,17 @@
            ("C-M-i" nil))
 
 
+(unless window-system
+  (require 'xt-mouse)
+  (xterm-mouse-mode t)
+  (turn-on-xterm-mouse-tracking-on-terminal) ; not working right now!
+  )
+
+
 ;; fix for enriched mode part of Emacs 25.3 release, bug described here: https://www.gnu.org/software/emacs/news/NEWS.25.3
 (eval-after-load "enriched"
-    '(defun enriched-decode-display-prop (start end &optional param)
-       (list start end)))
+  '(defun enriched-decode-display-prop (start end &optional param)
+     (list start end)))
 
 
 
